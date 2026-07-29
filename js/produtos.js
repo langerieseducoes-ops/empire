@@ -66,9 +66,7 @@ function carregarCategorias(){
     select.innerHTML = `
 
     <option value="">
-
     Selecione a categoria
-
     </option>
 
     `;
@@ -101,6 +99,7 @@ function carregarCategorias(){
 // ======================================
 
 function adicionarProduto(){
+
 
 
     const produto = {
@@ -138,6 +137,7 @@ function adicionarProduto(){
         Number(document.getElementById("quantidade").value)
 
 
+
     };
 
 
@@ -157,15 +157,15 @@ function adicionarProduto(){
 
         alert(
 
-        "Preencha os campos obrigatórios."
+            "Preencha os campos obrigatórios."
 
         );
 
 
         return;
 
-
     }
+
 
 
 
@@ -176,10 +176,44 @@ function adicionarProduto(){
         produtos.push(produto);
 
 
+
+        if(typeof registrarAtividade === "function"){
+
+
+            registrarAtividade(
+
+                "CADASTRO",
+
+                "Produto cadastrado: " + produto.produto
+
+            );
+
+
+        }
+
+
+
     }else{
 
 
         produtos[indiceEdicao] = produto;
+
+
+
+        if(typeof registrarAtividade === "function"){
+
+
+            registrarAtividade(
+
+                "EDIÇÃO",
+
+                "Produto alterado: " + produto.produto
+
+            );
+
+
+        }
+
 
 
         indiceEdicao = -1;
@@ -285,7 +319,6 @@ function listarProdutos(){
         </td>
 
 
-
         <td>
 
 
@@ -380,7 +413,30 @@ function editarProduto(index){
 function excluirProduto(index){
 
 
+
     if(confirm("Deseja excluir este produto?")){
+
+
+
+        const produtoRemovido = produtos[index];
+
+
+
+        if(typeof registrarAtividade === "function"){
+
+
+            registrarAtividade(
+
+                "EXCLUSÃO",
+
+                "Produto removido: " + produtoRemovido.produto
+
+            );
+
+
+        }
+
+
 
 
         produtos.splice(
@@ -392,10 +448,12 @@ function excluirProduto(index){
         );
 
 
+
         salvarProdutos();
 
 
         listarProdutos();
+
 
 
     }
@@ -436,8 +494,9 @@ function limparFormulario(){
 
 
 
+
 // ======================================
-// Pesquisar Produto
+// Pesquisa
 // ======================================
 
 function pesquisarProduto(){
@@ -495,28 +554,17 @@ function pesquisarProduto(){
 
         <td>${p.codigo}</td>
 
-
         <td>${p.produto}</td>
-
 
         <td>${p.categoria}</td>
 
-
         <td>${p.tamanho}</td>
-
 
         <td>${p.cor}</td>
 
-
         <td>${p.quantidade}</td>
 
-
-        <td>
-
-        R$ ${Number(p.venda).toFixed(2)}
-
-        </td>
-
+        <td>R$ ${Number(p.venda).toFixed(2)}</td>
 
 
         <td>
@@ -527,7 +575,6 @@ function pesquisarProduto(){
         ✏️
 
         </button>
-
 
 
         <button onclick="excluirProduto(${index})">
@@ -550,6 +597,7 @@ function pesquisarProduto(){
 
 
 }
+
 
 
 
