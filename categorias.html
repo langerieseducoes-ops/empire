@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Empire - Categorias</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="js/empresa.js"></script>
+
+</head>
+
+
+<body class="dashboard">
+
+
+<div class="overlay"></div>
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+<img src="img/logo.png">
+
+<h2>EMPIRE</h2>
+
+<p>Império da Moda Online</p>
+
+</div>
+
+
+<nav>
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="produtos.html">📦 Produtos</a>
+
+<a href="compras.html">🛒 Compras</a>
+
+<a href="vendas.html">💰 Vendas</a>
+
+<a href="clientes.html">👥 Clientes</a>
+
+<a href="fornecedores.html">🚚 Fornecedores</a>
+
+<a href="categorias.html">🏷 Categorias</a>
+
+<a href="financeiro.html">💵 Financeiro</a>
+
+<a href="relatorios.html">📊 Relatórios</a>
+
+<a href="usuarios.html">👤 Usuários</a>
+
+<a href="monitoramento.html">📋 Monitoramento</a>
+
+<a href="configuracoes.html">⚙ Configurações</a>
+
+<a href="backup.html">💾 Backup</a>
+
+<a href="alterar-senha.html">🔐 Alterar Senha</a>
+
+<a href="#" onclick="sairSistema()">🚪 Sair</a>
+
+</nav>
+
+
+</aside>
+
+
+
+<main class="conteudo">
+
+
+<header>
+
+<h1>🏷 Categorias</h1>
+
+<div id="usuarioInfo"></div>
+
+</header>
+
+
+
+<section class="painel">
+
+
+<h2>Cadastro de Categoria</h2>
+
+
+<div class="formulario">
+
+
+<input
+
+type="text"
+
+id="nomeCategoria"
+
+placeholder="Nome da categoria">
+
+
+
+<button onclick="salvarCategoria()">
+
+SALVAR CATEGORIA
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<section class="painel">
+
+
+<h2>Categorias Cadastradas</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Categoria</th>
+
+<th>Ações</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="listaCategorias">
+
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+
+
+</main>
+
+
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/categorias.js"></script>
+
+
+</body>
+
+</html>
