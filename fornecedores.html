@@ -7,21 +7,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>Empire - Fornecedores</title>
-
 
 <link rel="stylesheet" href="style.css">
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 
 <script src="js/empresa.js"></script>
 
-
 </head>
-
 
 
 <body class="dashboard">
@@ -31,22 +25,16 @@
 
 
 
-<!-- MENU LATERAL -->
-
 <aside class="menu">
 
 
 <div class="marca">
 
-
 <img src="img/logo.png">
-
 
 <h2>EMPIRE</h2>
 
-
 <p>Império da Moda Online</p>
-
 
 </div>
 
@@ -98,11 +86,7 @@
 
 
 
-
-<!-- CONTEÚDO -->
-
 <main class="conteudo">
-
 
 
 <header>
@@ -120,7 +104,6 @@
 
 
 
-
 <section class="painel">
 
 
@@ -133,83 +116,50 @@ Cadastro de Fornecedor
 <div class="formulario">
 
 
-
-<input 
+<input
 type="text"
 id="nomeFornecedor"
 placeholder="Nome do fornecedor">
 
 
 
-
-<input 
+<input
 type="text"
-id="cnpj"
-placeholder="CNPJ">
+id="empresaFornecedor"
+placeholder="Empresa">
 
 
 
-
-<input 
+<input
 type="text"
 id="telefoneFornecedor"
 placeholder="Telefone">
 
 
 
+<input
+type="email"
+id="emailFornecedor"
+placeholder="E-mail">
 
-<input 
+
+
+<input
 type="text"
-id="whatsappFornecedor"
-placeholder="WhatsApp">
-
-
-
-
-<input 
-type="text"
-id="cidadeFornecedor"
-placeholder="Cidade">
-
-
-
-
-<input 
-type="text"
-id="enderecoFornecedor"
-placeholder="Endereço">
-
-
-
-
-<input 
-type="text"
-id="produtoFornecedor"
-placeholder="Produtos fornecidos">
-
-
-
-
-<textarea
 id="observacaoFornecedor"
 placeholder="Observações">
-</textarea>
 
 
 
-<button onclick="adicionarFornecedor()">
-
+<button>
 SALVAR FORNECEDOR
-
 </button>
-
 
 
 </div>
 
 
 </section>
-
 
 
 
@@ -224,50 +174,33 @@ Lista de Fornecedores
 
 
 
-<p>
-
-Total de fornecedores:
-
-<strong id="contadorFornecedores">
-0
-</strong>
-
-</p>
-
-
-
-
 <table>
 
 
 <thead>
 
-
 <tr>
 
 <th>Nome</th>
 
-<th>CNPJ</th>
+<th>Empresa</th>
 
 <th>Telefone</th>
 
-<th>Cidade</th>
+<th>Email</th>
 
 <th>Ações</th>
 
-
 </tr>
-
 
 </thead>
 
 
 
-<tbody id="listaFornecedores">
+<tbody>
 
 
 </tbody>
-
 
 
 </table>
@@ -283,12 +216,7 @@ Total de fornecedores:
 
 
 
-
-
 <script src="js/dashboard.js"></script>
-
-<script src="js/fornecedores.js"></script>
-
 
 
 </body>
