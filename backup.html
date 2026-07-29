@@ -17,11 +17,15 @@
 
 </head>
 
+
 <body class="dashboard">
+
 
 <div class="overlay"></div>
 
+
 <aside class="menu">
+
 
 <div class="marca">
 
@@ -33,59 +37,89 @@
 
 </div>
 
+
+
 <nav>
 
 <a href="dashboard.html">🏠 Dashboard</a>
+
 <a href="produtos.html">📦 Produtos</a>
-<a href="clientes.html">👥 Clientes</a>
-<a href="fornecedores.html">🚚 Fornecedores</a>
+
 <a href="compras.html">🛒 Compras</a>
+
 <a href="vendas.html">💰 Vendas</a>
+
+<a href="clientes.html">👥 Clientes</a>
+
+<a href="fornecedores.html">🚚 Fornecedores</a>
+
 <a href="categorias.html">🏷 Categorias</a>
+
 <a href="financeiro.html">💵 Financeiro</a>
+
 <a href="relatorios.html">📊 Relatórios</a>
+
 <a href="usuarios.html">👤 Usuários</a>
+
 <a href="monitoramento.html">📋 Monitoramento</a>
+
 <a href="configuracoes.html">⚙ Configurações</a>
+
 <a href="backup.html">💾 Backup</a>
+
 <a href="alterar-senha.html">🔐 Alterar Senha</a>
+
 <a href="#" onclick="sairSistema()">🚪 Sair</a>
 
 </nav>
 
+
 </aside>
+
+
 
 <main class="conteudo">
 
+
 <header>
 
-<h1>💾 Backup do Sistema</h1>
+<h1>💾 Backup</h1>
 
 <div id="usuarioInfo"></div>
 
 </header>
 
+
+
 <section class="painel">
 
-<h2>Exportar Dados</h2>
 
-<p>Baixa um arquivo contendo todos os dados do ERP.</p>
+<h2>Segurança dos Dados</h2>
+
+
+<p>
+Faça uma cópia de segurança dos dados do Empire ERP.
+</p>
+
+
+
+<div class="formulario">
+
 
 <button onclick="exportarBackup()">
 
-⬇ BAIXAR BACKUP
+⬇ EXPORTAR BACKUP
 
 </button>
 
-</section>
 
-<section class="painel">
 
-<h2>Restaurar Backup</h2>
+<input 
+type="file"
+id="arquivoBackup"
+accept=".json">
 
-<input type="file" id="arquivoBackup">
 
-<br><br>
 
 <button onclick="importarBackup()">
 
@@ -93,12 +127,39 @@
 
 </button>
 
+
+</div>
+
+
 </section>
+
+
+
+
+<section class="painel">
+
+
+<h2>Status</h2>
+
+
+<p id="statusBackup">
+
+Nenhum backup realizado.
+
+</p>
+
+
+</section>
+
 
 </main>
 
+
+
 <script src="js/dashboard.js"></script>
+
 <script src="js/backup.js"></script>
+
 
 </body>
 
