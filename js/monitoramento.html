@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Empire - Monitoramento</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="js/empresa.js"></script>
+
+</head>
+
+<body class="dashboard">
+
+<div class="overlay"></div>
+
+<aside class="menu">
+
+<div class="marca">
+
+<img src="img/logo.png">
+
+<h2>EMPIRE</h2>
+
+<p>Império da Moda Online</p>
+
+</div>
+
+<nav>
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="produtos.html">📦 Produtos</a>
+
+<a href="compras.html">🛒 Compras</a>
+
+<a href="vendas.html">💰 Vendas</a>
+
+<a href="clientes.html">👥 Clientes</a>
+
+<a href="fornecedores.html">🚚 Fornecedores</a>
+
+<a href="categorias.html">🏷 Categorias</a>
+
+<a href="financeiro.html">💵 Financeiro</a>
+
+<a href="relatorios.html">📊 Relatórios</a>
+
+<a href="usuarios.html">👤 Usuários</a>
+
+<a href="monitoramento.html">📋 Monitoramento</a>
+
+<a href="configuracoes.html">⚙ Configurações</a>
+
+<a href="backup.html">💾 Backup</a>
+
+<a href="alterar-senha.html">🔐 Alterar Senha</a>
+
+<a href="#" onclick="sairSistema()">🚪 Sair</a>
+
+</nav>
+
+</aside>
+
+<main class="conteudo">
+
+<header>
+
+<h1>📋 Monitoramento do Sistema</h1>
+
+<div id="usuarioInfo"></div>
+
+</header>
+
+<section class="painel">
+
+<h2>Status do Sistema</h2>
+
+<table>
+
+<tr>
+<td><strong>Usuário Logado</strong></td>
+<td id="usuarioSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Perfil</strong></td>
+<td id="perfilSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Data e Hora</strong></td>
+<td id="horaSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Total de Produtos</strong></td>
+<td id="produtosSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Total em Estoque</strong></td>
+<td id="estoqueSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Espaço Utilizado</strong></td>
+<td id="memoriaSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Navegador</strong></td>
+<td id="navegadorSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Idioma</strong></td>
+<td id="idiomaSistema"></td>
+</tr>
+
+<tr>
+<td><strong>Status</strong></td>
+<td style="color:lime;">🟢 Sistema Online</td>
+</tr>
+
+</table>
+
+</section>
+
+</main>
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/monitoramento.js"></script>
+
+</body>
+
+</html>
