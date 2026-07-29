@@ -4,7 +4,6 @@
 // ======================================
 
 
-
 let fornecedores = JSON.parse(
 
     localStorage.getItem("fornecedores")
@@ -13,15 +12,13 @@ let fornecedores = JSON.parse(
 
 
 
-let indiceFornecedor = -1;
-
+let indiceFornecedorEdicao = -1;
 
 
 
 // ======================================
 // Salvar Fornecedores
 // ======================================
-
 
 function salvarFornecedores(){
 
@@ -39,13 +36,11 @@ function salvarFornecedores(){
 
 
 
-
 // ======================================
-// Adicionar Fornecedor
+// Salvar Fornecedor
 // ======================================
 
-
-function adicionarFornecedor(){
+function salvarFornecedor(){
 
 
     const nome =
@@ -53,48 +48,30 @@ function adicionarFornecedor(){
 
 
     const cnpj =
-    document.getElementById("cnpj").value;
+    document.getElementById("cnpjFornecedor").value;
 
 
     const telefone =
     document.getElementById("telefoneFornecedor").value;
 
 
-    const whatsapp =
-    document.getElementById("whatsappFornecedor").value;
-
-
-    const cidade =
-    document.getElementById("cidadeFornecedor").value;
+    const email =
+    document.getElementById("emailFornecedor").value;
 
 
     const endereco =
     document.getElementById("enderecoFornecedor").value;
 
 
-    const produtos =
-    document.getElementById("produtoFornecedor").value;
-
-
-    const observacao =
-    document.getElementById("observacaoFornecedor").value;
-
-
-
 
     if(!nome){
 
 
-        alert(
-            "Digite o nome do fornecedor."
-        );
-
+        alert("Informe o nome do fornecedor.");
 
         return;
 
     }
-
-
 
 
 
@@ -107,15 +84,9 @@ function adicionarFornecedor(){
 
         telefone,
 
-        whatsapp,
+        email,
 
-        cidade,
-
-        endereco,
-
-        produtos,
-
-        observacao
+        endereco
 
 
     };
@@ -123,8 +94,7 @@ function adicionarFornecedor(){
 
 
 
-
-    if(indiceFornecedor === -1){
+    if(indiceFornecedorEdicao === -1){
 
 
         fornecedores.push(fornecedor);
@@ -133,15 +103,13 @@ function adicionarFornecedor(){
     }else{
 
 
-        fornecedores[indiceFornecedor] = fornecedor;
+        fornecedores[indiceFornecedorEdicao] = fornecedor;
 
 
-        indiceFornecedor = -1;
+        indiceFornecedorEdicao = -1;
 
 
     }
-
-
 
 
 
@@ -159,20 +127,15 @@ function adicionarFornecedor(){
 
 
 
-
 // ======================================
 // Listar Fornecedores
 // ======================================
-
 
 function listarFornecedores(){
 
 
     const tabela =
-
-    document.getElementById(
-        "listaFornecedores"
-    );
+    document.getElementById("listaFornecedores");
 
 
 
@@ -184,31 +147,11 @@ function listarFornecedores(){
 
 
 
-
     tabela.innerHTML = "";
 
 
 
-    const contador =
-
-    document.getElementById(
-        "contadorFornecedores"
-    );
-
-
-
-    if(contador){
-
-        contador.innerHTML =
-        fornecedores.length;
-
-    }
-
-
-
-
-
-    fornecedores.forEach((f,index)=>{
+    fornecedores.forEach((fornecedor,index)=>{
 
 
         tabela.innerHTML += `
@@ -217,29 +160,33 @@ function listarFornecedores(){
         <tr>
 
 
-        <td>${f.nome}</td>
+        <td>${fornecedor.nome}</td>
 
 
-        <td>${f.cnpj}</td>
+        <td>${fornecedor.cnpj}</td>
 
 
-        <td>${f.telefone}</td>
+        <td>${fornecedor.telefone}</td>
 
 
-        <td>${f.cidade}</td>
+        <td>${fornecedor.email}</td>
 
 
         <td>
 
 
         <button onclick="editarFornecedor(${index})">
+
         ✏️
+
         </button>
 
 
 
         <button onclick="excluirFornecedor(${index})">
+
         🗑️
+
         </button>
 
 
@@ -252,13 +199,10 @@ function listarFornecedores(){
         `;
 
 
-
     });
 
 
-
 }
-
 
 
 
@@ -267,53 +211,39 @@ function listarFornecedores(){
 // Editar Fornecedor
 // ======================================
 
-
 function editarFornecedor(index){
 
 
-    const f = fornecedores[index];
+    const fornecedor =
+    fornecedores[index];
 
 
 
     document.getElementById("nomeFornecedor").value =
-    f.nome;
+    fornecedor.nome;
 
 
-    document.getElementById("cnpj").value =
-    f.cnpj;
+    document.getElementById("cnpjFornecedor").value =
+    fornecedor.cnpj;
 
 
     document.getElementById("telefoneFornecedor").value =
-    f.telefone;
+    fornecedor.telefone;
 
 
-    document.getElementById("whatsappFornecedor").value =
-    f.whatsapp;
-
-
-    document.getElementById("cidadeFornecedor").value =
-    f.cidade;
+    document.getElementById("emailFornecedor").value =
+    fornecedor.email;
 
 
     document.getElementById("enderecoFornecedor").value =
-    f.endereco;
-
-
-    document.getElementById("produtoFornecedor").value =
-    f.produtos;
-
-
-    document.getElementById("observacaoFornecedor").value =
-    f.observacao;
+    fornecedor.endereco;
 
 
 
-    indiceFornecedor = index;
+    indiceFornecedorEdicao = index;
 
 
 }
-
-
 
 
 
@@ -321,15 +251,10 @@ function editarFornecedor(index){
 // Excluir Fornecedor
 // ======================================
 
-
 function excluirFornecedor(index){
 
 
-    if(confirm(
-
-        "Deseja excluir este fornecedor?"
-
-    )){
+    if(confirm("Deseja excluir este fornecedor?")){
 
 
         fornecedores.splice(
@@ -354,42 +279,30 @@ function excluirFornecedor(index){
 
 
 
-
-
 // ======================================
 // Limpar Formulário
 // ======================================
-
 
 function limparFornecedor(){
 
 
     document.getElementById("nomeFornecedor").value = "";
 
-    document.getElementById("cnpj").value = "";
+    document.getElementById("cnpjFornecedor").value = "";
 
     document.getElementById("telefoneFornecedor").value = "";
 
-    document.getElementById("whatsappFornecedor").value = "";
-
-    document.getElementById("cidadeFornecedor").value = "";
+    document.getElementById("emailFornecedor").value = "";
 
     document.getElementById("enderecoFornecedor").value = "";
-
-    document.getElementById("produtoFornecedor").value = "";
-
-    document.getElementById("observacaoFornecedor").value = "";
 
 
 }
 
 
 
-
-
 // ======================================
 // Inicialização
 // ======================================
-
 
 listarFornecedores();
