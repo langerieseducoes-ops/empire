@@ -7,13 +7,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>Empire - Clientes</title>
+
 
 <link rel="stylesheet" href="style.css">
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
 <script src="js/empresa.js"></script>
+
 
 </head>
 
@@ -23,6 +28,9 @@
 
 <div class="overlay"></div>
 
+
+
+<!-- MENU LATERAL -->
 
 <aside class="menu">
 
@@ -36,6 +44,7 @@
 <p>Império da Moda Online</p>
 
 </div>
+
 
 
 
@@ -72,7 +81,7 @@
 </a>
 
 
-<a href="index.html">
+<a href="index.html" onclick="sairSistema()">
 🚪 Sair
 </a>
 
@@ -84,10 +93,18 @@
 
 
 
+
+
+
+<!-- CONTEÚDO -->
+
+
 <main class="conteudo">
 
 
+
 <header>
+
 
 <h1>
 👥 Clientes
@@ -101,6 +118,9 @@
 
 
 
+
+
+
 <section class="painel">
 
 
@@ -109,36 +129,58 @@ Cadastro de Cliente
 </h2>
 
 
+
 <div class="formulario">
 
 
-<input 
+
+<input
+
 type="text"
+
 id="nomeCliente"
+
 placeholder="Nome do cliente">
 
 
-<input 
+
+<input
+
 type="text"
+
 id="telefoneCliente"
+
 placeholder="Telefone">
 
 
-<input 
+
+<input
+
 type="email"
+
 id="emailCliente"
+
 placeholder="E-mail">
 
 
-<button>
+
+<button onclick="adicionarCliente()">
+
 SALVAR CLIENTE
+
 </button>
+
 
 
 </div>
 
 
 </section>
+
+
+
+
+
 
 
 
@@ -150,36 +192,58 @@ Lista de Clientes
 </h2>
 
 
+
 <table>
 
 
 <thead>
 
+
 <tr>
 
-<th>Nome</th>
+<th>
+Nome
+</th>
 
-<th>Telefone</th>
 
-<th>Email</th>
+<th>
+Telefone
+</th>
 
-<th>Ações</th>
+
+<th>
+E-mail
+</th>
+
+
+<th>
+Ações
+</th>
+
 
 </tr>
+
 
 </thead>
 
 
-<tbody>
+
+
+<tbody id="listaClientes">
 
 
 </tbody>
 
 
+
 </table>
 
 
+
 </section>
+
+
+
 
 
 
@@ -187,9 +251,16 @@ Lista de Clientes
 
 
 
+
+
+
+
 <script src="js/dashboard.js"></script>
+
+<script src="js/clientes.js"></script>
 
 
 </body>
+
 
 </html>
