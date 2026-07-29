@@ -120,7 +120,15 @@
 Cadastro de Produto
 </h2>
 
+<div class="busca">
 
+<input 
+type="text"
+id="pesquisaProduto"
+placeholder="🔎 Pesquisar produto..."
+onkeyup="pesquisarProduto()">
+
+</div>
 
 <div class="formulario">
 
@@ -204,6 +212,12 @@ SALVAR PRODUTO
 Lista de Produtos
 </h2>
 
+  <p>
+Total de produtos:
+<strong id="contadorProdutos">
+0
+</strong>
+</p>
 
 <table>
 
