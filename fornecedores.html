@@ -7,6 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>Empire - Fornecedores</title>
 
 
@@ -22,6 +23,7 @@
 </head>
 
 
+
 <body class="dashboard">
 
 
@@ -29,16 +31,22 @@
 
 
 
+<!-- MENU LATERAL -->
+
 <aside class="menu">
 
 
 <div class="marca">
 
+
 <img src="img/logo.png">
+
 
 <h2>EMPIRE</h2>
 
+
 <p>Império da Moda Online</p>
+
 
 </div>
 
@@ -91,6 +99,8 @@
 
 
 
+<!-- CONTEÚDO -->
+
 <main class="conteudo">
 
 
@@ -123,6 +133,7 @@ Cadastro de Fornecedor
 <div class="formulario">
 
 
+
 <input 
 type="text"
 id="nomeFornecedor"
@@ -130,10 +141,12 @@ placeholder="Nome do fornecedor">
 
 
 
+
 <input 
 type="text"
-id="empresaFornecedor"
-placeholder="Empresa">
+id="cnpj"
+placeholder="CNPJ">
+
 
 
 
@@ -144,17 +157,12 @@ placeholder="Telefone">
 
 
 
+
 <input 
 type="text"
 id="whatsappFornecedor"
 placeholder="WhatsApp">
 
-
-
-<input 
-type="text"
-id="cnpjFornecedor"
-placeholder="CNPJ">
 
 
 
@@ -165,10 +173,27 @@ placeholder="Cidade">
 
 
 
+
+<input 
+type="text"
+id="enderecoFornecedor"
+placeholder="Endereço">
+
+
+
+
 <input 
 type="text"
 id="produtoFornecedor"
 placeholder="Produtos fornecidos">
+
+
+
+
+<textarea
+id="observacaoFornecedor"
+placeholder="Observações">
+</textarea>
 
 
 
@@ -179,10 +204,12 @@ SALVAR FORNECEDOR
 </button>
 
 
+
 </div>
 
 
 </section>
+
 
 
 
@@ -215,11 +242,12 @@ Total de fornecedores:
 
 <thead>
 
+
 <tr>
 
 <th>Nome</th>
 
-<th>Empresa</th>
+<th>CNPJ</th>
 
 <th>Telefone</th>
 
@@ -227,7 +255,9 @@ Total de fornecedores:
 
 <th>Ações</th>
 
+
 </tr>
+
 
 </thead>
 
@@ -243,6 +273,7 @@ Total de fornecedores:
 </table>
 
 
+
 </section>
 
 
@@ -252,9 +283,12 @@ Total de fornecedores:
 
 
 
+
+
 <script src="js/dashboard.js"></script>
 
 <script src="js/fornecedores.js"></script>
+
 
 
 </body>
