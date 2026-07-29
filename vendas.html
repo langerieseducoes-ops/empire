@@ -7,6 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>Empire - Vendas</title>
 
 
@@ -22,6 +23,7 @@
 </head>
 
 
+
 <body class="dashboard">
 
 
@@ -29,18 +31,25 @@
 
 
 
+<!-- MENU -->
+
 <aside class="menu">
 
 
 <div class="marca">
 
+
 <img src="img/logo.png">
+
 
 <h2>EMPIRE</h2>
 
+
 <p>Império da Moda Online</p>
 
+
 </div>
+
 
 
 
@@ -57,16 +66,6 @@
 </a>
 
 
-<a href="compras.html">
-🛒 Compras
-</a>
-
-
-<a href="vendas.html">
-💰 Vendas
-</a>
-
-
 <a href="clientes.html">
 👥 Clientes
 </a>
@@ -74,6 +73,11 @@
 
 <a href="fornecedores.html">
 🚚 Fornecedores
+</a>
+
+
+<a href="vendas.html">
+💰 Vendas
 </a>
 
 
@@ -96,10 +100,16 @@
 
 
 
+
+<!-- CONTEÚDO -->
+
+
 <main class="conteudo">
 
 
+
 <header>
+
 
 <h1>
 💰 Vendas
@@ -110,6 +120,7 @@
 
 
 </header>
+
 
 
 
@@ -128,31 +139,35 @@ Registrar Venda
 
 
 
-<input 
-type="text"
-id="produtoVenda"
-placeholder="Produto vendido">
+<select id="clienteVenda">
+
+<option value="">
+Selecione o cliente
+</option>
+
+</select>
 
 
 
-<input 
-type="text"
-id="clienteVenda"
-placeholder="Cliente">
+
+<select id="produtoVenda">
+
+<option value="">
+Selecione o produto
+</option>
+
+</select>
 
 
 
-<input 
+
+
+<input
 type="number"
 id="quantidadeVenda"
 placeholder="Quantidade">
 
 
-
-<input 
-type="number"
-id="valorVenda"
-placeholder="Valor da venda">
 
 
 
@@ -167,7 +182,9 @@ FINALIZAR VENDA
 </div>
 
 
+
 </section>
+
 
 
 
@@ -190,7 +207,10 @@ Total de vendas:
 0
 </strong>
 
+
 </p>
+
+
 
 
 
@@ -199,25 +219,31 @@ Total de vendas:
 
 <thead>
 
+
 <tr>
 
-<th>Produto</th>
+
+<th>Data</th>
 
 <th>Cliente</th>
+
+<th>Produto</th>
 
 <th>Quantidade</th>
 
 <th>Valor</th>
 
-<th>Data</th>
 
 </tr>
+
 
 </thead>
 
 
 
+
 <tbody id="listaVendas">
+
 
 </tbody>
 
@@ -231,13 +257,18 @@ Total de vendas:
 
 
 
+
+
 </main>
+
+
 
 
 
 <script src="js/dashboard.js"></script>
 
 <script src="js/vendas.js"></script>
+
 
 
 </body>
