@@ -1,3 +1,4 @@
+//
 // ======================================
 // EMPIRE ERP
 // Módulo de Clientes
@@ -16,11 +17,14 @@ let indiceCliente = -1;
 
 
 
+
 // ======================================
 // Salvar Clientes
 // ======================================
 
+
 function salvarClientes(){
+
 
     localStorage.setItem(
 
@@ -30,13 +34,16 @@ function salvarClientes(){
 
     );
 
+
 }
+
 
 
 
 // ======================================
 // Adicionar Cliente
 // ======================================
+
 
 function adicionarCliente(){
 
@@ -45,28 +52,28 @@ function adicionarCliente(){
     document.getElementById("nomeCliente").value;
 
 
+    const documento =
+    document.getElementById("documento").value;
+
+
     const telefone =
-    document.getElementById("telefoneCliente").value;
+    document.getElementById("telefone").value;
 
 
     const whatsapp =
-    document.getElementById("whatsappCliente").value;
-
-
-    const cpf =
-    document.getElementById("cpfCliente").value;
+    document.getElementById("whatsapp").value;
 
 
     const cidade =
-    document.getElementById("cidadeCliente").value;
+    document.getElementById("cidade").value;
 
 
     const endereco =
-    document.getElementById("enderecoCliente").value;
+    document.getElementById("endereco").value;
 
 
     const observacao =
-    document.getElementById("observacaoCliente").value;
+    document.getElementById("observacao").value;
 
 
 
@@ -75,7 +82,7 @@ function adicionarCliente(){
 
 
         alert(
-            "Informe o nome do cliente."
+            "Digite o nome do cliente."
         );
 
 
@@ -85,16 +92,18 @@ function adicionarCliente(){
 
 
 
+
+
     const cliente = {
 
 
         nome,
 
+        documento,
+
         telefone,
 
         whatsapp,
-
-        cpf,
 
         cidade,
 
@@ -104,6 +113,7 @@ function adicionarCliente(){
 
 
     };
+
 
 
 
@@ -127,6 +137,8 @@ function adicionarCliente(){
 
 
 
+
+
     salvarClientes();
 
 
@@ -136,8 +148,9 @@ function adicionarCliente(){
     limparCliente();
 
 
-
 }
+
+
 
 
 
@@ -149,8 +162,9 @@ function adicionarCliente(){
 function listarClientes(){
 
 
+    const tabela =
 
-    const tabela = document.getElementById(
+    document.getElementById(
         "listaClientes"
     );
 
@@ -164,11 +178,13 @@ function listarClientes(){
 
 
 
+
     tabela.innerHTML = "";
 
 
 
     const contador =
+
     document.getElementById(
         "contadorClientes"
     );
@@ -185,7 +201,8 @@ function listarClientes(){
 
 
 
-    clientes.forEach((cliente,index)=>{
+
+    clientes.forEach((c,index)=>{
 
 
         tabela.innerHTML += `
@@ -194,42 +211,28 @@ function listarClientes(){
         <tr>
 
 
-        <td>
-        ${cliente.nome}
-        </td>
+        <td>${c.nome}</td>
 
 
-        <td>
-        ${cliente.telefone}
-        </td>
+        <td>${c.documento}</td>
 
 
-        <td>
-        ${cliente.whatsapp}
-        </td>
+        <td>${c.telefone}</td>
 
 
-        <td>
-        ${cliente.cidade}
-        </td>
-
+        <td>${c.cidade}</td>
 
 
         <td>
 
 
         <button onclick="editarCliente(${index})">
-
         ✏️
-
         </button>
 
 
-
         <button onclick="excluirCliente(${index})">
-
         🗑️
-
         </button>
 
 
@@ -242,11 +245,13 @@ function listarClientes(){
         `;
 
 
+
     });
 
 
 
 }
+
 
 
 
@@ -267,27 +272,27 @@ function editarCliente(index){
     c.nome;
 
 
-    document.getElementById("telefoneCliente").value =
+    document.getElementById("documento").value =
+    c.documento;
+
+
+    document.getElementById("telefone").value =
     c.telefone;
 
 
-    document.getElementById("whatsappCliente").value =
+    document.getElementById("whatsapp").value =
     c.whatsapp;
 
 
-    document.getElementById("cpfCliente").value =
-    c.cpf;
-
-
-    document.getElementById("cidadeCliente").value =
+    document.getElementById("cidade").value =
     c.cidade;
 
 
-    document.getElementById("enderecoCliente").value =
+    document.getElementById("endereco").value =
     c.endereco;
 
 
-    document.getElementById("observacaoCliente").value =
+    document.getElementById("observacao").value =
     c.observacao;
 
 
@@ -300,6 +305,7 @@ function editarCliente(index){
 
 
 
+
 // ======================================
 // Excluir Cliente
 // ======================================
@@ -308,15 +314,14 @@ function editarCliente(index){
 function excluirCliente(index){
 
 
-    if(confirm("Deseja excluir este cliente?")){
+    if(confirm(
+        "Deseja excluir este cliente?"
+    )){
 
 
         clientes.splice(
-
             index,
-
             1
-
         );
 
 
@@ -334,6 +339,7 @@ function excluirCliente(index){
 
 
 
+
 // ======================================
 // Limpar Formulário
 // ======================================
@@ -342,27 +348,28 @@ function excluirCliente(index){
 function limparCliente(){
 
 
-document.getElementById("nomeCliente").value = "";
+    document.getElementById("nomeCliente").value = "";
 
-document.getElementById("telefoneCliente").value = "";
+    document.getElementById("documento").value = "";
 
-document.getElementById("whatsappCliente").value = "";
+    document.getElementById("telefone").value = "";
 
-document.getElementById("cpfCliente").value = "";
+    document.getElementById("whatsapp").value = "";
 
-document.getElementById("cidadeCliente").value = "";
+    document.getElementById("cidade").value = "";
 
-document.getElementById("enderecoCliente").value = "";
+    document.getElementById("endereco").value = "";
 
-document.getElementById("observacaoCliente").value = "";
+    document.getElementById("observacao").value = "";
 
 
 }
 
 
 
+
 // ======================================
-// Inicialização
+// Iniciar
 // ======================================
 
 
