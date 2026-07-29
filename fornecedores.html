@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Empire - Fornecedores</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<script src="js/empresa.js"></script>
+
+
+</head>
+
+
+<body class="dashboard">
+
+
+<div class="overlay"></div>
+
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+<img src="img/logo.png">
+
+<h2>EMPIRE</h2>
+
+<p>Império da Moda Online</p>
+
+</div>
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a href="index.html">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+<main class="conteudo">
+
+
+
+<header>
+
+<h1>
+🚚 Fornecedores
+</h1>
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+
+
+
+
+
+<section class="painel">
+
+
+<h2>
+Cadastro de Fornecedor
+</h2>
+
+
+
+<div class="formulario">
+
+
+<input 
+type="text"
+id="nomeFornecedor"
+placeholder="Nome do fornecedor">
+
+
+
+<input 
+type="text"
+id="empresaFornecedor"
+placeholder="Empresa">
+
+
+
+<input 
+type="text"
+id="telefoneFornecedor"
+placeholder="Telefone">
+
+
+
+<input 
+type="text"
+id="whatsappFornecedor"
+placeholder="WhatsApp">
+
+
+
+<input 
+type="text"
+id="cnpjFornecedor"
+placeholder="CNPJ">
+
+
+
+<input 
+type="text"
+id="cidadeFornecedor"
+placeholder="Cidade">
+
+
+
+<input 
+type="text"
+id="produtoFornecedor"
+placeholder="Produtos fornecidos">
+
+
+
+<button onclick="adicionarFornecedor()">
+
+SALVAR FORNECEDOR
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="painel">
+
+
+<h2>
+Lista de Fornecedores
+</h2>
+
+
+
+<p>
+
+Total de fornecedores:
+
+<strong id="contadorFornecedores">
+0
+</strong>
+
+</p>
+
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Nome</th>
+
+<th>Empresa</th>
+
+<th>Telefone</th>
+
+<th>Cidade</th>
+
+<th>Ações</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="listaFornecedores">
+
+
+</tbody>
+
+
+
+</table>
+
+
+</section>
+
+
+
+
+</main>
+
+
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/fornecedores.js"></script>
+
+
+</body>
+
+</html>
