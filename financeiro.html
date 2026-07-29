@@ -7,21 +7,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>Empire - Financeiro</title>
-
 
 <link rel="stylesheet" href="style.css">
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 
 <script src="js/empresa.js"></script>
 
-
 </head>
-
 
 
 <body class="dashboard">
@@ -30,23 +24,16 @@
 <div class="overlay"></div>
 
 
-
-<!-- MENU -->
-
 <aside class="menu">
 
 
 <div class="marca">
 
-
 <img src="img/logo.png">
-
 
 <h2>EMPIRE</h2>
 
-
 <p>Império da Moda Online</p>
-
 
 </div>
 
@@ -54,46 +41,35 @@
 
 <nav>
 
+<a href="dashboard.html">🏠 Dashboard</a>
 
-<a href="dashboard.html">
-🏠 Dashboard
-</a>
+<a href="produtos.html">📦 Produtos</a>
 
+<a href="compras.html">🛒 Compras</a>
 
-<a href="produtos.html">
-📦 Produtos
-</a>
+<a href="vendas.html">💰 Vendas</a>
 
+<a href="clientes.html">👥 Clientes</a>
 
-<a href="clientes.html">
-👥 Clientes
-</a>
+<a href="fornecedores.html">🚚 Fornecedores</a>
 
+<a href="categorias.html">🏷 Categorias</a>
 
-<a href="fornecedores.html">
-🚚 Fornecedores
-</a>
+<a href="financeiro.html">💵 Financeiro</a>
 
+<a href="relatorios.html">📊 Relatórios</a>
 
-<a href="vendas.html">
-💰 Vendas
-</a>
+<a href="usuarios.html">👤 Usuários</a>
 
+<a href="monitoramento.html">📋 Monitoramento</a>
 
-<a href="financeiro.html">
-💵 Financeiro
-</a>
+<a href="configuracoes.html">⚙ Configurações</a>
 
+<a href="backup.html">💾 Backup</a>
 
-<a href="relatorios.html">
-📊 Relatórios
-</a>
+<a href="alterar-senha.html">🔐 Alterar Senha</a>
 
-
-<a href="index.html">
-🚪 Sair
-</a>
-
+<a href="#" onclick="sairSistema()">🚪 Sair</a>
 
 </nav>
 
@@ -102,154 +78,98 @@
 
 
 
-
-
-<!-- CONTEÚDO -->
-
-
 <main class="conteudo">
-
 
 
 <header>
 
-
-<h1>
-💵 Financeiro
-</h1>
-
+<h1>💵 Financeiro</h1>
 
 <div id="usuarioInfo"></div>
 
-
 </header>
-
-
-
-
-
-
-<section class="cards">
-
-
-
-<div class="card">
-
-<h3>
-💰 Faturamento
-</h3>
-
-<strong id="faturamentoTotal">
-R$ 0,00
-</strong>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>
-🛒 Vendas
-</h3>
-
-<strong id="totalVendas">
-0
-</strong>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>
-📦 Estoque
-</h3>
-
-<strong id="valorEstoqueFinanceiro">
-R$ 0,00
-</strong>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>
-📈 Lucro
-</h3>
-
-<strong id="lucroTotal">
-R$ 0,00
-</strong>
-
-</div>
-
-
-
-</section>
-
-
-
 
 
 
 <section class="painel">
 
 
-<h2>
-Movimentação Financeira
-</h2>
+<h2>Resumo Financeiro</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>💰 Entradas</h3>
+
+<strong id="totalEntradas">
+
+R$ 0,00
+
+</strong>
+
+</div>
 
 
 
-<table>
+<div class="card">
 
+<h3>💸 Saídas</h3>
 
-<thead>
+<strong id="totalSaidas">
 
+R$ 0,00
 
-<tr>
+</strong>
 
-<th>Data</th>
-
-<th>Cliente</th>
-
-<th>Venda</th>
-
-<th>Valor</th>
-
-
-</tr>
-
-
-</thead>
+</div>
 
 
 
-<tbody id="listaFinanceiro">
+<div class="card">
+
+<h3>📊 Saldo Atual</h3>
+
+<strong id="saldoAtual">
+
+R$ 0,00
+
+</strong>
+
+</div>
 
 
-</tbody>
-
-
-
-</table>
-
+</div>
 
 
 </section>
 
 
 
+<section class="painel">
+
+
+<h2>Informações</h2>
+
+
+<p>
+As entradas são calculadas pelas vendas registradas.
+</p>
+
+
+<p>
+As saídas são calculadas pelas compras registradas.
+</p>
+
+
+<p>
+O saldo representa o resultado atual do sistema.
+</p>
+
+
+</section>
 
 
 
@@ -257,12 +177,9 @@ Movimentação Financeira
 
 
 
-
-
 <script src="js/dashboard.js"></script>
 
 <script src="js/financeiro.js"></script>
-
 
 
 </body>
