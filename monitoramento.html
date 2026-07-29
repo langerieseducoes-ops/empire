@@ -17,11 +17,16 @@
 
 </head>
 
+
 <body class="dashboard">
+
 
 <div class="overlay"></div>
 
+
+
 <aside class="menu">
+
 
 <div class="marca">
 
@@ -32,6 +37,7 @@
 <p>Império da Moda Online</p>
 
 </div>
+
 
 <nav>
 
@@ -67,78 +73,95 @@
 
 </nav>
 
+
 </aside>
+
+
+
+
 
 <main class="conteudo">
 
+
 <header>
 
-<h1>📋 Monitoramento do Sistema</h1>
+<h1>📋 Monitoramento</h1>
 
 <div id="usuarioInfo"></div>
 
 </header>
 
+
+
+
+
 <section class="painel">
 
-<h2>Status do Sistema</h2>
+
+<h2>Histórico de Atividades</h2>
+
 
 <table>
 
-<tr>
-<td><strong>Usuário Logado</strong></td>
-<td id="usuarioSistema"></td>
-</tr>
+
+<thead>
 
 <tr>
-<td><strong>Perfil</strong></td>
-<td id="perfilSistema"></td>
+
+<th>Data</th>
+
+<th>Usuário</th>
+
+<th>Ação</th>
+
+<th>Descrição</th>
+
 </tr>
 
-<tr>
-<td><strong>Data e Hora</strong></td>
-<td id="horaSistema"></td>
-</tr>
+</thead>
 
-<tr>
-<td><strong>Total de Produtos</strong></td>
-<td id="produtosSistema"></td>
-</tr>
 
-<tr>
-<td><strong>Total em Estoque</strong></td>
-<td id="estoqueSistema"></td>
-</tr>
+<tbody id="listaMonitoramento">
 
-<tr>
-<td><strong>Espaço Utilizado</strong></td>
-<td id="memoriaSistema"></td>
-</tr>
 
-<tr>
-<td><strong>Navegador</strong></td>
-<td id="navegadorSistema"></td>
-</tr>
+</tbody>
 
-<tr>
-<td><strong>Idioma</strong></td>
-<td id="idiomaSistema"></td>
-</tr>
-
-<tr>
-<td><strong>Status</strong></td>
-<td style="color:lime;">🟢 Sistema Online</td>
-</tr>
 
 </table>
 
+
 </section>
 
+
+
+
+
+<section class="painel">
+
+
+<h2>Controle</h2>
+
+
+<button onclick="limparMonitoramento()">
+
+🗑 LIMPAR HISTÓRICO
+
+</button>
+
+
+</section>
+
+
+
 </main>
+
+
+
 
 <script src="js/dashboard.js"></script>
 
 <script src="js/monitoramento.js"></script>
+
 
 </body>
 
