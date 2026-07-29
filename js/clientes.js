@@ -12,7 +12,7 @@ let clientes = JSON.parse(
 
 
 
-let indiceCliente = -1;
+let indiceClienteEdicao = -1;
 
 
 
@@ -20,12 +20,14 @@ let indiceCliente = -1;
 // Salvar Clientes
 // ======================================
 
-
 function salvarClientes(){
 
     localStorage.setItem(
+
         "clientes",
+
         JSON.stringify(clientes)
+
     );
 
 }
@@ -33,11 +35,10 @@ function salvarClientes(){
 
 
 // ======================================
-// Adicionar Cliente
+// Salvar Cliente
 // ======================================
 
-
-function adicionarCliente(){
+function salvarCliente(){
 
 
     const nome =
@@ -52,14 +53,22 @@ function adicionarCliente(){
     document.getElementById("emailCliente").value;
 
 
+    const cpf =
+    document.getElementById("cpfCliente").value;
+
+
+    const endereco =
+    document.getElementById("enderecoCliente").value;
+
+
 
     if(!nome){
 
-        alert(
-            "Digite o nome do cliente."
-        );
+
+        alert("Informe o nome do cliente.");
 
         return;
+
 
     }
 
@@ -67,23 +76,37 @@ function adicionarCliente(){
 
     const cliente = {
 
+
         nome,
+
         telefone,
-        email
+
+        email,
+
+        cpf,
+
+        endereco
+
 
     };
 
 
 
-    if(indiceCliente === -1){
+
+    if(indiceClienteEdicao === -1){
+
 
         clientes.push(cliente);
 
+
     }else{
 
-        clientes[indiceCliente] = cliente;
 
-        indiceCliente = -1;
+        clientes[indiceClienteEdicao] = cliente;
+
+
+        indiceClienteEdicao = -1;
+
 
     }
 
@@ -91,7 +114,9 @@ function adicionarCliente(){
 
     salvarClientes();
 
+
     listarClientes();
+
 
     limparCliente();
 
@@ -105,14 +130,12 @@ function adicionarCliente(){
 // Listar Clientes
 // ======================================
 
-
 function listarClientes(){
 
 
     const tabela =
-    document.querySelector(
-        "#listaClientes"
-    );
+    document.getElementById("listaClientes");
+
 
 
     if(!tabela){
@@ -127,30 +150,42 @@ function listarClientes(){
 
 
 
-    clientes.forEach((c,index)=>{
+    clientes.forEach((cliente,index)=>{
 
 
         tabela.innerHTML += `
 
+
         <tr>
 
-        <td>${c.nome}</td>
 
-        <td>${c.telefone}</td>
+        <td>${cliente.nome}</td>
 
-        <td>${c.email}</td>
+
+        <td>${cliente.telefone}</td>
+
+
+        <td>${cliente.email}</td>
+
+
+        <td>${cliente.cpf}</td>
 
 
         <td>
 
 
         <button onclick="editarCliente(${index})">
+
         ✏️
+
         </button>
 
 
+
         <button onclick="excluirCliente(${index})">
+
         🗑️
+
         </button>
 
 
@@ -159,14 +194,15 @@ function listarClientes(){
 
         </tr>
 
+
         `;
 
 
     });
 
 
-
 }
+
 
 
 
@@ -174,30 +210,36 @@ function listarClientes(){
 // Editar Cliente
 // ======================================
 
-
 function editarCliente(index){
 
 
-    const c = clientes[index];
-
-
-    document.getElementById(
-        "nomeCliente"
-    ).value = c.nome;
-
-
-    document.getElementById(
-        "telefoneCliente"
-    ).value = c.telefone;
-
-
-    document.getElementById(
-        "emailCliente"
-    ).value = c.email;
+    const cliente =
+    clientes[index];
 
 
 
-    indiceCliente = index;
+    document.getElementById("nomeCliente").value =
+    cliente.nome;
+
+
+    document.getElementById("telefoneCliente").value =
+    cliente.telefone;
+
+
+    document.getElementById("emailCliente").value =
+    cliente.email;
+
+
+    document.getElementById("cpfCliente").value =
+    cliente.cpf;
+
+
+    document.getElementById("enderecoCliente").value =
+    cliente.endereco;
+
+
+
+    indiceClienteEdicao = index;
 
 
 }
@@ -209,22 +251,23 @@ function editarCliente(index){
 // Excluir Cliente
 // ======================================
 
-
 function excluirCliente(index){
 
 
-    if(confirm(
-        "Deseja excluir este cliente?"
-    )){
+    if(confirm("Deseja excluir este cliente?")){
 
 
         clientes.splice(
+
             index,
+
             1
+
         );
 
 
         salvarClientes();
+
 
         listarClientes();
 
@@ -236,28 +279,22 @@ function excluirCliente(index){
 
 
 
-
 // ======================================
 // Limpar Formulário
 // ======================================
 
-
 function limparCliente(){
 
 
-    document.getElementById(
-        "nomeCliente"
-    ).value = "";
+    document.getElementById("nomeCliente").value = "";
 
+    document.getElementById("telefoneCliente").value = "";
 
-    document.getElementById(
-        "telefoneCliente"
-    ).value = "";
+    document.getElementById("emailCliente").value = "";
 
+    document.getElementById("cpfCliente").value = "";
 
-    document.getElementById(
-        "emailCliente"
-    ).value = "";
+    document.getElementById("enderecoCliente").value = "";
 
 
 }
@@ -267,6 +304,5 @@ function limparCliente(){
 // ======================================
 // Inicialização
 // ======================================
-
 
 listarClientes();
