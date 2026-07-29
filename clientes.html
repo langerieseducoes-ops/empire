@@ -7,9 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>Empire - Clientes</title>
-
 
 <link rel="stylesheet" href="style.css">
 
@@ -18,7 +16,6 @@
 
 
 <script src="js/empresa.js"></script>
-
 
 </head>
 
@@ -30,7 +27,7 @@
 
 
 
-<!-- MENU -->
+<!-- MENU LATERAL -->
 
 <aside class="menu">
 
@@ -114,7 +111,6 @@
 
 
 
-
 <section class="painel">
 
 
@@ -127,7 +123,6 @@ Cadastro de Cliente
 <div class="formulario">
 
 
-
 <input 
 type="text"
 id="nomeCliente"
@@ -137,41 +132,41 @@ placeholder="Nome do cliente">
 
 <input 
 type="text"
-id="telefoneCliente"
+id="documento"
+placeholder="CPF ou CNPJ">
+
+
+
+<input 
+type="text"
+id="telefone"
 placeholder="Telefone">
 
 
 
 <input 
 type="text"
-id="whatsappCliente"
+id="whatsapp"
 placeholder="WhatsApp">
 
 
 
 <input 
 type="text"
-id="cpfCliente"
-placeholder="CPF">
-
-
-
-<input 
-type="text"
-id="cidadeCliente"
+id="cidade"
 placeholder="Cidade">
 
 
 
 <input 
 type="text"
-id="enderecoCliente"
+id="endereco"
 placeholder="Endereço">
 
 
 
 <textarea
-id="observacaoCliente"
+id="observacao"
 placeholder="Observação">
 </textarea>
 
@@ -204,6 +199,7 @@ Lista de Clientes
 
 
 <p>
+
 Total de clientes:
 
 <strong id="contadorClientes">
@@ -214,21 +210,18 @@ Total de clientes:
 
 
 
-
 <table>
 
 
 <thead>
 
-
 <tr>
-
 
 <th>Nome</th>
 
-<th>Telefone</th>
+<th>Documento</th>
 
-<th>WhatsApp</th>
+<th>Telefone</th>
 
 <th>Cidade</th>
 
@@ -252,8 +245,8 @@ Total de clientes:
 </table>
 
 
-</section>
 
+</section>
 
 
 
@@ -264,6 +257,7 @@ Total de clientes:
 <script src="js/dashboard.js"></script>
 
 <script src="js/clientes.js"></script>
+
 
 
 </body>
