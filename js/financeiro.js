@@ -6,43 +6,17 @@
 
 
 // ======================================
-// Formatar Moeda
+// Carregar Financeiro
 // ======================================
 
-function formatarMoeda(valor){
 
-    return Number(valor).toLocaleString(
-        "pt-BR",
-        {
-            style:"currency",
-            currency:"BRL"
-        }
-    );
-
-}
-
-
-
-
-// ======================================
-// Calcular Financeiro
-// ======================================
-
-function atualizarFinanceiro(){
+function carregarFinanceiro(){
 
 
 
     const vendas = JSON.parse(
 
         localStorage.getItem("vendas")
-
-    ) || [];
-
-
-
-    const compras = JSON.parse(
-
-        localStorage.getItem("compras")
 
     ) || [];
 
@@ -58,9 +32,11 @@ function atualizarFinanceiro(){
 
 
 
-    let totalVendido = 0;
+    let faturamento = 0;
 
-    let totalComprado = 0;
+
+    let lucro = 0;
+
 
     let valorEstoque = 0;
 
@@ -69,12 +45,13 @@ function atualizarFinanceiro(){
 
 
 
-    // Somar vendas
+    // Calcular vendas
+
 
     vendas.forEach(v=>{
 
 
-        totalVendido += Number(
+        faturamento += Number(
             v.valor || 0
         );
 
@@ -85,32 +62,27 @@ function atualizarFinanceiro(){
 
 
 
-    // Somar compras
 
-    compras.forEach(c=>{
+    // Calcular estoque e lucro estimado
 
-
-        totalComprado += Number(
-            c.valor || 0
-        );
-
-
-    });
-
-
-
-
-
-    // Calcular estoque
 
     produtos.forEach(p=>{
 
 
         valorEstoque +=
 
-        Number(p.custo || 0)
+        Number(p.custo || 0) *
 
-        *
+        Number(p.quantidade || 0);
+
+
+
+
+        lucro +=
+
+        (Number(p.venda || 0) -
+
+        Number(p.custo || 0)) *
 
         Number(p.quantidade || 0);
 
@@ -122,43 +94,60 @@ function atualizarFinanceiro(){
 
 
 
-    const lucro =
-
-    totalVendido - totalComprado;
 
 
+    const campoFaturamento =
 
-
-
-
-    const vendido = document.getElementById(
-        "totalVendido"
-    );
-
-
-    const comprado = document.getElementById(
-        "totalComprado"
-    );
-
-
-    const lucroTela = document.getElementById(
-        "lucro"
-    );
-
-
-    const estoqueTela = document.getElementById(
-        "valorEstoque"
+    document.getElementById(
+        "faturamentoTotal"
     );
 
 
 
+    const campoVendas =
+
+    document.getElementById(
+        "totalVendas"
+    );
 
 
 
-    if(vendido){
+    const campoEstoque =
 
-        vendido.innerHTML =
-        formatarMoeda(totalVendido);
+    document.getElementById(
+        "valorEstoqueFinanceiro"
+    );
+
+
+
+    const campoLucro =
+
+    document.getElementById(
+        "lucroTotal"
+    );
+
+
+
+
+
+
+
+    if(campoFaturamento){
+
+
+        campoFaturamento.innerHTML =
+
+        faturamento.toLocaleString(
+
+            "pt-BR",
+
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+
+        );
+
 
     }
 
@@ -166,10 +155,14 @@ function atualizarFinanceiro(){
 
 
 
-    if(comprado){
 
-        comprado.innerHTML =
-        formatarMoeda(totalComprado);
+    if(campoVendas){
+
+
+        campoVendas.innerHTML =
+
+        vendas.length;
+
 
     }
 
@@ -177,10 +170,23 @@ function atualizarFinanceiro(){
 
 
 
-    if(lucroTela){
 
-        lucroTela.innerHTML =
-        formatarMoeda(lucro);
+    if(campoEstoque){
+
+
+        campoEstoque.innerHTML =
+
+        valorEstoque.toLocaleString(
+
+            "pt-BR",
+
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+
+        );
+
 
     }
 
@@ -188,12 +194,32 @@ function atualizarFinanceiro(){
 
 
 
-    if(estoqueTela){
 
-        estoqueTela.innerHTML =
-        formatarMoeda(valorEstoque);
+    if(campoLucro){
+
+
+        campoLucro.innerHTML =
+
+        lucro.toLocaleString(
+
+            "pt-BR",
+
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+
+        );
+
 
     }
+
+
+
+
+
+
+    listarMovimentoFinanceiro(vendas);
 
 
 
@@ -204,8 +230,102 @@ function atualizarFinanceiro(){
 
 
 // ======================================
+// Lista de Movimentações
+// ======================================
+
+
+function listarMovimentoFinanceiro(vendas){
+
+
+
+    const tabela =
+
+    document.getElementById(
+        "listaFinanceiro"
+    );
+
+
+
+    if(!tabela){
+
+        return;
+
+    }
+
+
+
+
+
+    tabela.innerHTML = "";
+
+
+
+
+
+
+    vendas.forEach(v=>{
+
+
+
+        tabela.innerHTML += `
+
+
+        <tr>
+
+
+        <td>
+        ${v.data}
+        </td>
+
+
+        <td>
+        ${v.cliente}
+        </td>
+
+
+        <td>
+        ${v.produto}
+        </td>
+
+
+        <td>
+
+        ${Number(v.valor).toLocaleString(
+
+            "pt-BR",
+
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+
+        )}
+
+        </td>
+
+
+        </tr>
+
+
+        `;
+
+
+
+    });
+
+
+
+}
+
+
+
+
+
+
+
+// ======================================
 // Inicialização
 // ======================================
 
 
-atualizarFinanceiro();
+carregarFinanceiro();
