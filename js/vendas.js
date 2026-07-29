@@ -1,8 +1,8 @@
 // ======================================
 // EMPIRE ERP
 // Módulo de Vendas
-// Saída de Estoque
 // ======================================
+
 
 
 let vendas = JSON.parse(
@@ -15,19 +15,100 @@ let vendas = JSON.parse(
 
 
 // ======================================
-// Salvar Vendas
+// Carregar Clientes e Produtos
 // ======================================
 
-function salvarVendas(){
+
+function carregarOpcoesVenda(){
 
 
-    localStorage.setItem(
+    const clientes = JSON.parse(
 
-        "vendas",
+        localStorage.getItem("clientes")
 
-        JSON.stringify(vendas)
+    ) || [];
 
-    );
+
+
+    const produtos = JSON.parse(
+
+        localStorage.getItem("produtos")
+
+    ) || [];
+
+
+
+
+    const selectCliente =
+    document.getElementById("clienteVenda");
+
+
+
+    const selectProduto =
+    document.getElementById("produtoVenda");
+
+
+
+
+    if(selectCliente){
+
+
+        selectCliente.innerHTML =
+
+        `<option value="">
+        Selecione o cliente
+        </option>`;
+
+
+
+        clientes.forEach((c,index)=>{
+
+
+            selectCliente.innerHTML += `
+
+            <option value="${index}">
+            ${c.nome}
+            </option>
+
+            `;
+
+
+        });
+
+
+    }
+
+
+
+
+
+    if(selectProduto){
+
+
+        selectProduto.innerHTML =
+
+        `<option value="">
+        Selecione o produto
+        </option>`;
+
+
+
+        produtos.forEach((p,index)=>{
+
+
+            selectProduto.innerHTML += `
+
+            <option value="${index}">
+            ${p.produto} - Estoque: ${p.quantidade}
+            </option>
+
+            `;
+
+
+        });
+
+
+    }
 
 
 }
@@ -45,132 +126,41 @@ function registrarVenda(){
 
 
 
-    const produto =
-    document.getElementById("produtoVenda").value;
+    const clienteIndex =
+
+    document.getElementById(
+        "clienteVenda"
+    ).value;
 
 
 
-    const cliente =
-    document.getElementById("clienteVenda").value;
+    const produtoIndex =
 
-
-
-    const quantidade =
-    Number(
-        document.getElementById("quantidadeVenda").value
-    );
-
-
-
-    const valor =
-    Number(
-        document.getElementById("valorVenda").value
-    );
+    document.getElementById(
+        "produtoVenda"
+    ).value;
 
 
 
 
+    const quantidade = Number(
 
-    if(
-        !produto ||
-        !quantidade
-    ){
-
-
-        alert(
-            "Preencha produto e quantidade."
-        );
-
-
-        return;
-
-
-    }
-
-
-
-
-
-    const sucesso = baixarEstoque(
-
-        produto,
-
-        quantidade
+        document.getElementById(
+            "quantidadeVenda"
+        ).value
 
     );
 
 
 
 
-    if(!sucesso){
 
-        return;
+    let clientes = JSON.parse(
 
-    }
+        localStorage.getItem("clientes")
 
+    ) || [];
 
-
-
-
-    const novaVenda = {
-
-
-        produto,
-
-        cliente,
-
-        quantidade,
-
-        valor,
-
-        data:
-        new Date().toLocaleString("pt-BR")
-
-
-    };
-
-
-
-
-
-    vendas.push(
-
-        novaVenda
-
-    );
-
-
-
-    salvarVendas();
-
-
-
-    listarVendas();
-
-
-
-    limparVenda();
-
-
-
-}
-
-
-
-
-
-// ======================================
-// Baixar Estoque
-// ======================================
-
-
-function baixarEstoque(
-
-    nomeProduto,
-
-    quantidade
-
-){
 
 
 
@@ -184,13 +174,113 @@ function baixarEstoque(
 
 
 
-    let produtoEncontrado = produtos.find(
+    if(
+        clienteIndex === "" ||
+        produtoIndex === "" ||
+        quantidade <= 0
+    ){
 
-        p =>
 
-        p.produto.toLowerCase() ===
+        alert(
+            "Preencha todos os dados da venda."
+        );
 
-        nomeProduto.toLowerCase()
+
+        return;
+
+
+    }
+
+
+
+
+
+    const cliente =
+
+    clientes[clienteIndex];
+
+
+
+    const produto =
+
+    produtos[produtoIndex];
+
+
+
+
+
+    if(quantidade > produto.quantidade){
+
+
+        alert(
+            "Estoque insuficiente."
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    const valorTotal =
+
+    produto.venda * quantidade;
+
+
+
+
+
+
+    const novaVenda = {
+
+
+        data:
+
+        new Date().toLocaleString(
+            "pt-BR"
+        ),
+
+
+        cliente:
+
+        cliente.nome,
+
+
+        produto:
+
+        produto.produto,
+
+
+        quantidade,
+
+
+        valor:
+
+        valorTotal
+
+
+    };
+
+
+
+
+
+    vendas.push(novaVenda);
+
+
+
+
+
+    localStorage.setItem(
+
+        "vendas",
+
+        JSON.stringify(vendas)
 
     );
 
@@ -198,59 +288,11 @@ function baixarEstoque(
 
 
 
-    if(!produtoEncontrado){
+
+    // Baixa no estoque
 
 
-        alert(
-
-        "Produto não encontrado no estoque."
-
-        );
-
-
-        return false;
-
-
-    }
-
-
-
-
-
-    if(
-
-        Number(produtoEncontrado.quantidade)
-
-        <
-
-        Number(quantidade)
-
-    ){
-
-
-        alert(
-
-        "Estoque insuficiente."
-
-        );
-
-
-        return false;
-
-
-    }
-
-
-
-
-
-    produtoEncontrado.quantidade =
-
-    Number(produtoEncontrado.quantidade)
-
-    -
-
-    Number(quantidade);
+    produto.quantidade -= quantidade;
 
 
 
@@ -267,7 +309,27 @@ function baixarEstoque(
 
 
 
-    return true;
+
+
+    listarVendas();
+
+
+    carregarOpcoesVenda();
+
+
+
+
+
+    document.getElementById(
+        "quantidadeVenda"
+    ).value = "";
+
+
+
+
+    alert(
+        "Venda registrada com sucesso!"
+    );
 
 
 
@@ -285,11 +347,10 @@ function baixarEstoque(
 function listarVendas(){
 
 
+    const tabela =
 
-    const tabela = document.getElementById(
-
+    document.getElementById(
         "listaVendas"
-
     );
 
 
@@ -302,29 +363,23 @@ function listarVendas(){
 
 
 
-
-
     tabela.innerHTML = "";
 
 
 
 
+    const contador =
 
-    const contador = document.getElementById(
-
+    document.getElementById(
         "contadorVendas"
-
     );
 
 
 
     if(contador){
 
-
         contador.innerHTML =
-
         vendas.length;
-
 
     }
 
@@ -332,9 +387,7 @@ function listarVendas(){
 
 
 
-
-    vendas.forEach((v)=>{
-
+    vendas.forEach(v=>{
 
 
         tabela.innerHTML += `
@@ -344,7 +397,7 @@ function listarVendas(){
 
 
         <td>
-        ${v.produto}
+        ${v.data}
         </td>
 
 
@@ -354,17 +407,23 @@ function listarVendas(){
 
 
         <td>
+        ${v.produto}
+        </td>
+
+
+        <td>
         ${v.quantidade}
         </td>
 
 
         <td>
-        R$ ${v.valor.toFixed(2)}
-        </td>
-
-
-        <td>
-        ${v.data}
+        ${v.valor.toLocaleString(
+            "pt-BR",
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+        )}
         </td>
 
 
@@ -372,7 +431,6 @@ function listarVendas(){
 
 
         `;
-
 
 
     });
@@ -386,36 +444,10 @@ function listarVendas(){
 
 
 // ======================================
-// Limpar Formulário
-// ======================================
-
-
-function limparVenda(){
-
-
-
-document.getElementById("produtoVenda").value = "";
-
-
-document.getElementById("clienteVenda").value = "";
-
-
-document.getElementById("quantidadeVenda").value = "";
-
-
-document.getElementById("valorVenda").value = "";
-
-
-
-}
-
-
-
-
-
-// ======================================
 // Inicialização
 // ======================================
 
+
+carregarOpcoesVenda();
 
 listarVendas();
