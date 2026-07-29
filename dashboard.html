@@ -12,6 +12,7 @@
 
 <link rel="stylesheet" href="style.css">
 
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="js/empresa.js"></script>
 
@@ -120,7 +121,7 @@
 </a>
 
 
-<a href="index.html">
+<a href="#" onclick="sairSistema()">
 🚪 Sair
 </a>
 
@@ -164,73 +165,55 @@ Dashboard
 
 <div class="card">
 
-
 <h3>
 📦 Produtos
 </h3>
 
-
-<strong>
+<strong id="totalProdutos">
 0
 </strong>
-
 
 </div>
 
 
 
-
-
 <div class="card">
-
 
 <h3>
 🏷 Estoque
 </h3>
 
-
-<strong>
+<strong id="totalEstoque">
 0
 </strong>
-
 
 </div>
 
 
 
-
-
 <div class="card">
-
 
 <h3>
 💰 Vendas Hoje
 </h3>
 
-
-<strong>
+<strong id="vendasHoje">
 R$ 0,00
 </strong>
-
 
 </div>
 
 
 
-
-
 <div class="card">
-
 
 <h3>
 📈 Financeiro
 </h3>
 
-
-<strong>
+<strong id="valorFinanceiro">
 R$ 0,00
 </strong>
-
 
 </div>
 
@@ -238,31 +221,27 @@ R$ 0,00
 </section>
 
 
-
-
-
-
 <section class="painel">
 
-
 <h2>
-Bem-vindo ao Império
+Informações do Sistema
 </h2>
 
-
 <p>
-Sistema de gestão inteligente para moda.
+Versão:
+<span id="versaoSistema"></span>
 </p>
 
+<p>
+Empresa:
+<span id="nomeEmpresa"></span>
+</p>
 
 </section>
 
 
 
 </main>
-
-
-
 
 
 <script src="js/dashboard.js"></script>
