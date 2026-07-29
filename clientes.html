@@ -11,9 +11,7 @@
 
 <link rel="stylesheet" href="style.css">
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 
 <script src="js/empresa.js"></script>
 
@@ -25,9 +23,6 @@
 
 <div class="overlay"></div>
 
-
-
-<!-- MENU LATERAL -->
 
 <aside class="menu">
 
@@ -62,13 +57,13 @@
 </a>
 
 
-<a href="vendas.html">
-💰 Vendas
+<a href="fornecedores.html">
+🚚 Fornecedores
 </a>
 
 
-<a href="fornecedores.html">
-🚚 Fornecedores
+<a href="vendas.html">
+💰 Vendas
 </a>
 
 
@@ -89,10 +84,6 @@
 
 
 
-
-
-<!-- CONTEÚDO -->
-
 <main class="conteudo">
 
 
@@ -110,14 +101,12 @@
 
 
 
-
 <section class="painel">
 
 
 <h2>
 Cadastro de Cliente
 </h2>
-
 
 
 <div class="formulario">
@@ -129,63 +118,27 @@ id="nomeCliente"
 placeholder="Nome do cliente">
 
 
-
 <input 
 type="text"
-id="documento"
-placeholder="CPF ou CNPJ">
-
-
-
-<input 
-type="text"
-id="telefone"
+id="telefoneCliente"
 placeholder="Telefone">
 
 
-
 <input 
-type="text"
-id="whatsapp"
-placeholder="WhatsApp">
+type="email"
+id="emailCliente"
+placeholder="E-mail">
 
 
-
-<input 
-type="text"
-id="cidade"
-placeholder="Cidade">
-
-
-
-<input 
-type="text"
-id="endereco"
-placeholder="Endereço">
-
-
-
-<textarea
-id="observacao"
-placeholder="Observação">
-</textarea>
-
-
-
-<button onclick="adicionarCliente()">
-
+<button>
 SALVAR CLIENTE
-
 </button>
-
 
 
 </div>
 
 
 </section>
-
-
 
 
 
@@ -197,19 +150,6 @@ Lista de Clientes
 </h2>
 
 
-
-<p>
-
-Total de clientes:
-
-<strong id="contadorClientes">
-0
-</strong>
-
-</p>
-
-
-
 <table>
 
 
@@ -219,31 +159,24 @@ Total de clientes:
 
 <th>Nome</th>
 
-<th>Documento</th>
-
 <th>Telefone</th>
 
-<th>Cidade</th>
+<th>Email</th>
 
 <th>Ações</th>
 
-
 </tr>
-
 
 </thead>
 
 
-
-<tbody id="listaClientes">
+<tbody>
 
 
 </tbody>
 
 
-
 </table>
-
 
 
 </section>
@@ -255,9 +188,6 @@ Total de clientes:
 
 
 <script src="js/dashboard.js"></script>
-
-<script src="js/clientes.js"></script>
-
 
 
 </body>
