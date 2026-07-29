@@ -49,45 +49,43 @@
 
 <nav>
 
-<a href="dashboard.html">
-🏠 Dashboard
-</a>
 
+<a href="dashboard.html">🏠 Dashboard</a>
 
-<a href="produtos.html">
-📦 Produtos
-</a>
+<a href="produtos.html">📦 Produtos</a>
 
+<a href="compras.html">🛒 Compras</a>
 
-<a href="vendas.html">
-💰 Vendas
-</a>
+<a href="vendas.html">💰 Vendas</a>
 
+<a href="clientes.html">👥 Clientes</a>
 
-<a href="clientes.html">
-👥 Clientes
-</a>
+<a href="fornecedores.html">🚚 Fornecedores</a>
 
+<a href="categorias.html">🏷 Categorias</a>
 
-<a href="fornecedores.html">
-🚚 Fornecedores
-</a>
+<a href="financeiro.html">💵 Financeiro</a>
 
+<a href="relatorios.html">📊 Relatórios</a>
 
-<a href="relatorios.html">
-📊 Relatórios
-</a>
+<a href="usuarios.html">👤 Usuários</a>
 
+<a href="monitoramento.html">📋 Monitoramento</a>
 
-<a href="index.html">
-🚪 Sair
-</a>
+<a href="configuracoes.html">⚙ Configurações</a>
+
+<a href="backup.html">💾 Backup</a>
+
+<a href="alterar-senha.html">🔐 Alterar Senha</a>
+
+<a href="#" onclick="sairSistema()">🚪 Sair</a>
 
 
 </nav>
 
 
 </aside>
+
 
 
 
@@ -99,6 +97,7 @@
 
 
 <header>
+
 
 <h1>
 📦 Produtos
@@ -113,6 +112,7 @@
 
 
 
+
 <section class="painel">
 
 
@@ -120,72 +120,132 @@
 Cadastro de Produto
 </h2>
 
+
+
+
 <div class="busca">
 
-<input 
+
+<input
+
 type="text"
+
 id="pesquisaProduto"
+
 placeholder="🔎 Pesquisar produto..."
+
 onkeyup="pesquisarProduto()">
 
+
 </div>
+
+
+
+
 
 <div class="formulario">
 
 
-<input 
+
+<input
+
 type="text"
+
 id="codigo"
+
 placeholder="Código do produto">
 
 
 
-<input 
+
+
+<input
+
 type="text"
+
 id="produto"
+
 placeholder="Nome do produto">
 
 
 
-<input 
+
+
+
+<select id="categoria">
+
+
+<option value="">
+
+Selecione a categoria
+
+</option>
+
+
+</select>
+
+
+
+
+
+<input
+
 type="text"
-id="categoria"
-placeholder="Categoria">
 
-
-
-<input 
-type="text"
 id="tamanho"
+
 placeholder="Tamanho">
 
 
 
-<input 
+
+
+<input
+
 type="text"
+
 id="cor"
+
 placeholder="Cor">
 
 
 
-<input 
+
+
+<input
+
 type="number"
+
 id="custo"
+
 placeholder="Valor de custo">
 
 
 
-<input 
+
+
+<input
+
 type="number"
+
 id="venda"
+
 placeholder="Valor de venda">
 
 
 
-<input 
+
+
+<input
+
 type="number"
+
 id="quantidade"
+
 placeholder="Quantidade">
+
+
+
 
 
 <button onclick="adicionarProduto()">
@@ -205,26 +265,46 @@ SALVAR PRODUTO
 
 
 
+
+
 <section class="painel">
 
 
 <h2>
+
 Lista de Produtos
+
 </h2>
 
-  <p>
+
+
+
+<p>
+
 Total de produtos:
+
 <strong id="contadorProdutos">
+
 0
+
 </strong>
+
+
 </p>
+
+
+
+
+
 
 <table>
 
 
 <thead>
 
+
 <tr>
+
 
 <th>Código</th>
 
@@ -245,7 +325,9 @@ Total de produtos:
 
 </tr>
 
+
 </thead>
+
 
 
 
@@ -255,11 +337,12 @@ Total de produtos:
 </tbody>
 
 
-
 </table>
 
 
+
 </section>
+
 
 
 
@@ -267,9 +350,13 @@ Total de produtos:
 
 
 
+
+
+
 <script src="js/dashboard.js"></script>
 
 <script src="js/produtos.js"></script>
+
 
 
 </body>
