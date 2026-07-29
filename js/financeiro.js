@@ -4,14 +4,11 @@
 // ======================================
 
 
-
 // ======================================
-// Carregar Financeiro
+// Carregar Dados
 // ======================================
-
 
 function carregarFinanceiro(){
-
 
 
     const vendas = JSON.parse(
@@ -22,37 +19,29 @@ function carregarFinanceiro(){
 
 
 
-    const produtos = JSON.parse(
+    const compras = JSON.parse(
 
-        localStorage.getItem("produtos")
+        localStorage.getItem("compras")
 
     ) || [];
 
 
 
+    let entradas = 0;
 
-
-    let faturamento = 0;
-
-
-    let lucro = 0;
-
-
-    let valorEstoque = 0;
+    let saidas = 0;
 
 
 
+    // ==============================
+    // Somar Vendas
+    // ==============================
+
+    vendas.forEach(venda => {
 
 
-
-    // Calcular vendas
-
-
-    vendas.forEach(v=>{
-
-
-        faturamento += Number(
-            v.valor || 0
+        entradas += Number(
+            venda.total || 0
         );
 
 
@@ -60,272 +49,88 @@ function carregarFinanceiro(){
 
 
 
+    // ==============================
+    // Somar Compras
+    // ==============================
+
+    compras.forEach(compra => {
 
 
-
-    // Calcular estoque e lucro estimado
-
-
-    produtos.forEach(p=>{
-
-
-        valorEstoque +=
-
-        Number(p.custo || 0) *
-
-        Number(p.quantidade || 0);
-
-
-
-
-        lucro +=
-
-        (Number(p.venda || 0) -
-
-        Number(p.custo || 0)) *
-
-        Number(p.quantidade || 0);
-
+        saidas += Number(
+            compra.total || 0
+        );
 
 
     });
 
 
 
+    const saldo =
+    entradas - saidas;
 
 
 
-
-    const campoFaturamento =
-
-    document.getElementById(
-        "faturamentoTotal"
-    );
+    const campoEntradas =
+    document.getElementById("totalEntradas");
 
 
+    const campoSaidas =
+    document.getElementById("totalSaidas");
 
-    const campoVendas =
 
-    document.getElementById(
-        "totalVendas"
-    );
+    const campoSaldo =
+    document.getElementById("saldoAtual");
 
 
 
-    const campoEstoque =
+    if(campoEntradas){
 
-    document.getElementById(
-        "valorEstoqueFinanceiro"
-    );
-
-
-
-    const campoLucro =
-
-    document.getElementById(
-        "lucroTotal"
-    );
-
-
-
-
-
-
-
-    if(campoFaturamento){
-
-
-        campoFaturamento.innerHTML =
-
-        faturamento.toLocaleString(
-
-            "pt-BR",
-
-            {
-                style:"currency",
-                currency:"BRL"
-            }
-
-        );
-
+        campoEntradas.innerHTML =
+        formatarMoeda(entradas);
 
     }
 
 
 
+    if(campoSaidas){
 
-
-
-    if(campoVendas){
-
-
-        campoVendas.innerHTML =
-
-        vendas.length;
-
+        campoSaidas.innerHTML =
+        formatarMoeda(saidas);
 
     }
 
 
 
+    if(campoSaldo){
 
-
-
-    if(campoEstoque){
-
-
-        campoEstoque.innerHTML =
-
-        valorEstoque.toLocaleString(
-
-            "pt-BR",
-
-            {
-                style:"currency",
-                currency:"BRL"
-            }
-
-        );
-
+        campoSaldo.innerHTML =
+        formatarMoeda(saldo);
 
     }
-
-
-
-
-
-
-    if(campoLucro){
-
-
-        campoLucro.innerHTML =
-
-        lucro.toLocaleString(
-
-            "pt-BR",
-
-            {
-                style:"currency",
-                currency:"BRL"
-            }
-
-        );
-
-
-    }
-
-
-
-
-
-
-    listarMovimentoFinanceiro(vendas);
-
 
 
 }
 
 
-
-
-
 // ======================================
-// Lista de Movimentações
+// Formatar Valores
 // ======================================
 
+function formatarMoeda(valor){
 
-function listarMovimentoFinanceiro(vendas){
-
-
-
-    const tabela =
-
-    document.getElementById(
-        "listaFinanceiro"
+    return Number(valor).toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
     );
 
-
-
-    if(!tabela){
-
-        return;
-
-    }
-
-
-
-
-
-    tabela.innerHTML = "";
-
-
-
-
-
-
-    vendas.forEach(v=>{
-
-
-
-        tabela.innerHTML += `
-
-
-        <tr>
-
-
-        <td>
-        ${v.data}
-        </td>
-
-
-        <td>
-        ${v.cliente}
-        </td>
-
-
-        <td>
-        ${v.produto}
-        </td>
-
-
-        <td>
-
-        ${Number(v.valor).toLocaleString(
-
-            "pt-BR",
-
-            {
-                style:"currency",
-                currency:"BRL"
-            }
-
-        )}
-
-        </td>
-
-
-        </tr>
-
-
-        `;
-
-
-
-    });
-
-
-
 }
-
-
-
-
-
 
 
 // ======================================
 // Inicialização
 // ======================================
-
 
 carregarFinanceiro();
