@@ -3,278 +3,104 @@
 // Módulo de Vendas
 // ======================================
 
-
-
 let vendas = JSON.parse(
-
     localStorage.getItem("vendas")
-
 ) || [];
 
-
-
-
 // ======================================
-// Carregar Clientes e Produtos
+// Carregar Produtos
 // ======================================
 
+function carregarProdutos() {
 
-function carregarOpcoesVenda(){
+    const select = document.getElementById("produtoVenda");
 
-
-    const clientes = JSON.parse(
-
-        localStorage.getItem("clientes")
-
-    ) || [];
-
-
+    if (!select) return;
 
     const produtos = JSON.parse(
-
         localStorage.getItem("produtos")
-
     ) || [];
 
+    select.innerHTML = "";
 
+    produtos.forEach((produto, indice) => {
 
-
-    const selectCliente =
-    document.getElementById("clienteVenda");
-
-
-
-    const selectProduto =
-    document.getElementById("produtoVenda");
-
-
-
-
-    if(selectCliente){
-
-
-        selectCliente.innerHTML =
-
-        `<option value="">
-        Selecione o cliente
-        </option>`;
-
-
-
-        clientes.forEach((c,index)=>{
-
-
-            selectCliente.innerHTML += `
-
-            <option value="${index}">
-            ${c.nome}
+        select.innerHTML += `
+            <option value="${indice}">
+                ${produto.codigo} - ${produto.produto}
             </option>
+        `;
 
-            `;
-
-
-        });
-
-
-    }
-
-
-
-
-
-    if(selectProduto){
-
-
-        selectProduto.innerHTML =
-
-        `<option value="">
-        Selecione o produto
-        </option>`;
-
-
-
-        produtos.forEach((p,index)=>{
-
-
-            selectProduto.innerHTML += `
-
-            <option value="${index}">
-            ${p.produto} - Estoque: ${p.quantidade}
-            </option>
-
-            `;
-
-
-        });
-
-
-    }
-
+    });
 
 }
-
-
-
-
 
 // ======================================
 // Registrar Venda
 // ======================================
 
+function registrarVenda() {
 
-function registrarVenda(){
-
-
-
-    const clienteIndex =
-
-    document.getElementById(
-        "clienteVenda"
-    ).value;
-
-
-
-    const produtoIndex =
-
-    document.getElementById(
-        "produtoVenda"
-    ).value;
-
-
-
-
-    const quantidade = Number(
-
-        document.getElementById(
-            "quantidadeVenda"
-        ).value
-
+    const indice = Number(
+        document.getElementById("produtoVenda").value
     );
 
+    const cliente =
+    document.getElementById("clienteVenda").value;
 
+    const quantidade = Number(
+        document.getElementById("quantidadeVenda").value
+    );
 
+    const data =
+    document.getElementById("dataVenda").value;
 
+    if (!cliente || quantidade <= 0 || !data) {
 
-    let clientes = JSON.parse(
+        alert("Preencha todos os campos.");
 
-        localStorage.getItem("clientes")
+        return;
 
-    ) || [];
-
-
-
+    }
 
     let produtos = JSON.parse(
-
         localStorage.getItem("produtos")
-
     ) || [];
 
+    if (quantidade > produtos[indice].quantidade) {
 
-
-
-
-    if(
-        clienteIndex === "" ||
-        produtoIndex === "" ||
-        quantidade <= 0
-    ){
-
-
-        alert(
-            "Preencha todos os dados da venda."
-        );
-
+        alert("Estoque insuficiente.");
 
         return;
 
-
     }
 
+    produtos[indice].quantidade -= quantidade;
 
+    localStorage.setItem(
+        "produtos",
+        JSON.stringify(produtos)
+    );
 
+    const valorUnitario = Number(
+        produtos[indice].venda
+    );
 
+    vendas.push({
 
-    const cliente =
+        data: data,
 
-    clientes[clienteIndex];
+        produto: produtos[indice].produto,
 
+        cliente: cliente,
 
+        quantidade: quantidade,
 
-    const produto =
+        valor: valorUnitario,
 
-    produtos[produtoIndex];
+        total: quantidade * valorUnitario
 
-
-
-
-
-    if(quantidade > produto.quantidade){
-
-
-        alert(
-            "Estoque insuficiente."
-        );
-
-
-        return;
-
-
-    }
-
-
-
-
-
-
-    const valorTotal =
-
-    produto.venda * quantidade;
-
-
-
-
-
-
-    const novaVenda = {
-
-
-        data:
-
-        new Date().toLocaleString(
-            "pt-BR"
-        ),
-
-
-        cliente:
-
-        cliente.nome,
-
-
-        produto:
-
-        produto.produto,
-
-
-        quantidade,
-
-
-        valor:
-
-        valorTotal
-
-
-    };
-
-
-
-
-
-    vendas.push(novaVenda);
-
-
-
-
+    });
 
     localStorage.setItem(
 
@@ -284,170 +110,77 @@ function registrarVenda(){
 
     );
 
-
-
-
-
-
-    // Baixa no estoque
-
-
-    produto.quantidade -= quantidade;
-
-
-
-
-
-    localStorage.setItem(
-
-        "produtos",
-
-        JSON.stringify(produtos)
-
-    );
-
-
-
-
-
-
     listarVendas();
 
+    limparFormulario();
 
-    carregarOpcoesVenda();
-
-
-
-
-
-    document.getElementById(
-        "quantidadeVenda"
-    ).value = "";
-
-
-
-
-    alert(
-        "Venda registrada com sucesso!"
-    );
-
-
+    alert("Venda registrada com sucesso!");
 
 }
-
-
-
-
 
 // ======================================
 // Listar Vendas
 // ======================================
 
-
-function listarVendas(){
-
+function listarVendas() {
 
     const tabela =
+    document.getElementById("listaVendas");
 
-    document.getElementById(
-        "listaVendas"
-    );
-
-
-
-    if(!tabela){
-
-        return;
-
-    }
-
-
+    if (!tabela) return;
 
     tabela.innerHTML = "";
 
-
-
-
-    const contador =
-
-    document.getElementById(
-        "contadorVendas"
-    );
-
-
-
-    if(contador){
-
-        contador.innerHTML =
-        vendas.length;
-
-    }
-
-
-
-
-
-    vendas.forEach(v=>{
-
+    vendas.forEach(venda => {
 
         tabela.innerHTML += `
 
-
         <tr>
 
+        <td>${venda.data}</td>
 
-        <td>
-        ${v.data}
-        </td>
+        <td>${venda.produto}</td>
 
+        <td>${venda.cliente}</td>
 
-        <td>
-        ${v.cliente}
-        </td>
+        <td>${venda.quantidade}</td>
 
+        <td>${venda.valor.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })}</td>
 
-        <td>
-        ${v.produto}
-        </td>
-
-
-        <td>
-        ${v.quantidade}
-        </td>
-
-
-        <td>
-        ${v.valor.toLocaleString(
-            "pt-BR",
-            {
-                style:"currency",
-                currency:"BRL"
-            }
-        )}
-        </td>
-
+        <td>${venda.total.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })}</td>
 
         </tr>
 
-
         `;
-
 
     });
 
-
-
 }
 
+// ======================================
+// Limpar Formulário
+// ======================================
 
+function limparFormulario() {
 
+    document.getElementById("clienteVenda").value = "";
 
+    document.getElementById("quantidadeVenda").value = "";
+
+    document.getElementById("dataVenda").value = "";
+
+}
 
 // ======================================
 // Inicialização
 // ======================================
 
-
-carregarOpcoesVenda();
+carregarProdutos();
 
 listarVendas();
