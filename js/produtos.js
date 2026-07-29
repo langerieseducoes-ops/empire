@@ -4,7 +4,6 @@
 // ======================================
 
 
-
 let produtos = JSON.parse(
 
     localStorage.getItem("produtos")
@@ -12,16 +11,13 @@ let produtos = JSON.parse(
 ) || [];
 
 
-
 let indiceEdicao = -1;
 
 
 
-
 // ======================================
-// Salvar no LocalStorage
+// Salvar Produtos
 // ======================================
-
 
 function salvarProdutos(){
 
@@ -39,58 +35,130 @@ function salvarProdutos(){
 
 
 
+// ======================================
+// Carregar Categorias
+// ======================================
+
+function carregarCategorias(){
+
+
+    const select = document.getElementById(
+        "categoria"
+    );
+
+
+    if(!select){
+
+        return;
+
+    }
+
+
+
+    const categorias = JSON.parse(
+
+        localStorage.getItem("categorias")
+
+    ) || [];
+
+
+
+    select.innerHTML = `
+
+    <option value="">
+
+    Selecione a categoria
+
+    </option>
+
+    `;
+
+
+
+    categorias.forEach(categoria=>{
+
+
+        select.innerHTML += `
+
+        <option value="${categoria.nome}">
+
+        ${categoria.nome}
+
+        </option>
+
+        `;
+
+
+    });
+
+
+}
+
+
 
 // ======================================
 // Adicionar Produto
 // ======================================
 
-
 function adicionarProduto(){
 
 
-    const codigo =
-    document.getElementById("codigo").value;
+    const produto = {
 
 
-    const produto =
-    document.getElementById("produto").value;
+        codigo:
+        document.getElementById("codigo").value,
 
 
-    const categoria =
-    document.getElementById("categoria").value;
+        produto:
+        document.getElementById("produto").value,
 
 
-    const tamanho =
-    document.getElementById("tamanho").value;
+        categoria:
+        document.getElementById("categoria").value,
 
 
-    const cor =
-    document.getElementById("cor").value;
+        tamanho:
+        document.getElementById("tamanho").value,
 
 
-    const custo =
-    Number(document.getElementById("custo").value);
+        cor:
+        document.getElementById("cor").value,
 
 
-    const venda =
-    Number(document.getElementById("venda").value);
+        custo:
+        Number(document.getElementById("custo").value),
 
 
-    const quantidade =
-    Number(document.getElementById("quantidade").value);
+        venda:
+        Number(document.getElementById("venda").value),
+
+
+        quantidade:
+        Number(document.getElementById("quantidade").value)
+
+
+    };
+
 
 
 
 
     if(
-        !codigo ||
-        !produto ||
-        !categoria
+
+        !produto.codigo ||
+
+        !produto.produto ||
+
+        !produto.categoria
+
     ){
 
 
         alert(
-            "Preencha os campos obrigatórios."
+
+        "Preencha os campos obrigatórios."
+
         );
 
 
@@ -102,45 +170,16 @@ function adicionarProduto(){
 
 
 
-    const novoProduto = {
-
-
-        codigo,
-
-        produto,
-
-        categoria,
-
-        tamanho,
-
-        cor,
-
-        custo,
-
-        venda,
-
-        quantidade
-
-
-    };
-
-
-
-
-
     if(indiceEdicao === -1){
 
 
-        produtos.push(
-            novoProduto
-        );
+        produtos.push(produto);
 
 
     }else{
 
 
-        produtos[indiceEdicao] =
-        novoProduto;
+        produtos[indiceEdicao] = produto;
 
 
         indiceEdicao = -1;
@@ -166,17 +205,18 @@ function adicionarProduto(){
 
 
 
+
 // ======================================
 // Listar Produtos
 // ======================================
 
-
 function listarProdutos(){
 
 
-    const tabela =
-    document.getElementById(
+    const tabela = document.getElementById(
+
         "listaProdutos"
+
     );
 
 
@@ -191,21 +231,27 @@ function listarProdutos(){
 
     tabela.innerHTML = "";
 
-const contador = document.getElementById(
-    "contadorProdutos"
-);
 
 
-if(contador){
+    const contador = document.getElementById(
 
-    contador.innerHTML = produtos.length;
+        "contadorProdutos"
 
-}
+    );
 
 
-    produtos.forEach(
 
-        (p,index)=>{
+    if(contador){
+
+        contador.innerHTML = produtos.length;
+
+    }
+
+
+
+
+
+    produtos.forEach((p,index)=>{
 
 
         tabela.innerHTML += `
@@ -233,8 +279,11 @@ if(contador){
 
 
         <td>
-        R$ ${p.venda.toFixed(2)}
+
+        R$ ${Number(p.venda).toFixed(2)}
+
         </td>
+
 
 
         <td>
@@ -271,15 +320,16 @@ if(contador){
 
 
 
+
 // ======================================
 // Editar Produto
 // ======================================
-
 
 function editarProduto(index){
 
 
     const p = produtos[index];
+
 
 
     document.getElementById("codigo").value =
@@ -320,24 +370,25 @@ function editarProduto(index){
 
 }
 
+
+
+
 // ======================================
 // Excluir Produto
 // ======================================
 
-
 function excluirProduto(index){
 
 
-    if(
-        confirm(
-            "Deseja excluir este produto?"
-        )
-    ){
+    if(confirm("Deseja excluir este produto?")){
 
 
         produtos.splice(
+
             index,
+
             1
+
         );
 
 
@@ -355,19 +406,19 @@ function excluirProduto(index){
 
 
 
+
 // ======================================
 // Limpar Formulário
 // ======================================
 
-
 function limparFormulario(){
 
 
-   document.getElementById("codigo").value = "";
+    document.getElementById("codigo").value = "";
 
-   document.getElementById("produto").value = "";
+    document.getElementById("produto").value = "";
 
-   document.getElementById("categoria").value = "";
+    document.getElementById("categoria").value = "";
 
     document.getElementById("tamanho").value = "";
 
@@ -386,48 +437,56 @@ function limparFormulario(){
 
 
 // ======================================
-// Inicialização
+// Pesquisar Produto
 // ======================================
-
-// ======================================
-// Pesquisa de Produtos
-// ======================================
-
 
 function pesquisarProduto(){
 
 
     const texto = document.getElementById(
+
         "pesquisaProduto"
+
     ).value.toLowerCase();
 
 
 
     const tabela = document.getElementById(
+
         "listaProdutos"
+
     );
+
 
 
     tabela.innerHTML = "";
 
-let encontrados = 0;
+
 
     produtos
+
     .filter(p =>
 
+
         p.produto.toLowerCase()
+
         .includes(texto)
+
 
         ||
 
+
         p.codigo.toLowerCase()
+
         .includes(texto)
 
+
     )
+
+
     .forEach((p,index)=>{
 
-     encontrados++;
-        
+
         tabela.innerHTML += `
 
 
@@ -436,31 +495,45 @@ let encontrados = 0;
 
         <td>${p.codigo}</td>
 
+
         <td>${p.produto}</td>
+
 
         <td>${p.categoria}</td>
 
+
         <td>${p.tamanho}</td>
+
 
         <td>${p.cor}</td>
 
+
         <td>${p.quantidade}</td>
 
+
         <td>
-        R$ ${p.venda.toFixed(2)}
+
+        R$ ${Number(p.venda).toFixed(2)}
+
         </td>
+
 
 
         <td>
 
 
         <button onclick="editarProduto(${index})">
+
         ✏️
+
         </button>
 
 
+
         <button onclick="excluirProduto(${index})">
+
         🗑️
+
         </button>
 
 
@@ -475,17 +548,15 @@ let encontrados = 0;
 
     });
 
-    const contador = document.getElementById(
-    "contadorProdutos"
-);
-
-
-if(contador){
-
-    contador.innerHTML = encontrados;
 
 }
 
-}
+
+
+// ======================================
+// Inicialização
+// ======================================
+
+carregarCategorias();
 
 listarProdutos();
