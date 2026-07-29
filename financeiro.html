@@ -23,6 +23,7 @@
 </head>
 
 
+
 <body class="dashboard">
 
 
@@ -30,16 +31,22 @@
 
 
 
+<!-- MENU -->
+
 <aside class="menu">
 
 
 <div class="marca">
 
+
 <img src="img/logo.png">
+
 
 <h2>EMPIRE</h2>
 
+
 <p>Império da Moda Online</p>
+
 
 </div>
 
@@ -58,16 +65,6 @@
 </a>
 
 
-<a href="compras.html">
-🛒 Compras
-</a>
-
-
-<a href="vendas.html">
-💰 Vendas
-</a>
-
-
 <a href="clientes.html">
 👥 Clientes
 </a>
@@ -75,6 +72,11 @@
 
 <a href="fornecedores.html">
 🚚 Fornecedores
+</a>
+
+
+<a href="vendas.html">
+💰 Vendas
 </a>
 
 
@@ -102,10 +104,15 @@
 
 
 
+<!-- CONTEÚDO -->
+
+
 <main class="conteudo">
 
 
+
 <header>
+
 
 <h1>
 💵 Financeiro
@@ -121,16 +128,18 @@
 
 
 
+
 <section class="cards">
 
 
+
 <div class="card">
 
 <h3>
-💰 Total Vendido
+💰 Faturamento
 </h3>
 
-<strong id="totalVendido">
+<strong id="faturamentoTotal">
 R$ 0,00
 </strong>
 
@@ -139,13 +148,30 @@ R$ 0,00
 
 
 
+
 <div class="card">
 
 <h3>
-🛒 Total Comprado
+🛒 Vendas
 </h3>
 
-<strong id="totalComprado">
+<strong id="totalVendas">
+0
+</strong>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+📦 Estoque
+</h3>
+
+<strong id="valorEstoqueFinanceiro">
 R$ 0,00
 </strong>
 
@@ -154,35 +180,23 @@ R$ 0,00
 
 
 
+
 <div class="card">
 
 <h3>
-📈 Lucro Estimado
+📈 Lucro
 </h3>
 
-<strong id="lucro">
+<strong id="lucroTotal">
 R$ 0,00
 </strong>
 
 </div>
 
-
-
-
-<div class="card">
-
-<h3>
-📦 Estoque Atual
-</h3>
-
-<strong id="valorEstoque">
-R$ 0,00
-</strong>
-
-</div>
 
 
 </section>
+
 
 
 
@@ -192,16 +206,50 @@ R$ 0,00
 
 
 <h2>
-Resumo Financeiro
+Movimentação Financeira
 </h2>
 
 
-<p>
-Controle financeiro automático do Império.
-</p>
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+<th>Data</th>
+
+<th>Cliente</th>
+
+<th>Venda</th>
+
+<th>Valor</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody id="listaFinanceiro">
+
+
+</tbody>
+
+
+
+</table>
+
 
 
 </section>
+
+
+
 
 
 
@@ -209,9 +257,12 @@ Controle financeiro automático do Império.
 
 
 
+
+
 <script src="js/dashboard.js"></script>
 
 <script src="js/financeiro.js"></script>
+
 
 
 </body>
