@@ -1,105 +1,272 @@
 // ======================================
 // EMPIRE ERP
-// Backup do Sistema
+// Módulo de Backup
 // ======================================
+
+
 
 // ======================================
 // Exportar Backup
 // ======================================
 
-function exportarBackup() {
+function exportarBackup(){
 
-    const backup = {};
 
-    for (let i = 0; i < localStorage.length; i++) {
+    const dados = {
 
-        const chave = localStorage.key(i);
 
-        backup[chave] = localStorage.getItem(chave);
+        empresa:
 
-    }
+        JSON.parse(
 
-    const dados = JSON.stringify(backup, null, 4);
+            localStorage.getItem("empresa")
 
-    const blob = new Blob([dados], {
-        type: "application/json"
-    });
+        ) || {},
+
+
+
+        produtos:
+
+        JSON.parse(
+
+            localStorage.getItem("produtos")
+
+        ) || [],
+
+
+
+        vendas:
+
+        JSON.parse(
+
+            localStorage.getItem("vendas")
+
+        ) || [],
+
+
+
+        compras:
+
+        JSON.parse(
+
+            localStorage.getItem("compras")
+
+        ) || [],
+
+
+
+        clientes:
+
+        JSON.parse(
+
+            localStorage.getItem("clientes")
+
+        ) || [],
+
+
+
+        fornecedores:
+
+        JSON.parse(
+
+            localStorage.getItem("fornecedores")
+
+        ) || [],
+
+
+
+        categorias:
+
+        JSON.parse(
+
+            localStorage.getItem("categorias")
+
+        ) || [],
+
+
+
+        usuarios:
+
+        JSON.parse(
+
+            localStorage.getItem("usuarios")
+
+        ) || []
+
+
+
+    };
+
+
+
+
+
+    const arquivo = new Blob(
+
+        [
+
+            JSON.stringify(
+
+                dados,
+
+                null,
+
+                2
+
+            )
+
+        ],
+
+        {
+
+            type:"application/json"
+
+        }
+
+    );
+
+
+
+
 
     const link = document.createElement("a");
 
-    link.href = URL.createObjectURL(blob);
 
-    const data = new Date();
+    link.href = URL.createObjectURL(arquivo);
 
-    const nomeArquivo =
-        "EMPIRE_BACKUP_" +
-        data.getFullYear() +
-        "-" +
-        String(data.getMonth() + 1).padStart(2, "0") +
-        "-" +
-        String(data.getDate()).padStart(2, "0") +
-        ".json";
 
-    link.download = nomeArquivo;
+    link.download =
+
+    "backup-empire-erp.json";
+
+
 
     link.click();
 
-    URL.revokeObjectURL(link.href);
 
-    alert("Backup exportado com sucesso!");
+
+
+    document.getElementById(
+
+        "statusBackup"
+
+    ).innerHTML =
+
+    "Backup exportado com sucesso!";
+
+
 
 }
+
+
+
+
 
 // ======================================
 // Importar Backup
 // ======================================
 
-function importarBackup() {
+function importarBackup(){
 
-    const arquivo = document.getElementById("arquivoBackup").files[0];
 
-    if (!arquivo) {
 
-        alert("Selecione um arquivo de backup.");
+    const arquivo =
+
+    document.getElementById(
+
+        "arquivoBackup"
+
+    ).files[0];
+
+
+
+    if(!arquivo){
+
+
+        alert(
+
+        "Selecione um arquivo de backup."
+
+        );
+
 
         return;
 
+
     }
+
+
+
+
 
     const leitor = new FileReader();
 
-    leitor.onload = function(e) {
 
-        try {
 
-            const backup = JSON.parse(e.target.result);
 
-            localStorage.clear();
+    leitor.onload = function(e){
 
-            Object.keys(backup).forEach(function(chave) {
 
-                localStorage.setItem(
 
-                    chave,
+        const dados = JSON.parse(
 
-                    backup[chave]
+            e.target.result
 
-                );
+        );
 
-            });
 
-            alert("Backup restaurado com sucesso!");
 
-            window.location.href = "dashboard.html";
 
-        } catch (erro) {
 
-            alert("Arquivo de backup inválido.");
+        Object.keys(dados).forEach(chave=>{
 
-        }
+
+            localStorage.setItem(
+
+                chave,
+
+                JSON.stringify(
+
+                    dados[chave]
+
+                )
+
+            );
+
+
+        });
+
+
+
+
+
+        document.getElementById(
+
+            "statusBackup"
+
+        ).innerHTML =
+
+        "Backup restaurado com sucesso!";
+
+
+
+
+        alert(
+
+        "Dados restaurados. Recarregue o sistema."
+
+        );
+
+
 
     };
 
+
+
+
+
     leitor.readAsText(arquivo);
+
+
 
 }
