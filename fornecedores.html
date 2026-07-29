@@ -24,7 +24,6 @@
 <div class="overlay"></div>
 
 
-
 <aside class="menu">
 
 
@@ -39,44 +38,37 @@
 </div>
 
 
-
 <nav>
 
+<a href="dashboard.html">🏠 Dashboard</a>
 
-<a href="dashboard.html">
-🏠 Dashboard
-</a>
+<a href="produtos.html">📦 Produtos</a>
 
+<a href="compras.html">🛒 Compras</a>
 
-<a href="produtos.html">
-📦 Produtos
-</a>
+<a href="vendas.html">💰 Vendas</a>
 
+<a href="clientes.html">👥 Clientes</a>
 
-<a href="clientes.html">
-👥 Clientes
-</a>
+<a href="fornecedores.html">🚚 Fornecedores</a>
 
+<a href="categorias.html">🏷 Categorias</a>
 
-<a href="fornecedores.html">
-🚚 Fornecedores
-</a>
+<a href="financeiro.html">💵 Financeiro</a>
 
+<a href="relatorios.html">📊 Relatórios</a>
 
-<a href="vendas.html">
-💰 Vendas
-</a>
+<a href="usuarios.html">👤 Usuários</a>
 
+<a href="monitoramento.html">📋 Monitoramento</a>
 
-<a href="relatorios.html">
-📊 Relatórios
-</a>
+<a href="configuracoes.html">⚙ Configurações</a>
 
+<a href="backup.html">💾 Backup</a>
 
-<a href="index.html">
-🚪 Sair
-</a>
+<a href="alterar-senha.html">🔐 Alterar Senha</a>
 
+<a href="#" onclick="sairSistema()">🚪 Sair</a>
 
 </nav>
 
@@ -85,32 +77,23 @@
 
 
 
-
 <main class="conteudo">
 
 
 <header>
 
-<h1>
-🚚 Fornecedores
-</h1>
-
+<h1>🚚 Fornecedores</h1>
 
 <div id="usuarioInfo"></div>
 
-
 </header>
-
 
 
 
 <section class="painel">
 
 
-<h2>
-Cadastro de Fornecedor
-</h2>
-
+<h2>Cadastro de Fornecedor</h2>
 
 
 <div class="formulario">
@@ -119,15 +102,13 @@ Cadastro de Fornecedor
 <input
 type="text"
 id="nomeFornecedor"
-placeholder="Nome do fornecedor">
-
+placeholder="Nome da empresa">
 
 
 <input
 type="text"
-id="empresaFornecedor"
-placeholder="Empresa">
-
+id="cnpjFornecedor"
+placeholder="CNPJ">
 
 
 <input
@@ -136,23 +117,22 @@ id="telefoneFornecedor"
 placeholder="Telefone">
 
 
-
 <input
 type="email"
 id="emailFornecedor"
 placeholder="E-mail">
 
 
-
 <input
 type="text"
-id="observacaoFornecedor"
-placeholder="Observações">
+id="enderecoFornecedor"
+placeholder="Endereço">
 
 
+<button onclick="salvarFornecedor()">
 
-<button>
 SALVAR FORNECEDOR
+
 </button>
 
 
@@ -163,15 +143,10 @@ SALVAR FORNECEDOR
 
 
 
-
-
 <section class="painel">
 
 
-<h2>
-Lista de Fornecedores
-</h2>
-
+<h2>Fornecedores Cadastrados</h2>
 
 
 <table>
@@ -181,13 +156,13 @@ Lista de Fornecedores
 
 <tr>
 
-<th>Nome</th>
-
 <th>Empresa</th>
+
+<th>CNPJ</th>
 
 <th>Telefone</th>
 
-<th>Email</th>
+<th>E-mail</th>
 
 <th>Ações</th>
 
@@ -196,8 +171,7 @@ Lista de Fornecedores
 </thead>
 
 
-
-<tbody>
+<tbody id="listaFornecedores">
 
 
 </tbody>
@@ -206,10 +180,7 @@ Lista de Fornecedores
 </table>
 
 
-
 </section>
-
-
 
 
 </main>
@@ -217,6 +188,8 @@ Lista de Fornecedores
 
 
 <script src="js/dashboard.js"></script>
+
+<script src="js/fornecedores.js"></script>
 
 
 </body>
