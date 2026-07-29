@@ -1,25 +1,99 @@
 // ======================================
 // EMPIRE ERP
 // Módulo de Compras
-// Entrada de Estoque
 // ======================================
-
 
 let compras = JSON.parse(
-
     localStorage.getItem("compras")
-
 ) || [];
 
-
-
-
 // ======================================
-// Salvar Compras
+// Carregar Produtos
 // ======================================
 
-function salvarCompras(){
+function carregarProdutos() {
 
+    const select = document.getElementById("produtoCompra");
+
+    const produtos = JSON.parse(
+        localStorage.getItem("produtos")
+    ) || [];
+
+    select.innerHTML = "";
+
+    produtos.forEach((produto, indice) => {
+
+        select.innerHTML += `
+            <option value="${indice}">
+                ${produto.codigo} - ${produto.produto}
+            </option>
+        `;
+
+    });
+
+}
+
+// ======================================
+// Registrar Compra
+// ======================================
+
+function registrarCompra() {
+
+    const indice = Number(
+        document.getElementById("produtoCompra").value
+    );
+
+    const fornecedor =
+    document.getElementById("fornecedorCompra").value;
+
+    const quantidade = Number(
+        document.getElementById("quantidadeCompra").value
+    );
+
+    const custo = Number(
+        document.getElementById("custoCompra").value
+    );
+
+    const data =
+    document.getElementById("dataCompra").value;
+
+    if (!fornecedor || quantidade <= 0 || custo <= 0 || !data) {
+
+        alert("Preencha todos os campos.");
+
+        return;
+
+    }
+
+    let produtos = JSON.parse(
+        localStorage.getItem("produtos")
+    ) || [];
+
+    produtos[indice].quantidade =
+        Number(produtos[indice].quantidade) + quantidade;
+
+    produtos[indice].custo = custo;
+
+    localStorage.setItem(
+        "produtos",
+        JSON.stringify(produtos)
+    );
+
+    compras.push({
+
+        data: data,
+
+        produto: produtos[indice].produto,
+
+        fornecedor: fornecedor,
+
+        quantidade: quantidade,
+
+        custo: custo,
+
+        total: quantidade * custo
+
+    });
 
     localStorage.setItem(
 
@@ -29,328 +103,77 @@ function salvarCompras(){
 
     );
 
-
-}
-
-
-
-
-// ======================================
-// Registrar Compra
-// ======================================
-
-
-function registrarCompra(){
-
-
-
-    const produto =
-    document.getElementById("produtoCompra").value;
-
-
-
-    const fornecedor =
-    document.getElementById("fornecedorCompra").value;
-
-
-
-    const quantidade =
-    Number(
-        document.getElementById("quantidadeCompra").value
-    );
-
-
-
-    const valor =
-    Number(
-        document.getElementById("valorCompra").value
-    );
-
-
-
-
-
-    if(
-        !produto ||
-        !quantidade
-    ){
-
-
-        alert(
-            "Preencha produto e quantidade."
-        );
-
-
-        return;
-
-
-    }
-
-
-
-
-
-
-    const novaCompra = {
-
-
-        produto,
-
-        fornecedor,
-
-        quantidade,
-
-        valor,
-
-        data:
-        new Date().toLocaleString("pt-BR")
-
-
-    };
-
-
-
-
-
-    compras.push(
-        novaCompra
-    );
-
-
-
-    salvarCompras();
-
-
-
-    atualizarEstoque(
-        produto,
-        quantidade
-    );
-
-
-
     listarCompras();
 
+    limparFormulario();
 
-
-    limparCompra();
-
-
+    alert("Compra registrada com sucesso!");
 
 }
-
-
-
-
-// ======================================
-// Atualizar Estoque
-// ======================================
-
-
-function atualizarEstoque(
-    nomeProduto,
-    quantidade
-){
-
-
-
-    let produtos = JSON.parse(
-
-        localStorage.getItem("produtos")
-
-    ) || [];
-
-
-
-
-    let encontrado = produtos.find(
-
-        p =>
-        p.produto.toLowerCase() ===
-        nomeProduto.toLowerCase()
-
-    );
-
-
-
-
-
-    if(encontrado){
-
-
-        encontrado.quantidade =
-
-        Number(encontrado.quantidade || 0)
-
-        +
-
-        Number(quantidade);
-
-
-
-        localStorage.setItem(
-
-            "produtos",
-
-            JSON.stringify(produtos)
-
-        );
-
-
-
-    }else{
-
-
-        alert(
-
-        "Produto não encontrado no estoque. Cadastre primeiro em Produtos."
-
-        );
-
-
-    }
-
-
-
-}
-
-
-
 
 // ======================================
 // Listar Compras
 // ======================================
 
+function listarCompras() {
 
-function listarCompras(){
-
-
-
-    const tabela = document.getElementById(
-
-        "listaCompras"
-
-    );
-
-
-
-    if(!tabela){
-
-        return;
-
-    }
-
-
-
+    const tabela =
+    document.getElementById("listaCompras");
 
     tabela.innerHTML = "";
 
-
-
-
-    const contador = document.getElementById(
-
-        "contadorCompras"
-
-    );
-
-
-
-    if(contador){
-
-
-        contador.innerHTML =
-        compras.length;
-
-
-    }
-
-
-
-
-
-    compras.forEach((c)=>{
-
-
+    compras.forEach(compra => {
 
         tabela.innerHTML += `
 
-
         <tr>
 
+        <td>${compra.data}</td>
 
-        <td>
-        ${c.produto}
-        </td>
+        <td>${compra.produto}</td>
 
+        <td>${compra.fornecedor}</td>
 
-        <td>
-        ${c.fornecedor}
-        </td>
+        <td>${compra.quantidade}</td>
 
+        <td>${compra.custo.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })}</td>
 
-        <td>
-        ${c.quantidade}
-        </td>
-
-
-        <td>
-        R$ ${c.valor.toFixed(2)}
-        </td>
-
-
-        <td>
-        ${c.data}
-        </td>
-
+        <td>${compra.total.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })}</td>
 
         </tr>
 
-
         `;
-
-
 
     });
 
-
-
 }
-
-
-
-
 
 // ======================================
 // Limpar Formulário
 // ======================================
 
+function limparFormulario() {
 
-function limparCompra(){
+    document.getElementById("fornecedorCompra").value = "";
 
+    document.getElementById("quantidadeCompra").value = "";
 
+    document.getElementById("custoCompra").value = "";
 
-document.getElementById("produtoCompra").value = "";
-
-
-document.getElementById("fornecedorCompra").value = "";
-
-
-document.getElementById("quantidadeCompra").value = "";
-
-
-document.getElementById("valorCompra").value = "";
-
-
+    document.getElementById("dataCompra").value = "";
 
 }
-
-
-
 
 // ======================================
 // Inicialização
 // ======================================
 
+carregarProdutos();
 
 listarCompras();
