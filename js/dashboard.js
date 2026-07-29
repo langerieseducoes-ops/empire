@@ -174,7 +174,7 @@ function sairSistema() {
 
 
 // ======================================
-// Carregar Dados dos Cards
+// Atualizar Cards Dashboard
 // ======================================
 
 
@@ -191,14 +191,24 @@ function atualizarCards(){
 
     let estoque = 0;
 
+    let valorEstoque = 0;
+
 
 
     produtos.forEach(produto => {
 
 
-        estoque +=
+        estoque += Number(
+            produto.quantidade || 0
+        );
+
+
+        valorEstoque +=
+
+        Number(produto.custo || 0) *
 
         Number(produto.quantidade || 0);
+
 
 
     });
@@ -211,6 +221,10 @@ function atualizarCards(){
 
     const totalEstoque =
     document.getElementById("totalEstoque");
+
+
+    const valorFinanceiro =
+    document.getElementById("valorFinanceiro");
 
 
 
@@ -231,11 +245,33 @@ function atualizarCards(){
     }
 
 
+
+    if(valorFinanceiro){
+
+        valorFinanceiro.innerHTML =
+
+        valorEstoque.toLocaleString(
+            "pt-BR",
+            {
+                style:"currency",
+                currency:"BRL"
+            }
+        );
+
+    }
+
+const vendasHoje =
+document.getElementById("vendasHoje");
+
+
+if(vendasHoje){
+
+    vendasHoje.innerHTML =
+    "R$ 0,00";
+
 }
-
-
-
-
+    
+}
 // ======================================
 // Inicialização
 // ======================================
