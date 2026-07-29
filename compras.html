@@ -7,31 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>Empire - Compras</title>
-
 
 <link rel="stylesheet" href="style.css">
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 
 <script src="js/empresa.js"></script>
 
-
 </head>
-
 
 <body class="dashboard">
 
-
 <div class="overlay"></div>
 
-
-
 <aside class="menu">
-
 
 <div class="marca">
 
@@ -43,119 +33,64 @@
 
 </div>
 
-
-
 <nav>
 
-
-<a href="dashboard.html">
-🏠 Dashboard
-</a>
-
-
-<a href="produtos.html">
-📦 Produtos
-</a>
-
-
-<a href="compras.html">
-🛒 Compras
-</a>
-
-
-<a href="clientes.html">
-👥 Clientes
-</a>
-
-
-<a href="fornecedores.html">
-🚚 Fornecedores
-</a>
-
-
-<a href="vendas.html">
-💰 Vendas
-</a>
-
-
-<a href="relatorios.html">
-📊 Relatórios
-</a>
-
-
-<a href="index.html">
-🚪 Sair
-</a>
-
+<a href="dashboard.html">🏠 Dashboard</a>
+<a href="produtos.html">📦 Produtos</a>
+<a href="compras.html">🛒 Compras</a>
+<a href="vendas.html">💰 Vendas</a>
+<a href="clientes.html">👥 Clientes</a>
+<a href="fornecedores.html">🚚 Fornecedores</a>
+<a href="categorias.html">🏷 Categorias</a>
+<a href="financeiro.html">💵 Financeiro</a>
+<a href="relatorios.html">📊 Relatórios</a>
+<a href="usuarios.html">👤 Usuários</a>
+<a href="monitoramento.html">📋 Monitoramento</a>
+<a href="configuracoes.html">⚙ Configurações</a>
+<a href="backup.html">💾 Backup</a>
+<a href="alterar-senha.html">🔐 Alterar Senha</a>
+<a href="#" onclick="sairSistema()">🚪 Sair</a>
 
 </nav>
 
-
 </aside>
-
-
-
-
 
 <main class="conteudo">
 
-
 <header>
 
-<h1>
-🛒 Compras
-</h1>
-
+<h1>🛒 Compras</h1>
 
 <div id="usuarioInfo"></div>
 
-
 </header>
-
-
-
-
 
 <section class="painel">
 
-
-<h2>
-Entrada de Mercadoria
-</h2>
-
-
+<h2>Nova Compra</h2>
 
 <div class="formulario">
 
+<select id="produtoCompra"></select>
 
-
-<input 
-type="text"
-id="produtoCompra"
-placeholder="Produto">
-
-
-
-<input 
+<input
 type="text"
 id="fornecedorCompra"
 placeholder="Fornecedor">
 
-
-
-<input 
+<input
 type="number"
 id="quantidadeCompra"
 placeholder="Quantidade">
 
-
-
-<input 
+<input
 type="number"
-id="valorCompra"
-placeholder="Valor da compra">
+id="custoCompra"
+placeholder="Valor Unitário">
 
-
+<input
+type="date"
+id="dataCompra">
 
 <button onclick="registrarCompra()">
 
@@ -163,44 +98,21 @@ REGISTRAR COMPRA
 
 </button>
 
-
-
 </div>
-
 
 </section>
 
-
-
-
-
 <section class="painel">
 
-
-<h2>
-Histórico de Compras
-</h2>
-
-
-
-<p>
-
-Total de compras:
-
-<strong id="contadorCompras">
-0
-</strong>
-
-</p>
-
-
+<h2>Histórico de Compras</h2>
 
 <table>
-
 
 <thead>
 
 <tr>
+
+<th>Data</th>
 
 <th>Produto</th>
 
@@ -208,38 +120,26 @@ Total de compras:
 
 <th>Quantidade</th>
 
-<th>Valor</th>
+<th>Custo</th>
 
-<th>Data</th>
+<th>Total</th>
 
 </tr>
 
 </thead>
 
-
-
 <tbody id="listaCompras">
 
 </tbody>
 
-
-
 </table>
-
-
 
 </section>
 
-
-
 </main>
 
-
-
 <script src="js/dashboard.js"></script>
-
 <script src="js/compras.js"></script>
-
 
 </body>
 
