@@ -1,93 +1,193 @@
-// ======================================
+ // ======================================
 // EMPIRE ERP
-// Monitoramento do Sistema
+// Módulo de Monitoramento
 // ======================================
 
+
+let monitoramento = JSON.parse(
+
+    localStorage.getItem("monitoramento")
+
+) || [];
+
+
+
+
 // ======================================
-// Atualizar Monitoramento
+// Registrar Atividade
 // ======================================
 
-function atualizarMonitoramento() {
+function registrarAtividade(acao, descricao){
 
-    // Usuário logado
+
     const usuario = JSON.parse(
+
         localStorage.getItem("usuarioLogado")
+
     );
 
-    if (usuario) {
 
-        document.getElementById("usuarioSistema").innerHTML =
-        usuario.nome;
 
-        document.getElementById("perfilSistema").innerHTML =
-        usuario.perfil;
+    const registro = {
 
-    }
 
-    // Data e Hora
-    document.getElementById("horaSistema").innerHTML =
-    new Date().toLocaleString("pt-BR");
+        data:
 
-    // Produtos
-    const produtos = JSON.parse(
-        localStorage.getItem("produtos")
-    ) || [];
+        new Date().toLocaleString("pt-BR"),
 
-    document.getElementById("produtosSistema").innerHTML =
-    produtos.length;
 
-    // Estoque
-    let estoque = 0;
 
-    produtos.forEach(function(produto){
+        usuario:
 
-        estoque += Number(
-            produto.quantidade || 0
-        );
+        usuario ? usuario.nome : "Sistema",
 
-    });
 
-    document.getElementById("estoqueSistema").innerHTML =
-    estoque;
 
-    // Espaço utilizado
-    let tamanho = 0;
+        acao,
 
-    for(let i = 0; i < localStorage.length; i++){
 
-        const chave = localStorage.key(i);
 
-        tamanho += (
-            localStorage.getItem(chave)?.length || 0
-        );
+        descricao
 
-    }
 
-    document.getElementById("memoriaSistema").innerHTML =
-    (tamanho / 1024).toFixed(2) + " KB";
+    };
 
-    // Navegador
 
-    document.getElementById("navegadorSistema").innerHTML =
-    navigator.userAgent;
 
-    // Idioma
+    monitoramento.push(registro);
 
-    document.getElementById("idiomaSistema").innerHTML =
-    navigator.language;
+
+
+    localStorage.setItem(
+
+        "monitoramento",
+
+        JSON.stringify(monitoramento)
+
+    );
+
 
 }
 
+
+
+
 // ======================================
-// Atualização Automática
+// Listar Monitoramento
 // ======================================
 
-atualizarMonitoramento();
+function listarMonitoramento(){
 
-setInterval(
 
-    atualizarMonitoramento,
+    const tabela = document.getElementById(
 
-    1000
+        "listaMonitoramento"
 
-);
+    );
+
+
+
+    if(!tabela){
+
+        return;
+
+    }
+
+
+
+    tabela.innerHTML = "";
+
+
+
+    monitoramento.reverse().forEach(item=>{
+
+
+        tabela.innerHTML += `
+
+
+        <tr>
+
+
+        <td>
+
+        ${item.data}
+
+        </td>
+
+
+        <td>
+
+        ${item.usuario}
+
+        </td>
+
+
+        <td>
+
+        ${item.acao}
+
+        </td>
+
+
+        <td>
+
+        ${item.descricao}
+
+        </td>
+
+
+        </tr>
+
+
+        `;
+
+
+    });
+
+
+}
+
+
+
+
+// ======================================
+// Limpar Histórico
+// ======================================
+
+function limparMonitoramento(){
+
+
+    if(confirm(
+
+        "Deseja apagar todo o histórico?"
+
+    )){
+
+
+        monitoramento = [];
+
+
+
+        localStorage.removeItem(
+
+            "monitoramento"
+
+        );
+
+
+
+        listarMonitoramento();
+
+
+    }
+
+
+}
+
+
+
+// ======================================
+// Inicialização
+// ======================================
+
+listarMonitoramento();
