@@ -191,7 +191,16 @@ function listarProdutos(){
 
     tabela.innerHTML = "";
 
+const contador = document.getElementById(
+    "contadorProdutos"
+);
 
+
+if(contador){
+
+    contador.innerHTML = produtos.length;
+
+}
 
 
     produtos.forEach(
@@ -262,7 +271,6 @@ function listarProdutos(){
 
 
 
-
 // ======================================
 // Editar Produto
 // ======================================
@@ -274,35 +282,35 @@ function editarProduto(index){
     const p = produtos[index];
 
 
-    codigo.value =
+    document.getElementById("codigo").value =
     p.codigo;
 
 
-    produto.value =
+    document.getElementById("produto").value =
     p.produto;
 
 
-    categoria.value =
+    document.getElementById("categoria").value =
     p.categoria;
 
 
-    tamanho.value =
+    document.getElementById("tamanho").value =
     p.tamanho;
 
 
-    cor.value =
+    document.getElementById("cor").value =
     p.cor;
 
 
-    custo.value =
+    document.getElementById("custo").value =
     p.custo;
 
 
-    venda.value =
+    document.getElementById("venda").value =
     p.venda;
 
 
-    quantidade.value =
+    document.getElementById("quantidade").value =
     p.quantidade;
 
 
@@ -311,9 +319,6 @@ function editarProduto(index){
 
 
 }
-
-
-
 
 // ======================================
 // Excluir Produto
@@ -358,21 +363,21 @@ function excluirProduto(index){
 function limparFormulario(){
 
 
-    codigo.value = "";
+   document.getElementById("codigo").value = "";
 
-    produto.value = "";
+   document.getElementById("produto").value = "";
 
-    categoria.value = "";
+   document.getElementById("categoria").value = "";
 
-    tamanho.value = "";
+    document.getElementById("tamanho").value = "";
 
-    cor.value = "";
+    document.getElementById("cor").value = "";
 
-    custo.value = "";
+    document.getElementById("custo").value = "";
 
-    venda.value = "";
+    document.getElementById("venda").value = "";
 
-    quantidade.value = "";
+    document.getElementById("quantidade").value = "";
 
 
 }
@@ -384,5 +389,103 @@ function limparFormulario(){
 // Inicialização
 // ======================================
 
+// ======================================
+// Pesquisa de Produtos
+// ======================================
+
+
+function pesquisarProduto(){
+
+
+    const texto = document.getElementById(
+        "pesquisaProduto"
+    ).value.toLowerCase();
+
+
+
+    const tabela = document.getElementById(
+        "listaProdutos"
+    );
+
+
+    tabela.innerHTML = "";
+
+let encontrados = 0;
+
+    produtos
+    .filter(p =>
+
+        p.produto.toLowerCase()
+        .includes(texto)
+
+        ||
+
+        p.codigo.toLowerCase()
+        .includes(texto)
+
+    )
+    .forEach((p,index)=>{
+
+     encontrados++;
+        
+        tabela.innerHTML += `
+
+
+        <tr>
+
+
+        <td>${p.codigo}</td>
+
+        <td>${p.produto}</td>
+
+        <td>${p.categoria}</td>
+
+        <td>${p.tamanho}</td>
+
+        <td>${p.cor}</td>
+
+        <td>${p.quantidade}</td>
+
+        <td>
+        R$ ${p.venda.toFixed(2)}
+        </td>
+
+
+        <td>
+
+
+        <button onclick="editarProduto(${index})">
+        ✏️
+        </button>
+
+
+        <button onclick="excluirProduto(${index})">
+        🗑️
+        </button>
+
+
+        </td>
+
+
+        </tr>
+
+
+        `;
+
+
+    });
+
+    const contador = document.getElementById(
+    "contadorProdutos"
+);
+
+
+if(contador){
+
+    contador.innerHTML = encontrados;
+
+}
+
+}
 
 listarProdutos();
