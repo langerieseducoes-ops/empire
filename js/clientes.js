@@ -1,4 +1,3 @@
-//
 // ======================================
 // EMPIRE ERP
 // Módulo de Clientes
@@ -17,7 +16,6 @@ let indiceCliente = -1;
 
 
 
-
 // ======================================
 // Salvar Clientes
 // ======================================
@@ -25,18 +23,12 @@ let indiceCliente = -1;
 
 function salvarClientes(){
 
-
     localStorage.setItem(
-
         "clientes",
-
         JSON.stringify(clientes)
-
     );
 
-
 }
-
 
 
 
@@ -52,39 +44,20 @@ function adicionarCliente(){
     document.getElementById("nomeCliente").value;
 
 
-    const documento =
-    document.getElementById("documento").value;
-
-
     const telefone =
-    document.getElementById("telefone").value;
+    document.getElementById("telefoneCliente").value;
 
 
-    const whatsapp =
-    document.getElementById("whatsapp").value;
-
-
-    const cidade =
-    document.getElementById("cidade").value;
-
-
-    const endereco =
-    document.getElementById("endereco").value;
-
-
-    const observacao =
-    document.getElementById("observacao").value;
-
+    const email =
+    document.getElementById("emailCliente").value;
 
 
 
     if(!nome){
 
-
         alert(
             "Digite o nome do cliente."
         );
-
 
         return;
 
@@ -92,64 +65,38 @@ function adicionarCliente(){
 
 
 
-
-
     const cliente = {
 
-
         nome,
-
-        documento,
-
         telefone,
-
-        whatsapp,
-
-        cidade,
-
-        endereco,
-
-        observacao
-
+        email
 
     };
 
 
 
-
-
     if(indiceCliente === -1){
-
 
         clientes.push(cliente);
 
-
     }else{
-
 
         clientes[indiceCliente] = cliente;
 
-
         indiceCliente = -1;
-
 
     }
 
 
 
-
-
     salvarClientes();
 
-
     listarClientes();
-
 
     limparCliente();
 
 
 }
-
 
 
 
@@ -163,11 +110,9 @@ function listarClientes(){
 
 
     const tabela =
-
-    document.getElementById(
-        "listaClientes"
+    document.querySelector(
+        "#listaClientes"
     );
-
 
 
     if(!tabela){
@@ -178,27 +123,7 @@ function listarClientes(){
 
 
 
-
     tabela.innerHTML = "";
-
-
-
-    const contador =
-
-    document.getElementById(
-        "contadorClientes"
-    );
-
-
-
-    if(contador){
-
-        contador.innerHTML =
-        clientes.length;
-
-    }
-
-
 
 
 
@@ -207,20 +132,13 @@ function listarClientes(){
 
         tabela.innerHTML += `
 
-
         <tr>
-
 
         <td>${c.nome}</td>
 
-
-        <td>${c.documento}</td>
-
-
         <td>${c.telefone}</td>
 
-
-        <td>${c.cidade}</td>
+        <td>${c.email}</td>
 
 
         <td>
@@ -241,9 +159,7 @@ function listarClientes(){
 
         </tr>
 
-
         `;
-
 
 
     });
@@ -251,8 +167,6 @@ function listarClientes(){
 
 
 }
-
-
 
 
 
@@ -267,33 +181,19 @@ function editarCliente(index){
     const c = clientes[index];
 
 
-
-    document.getElementById("nomeCliente").value =
-    c.nome;
-
-
-    document.getElementById("documento").value =
-    c.documento;
+    document.getElementById(
+        "nomeCliente"
+    ).value = c.nome;
 
 
-    document.getElementById("telefone").value =
-    c.telefone;
+    document.getElementById(
+        "telefoneCliente"
+    ).value = c.telefone;
 
 
-    document.getElementById("whatsapp").value =
-    c.whatsapp;
-
-
-    document.getElementById("cidade").value =
-    c.cidade;
-
-
-    document.getElementById("endereco").value =
-    c.endereco;
-
-
-    document.getElementById("observacao").value =
-    c.observacao;
+    document.getElementById(
+        "emailCliente"
+    ).value = c.email;
 
 
 
@@ -301,7 +201,6 @@ function editarCliente(index){
 
 
 }
-
 
 
 
@@ -327,7 +226,6 @@ function excluirCliente(index){
 
         salvarClientes();
 
-
         listarClientes();
 
 
@@ -335,7 +233,6 @@ function excluirCliente(index){
 
 
 }
-
 
 
 
@@ -348,28 +245,27 @@ function excluirCliente(index){
 function limparCliente(){
 
 
-    document.getElementById("nomeCliente").value = "";
+    document.getElementById(
+        "nomeCliente"
+    ).value = "";
 
-    document.getElementById("documento").value = "";
 
-    document.getElementById("telefone").value = "";
+    document.getElementById(
+        "telefoneCliente"
+    ).value = "";
 
-    document.getElementById("whatsapp").value = "";
 
-    document.getElementById("cidade").value = "";
-
-    document.getElementById("endereco").value = "";
-
-    document.getElementById("observacao").value = "";
+    document.getElementById(
+        "emailCliente"
+    ).value = "";
 
 
 }
 
 
 
-
 // ======================================
-// Iniciar
+// Inicialização
 // ======================================
 
 
