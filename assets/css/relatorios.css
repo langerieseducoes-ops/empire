@@ -1,0 +1,741 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   RELATORIOS.CSS
+
+   Módulo de Relatórios
+
+===================================================== */
+
+
+
+/* =====================================================
+   CONTAINER RELATÓRIOS
+===================================================== */
+
+
+
+.relatorios-container {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CARDS DE RELATÓRIOS
+===================================================== */
+
+
+
+.relatorio-card {
+
+
+    padding:
+
+    25px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.4);
+
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.relatorio-card:hover {
+
+
+    transform:
+
+    translateY(-5px);
+
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+.relatorio-card h3 {
+
+
+    color:
+
+    #aaa;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.relatorio-card strong {
+
+
+    display:
+
+    block;
+
+
+
+    margin-top:
+
+    12px;
+
+
+
+    font-size:
+
+    30px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+/* =====================================================
+   FILTROS DE RELATÓRIOS
+===================================================== */
+
+
+
+.filtro-relatorio {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    padding:
+
+    18px;
+
+
+
+    border-radius:
+
+    20px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+}
+
+
+
+
+
+
+
+.filtro-relatorio select,
+
+.filtro-relatorio input {
+
+
+    flex:
+
+    1;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABELA DE RELATÓRIOS
+===================================================== */
+
+
+
+.relatorio-tabela {
+
+
+    margin-top:
+
+    30px;
+
+
+
+    padding:
+
+    20px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.18);
+
+
+
+}
+
+
+
+
+
+
+
+.relatorio-tabela table {
+
+
+    width:
+
+    100%;
+
+
+
+}
+
+
+
+
+
+
+
+.relatorio-tabela tbody tr {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.relatorio-tabela tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   AREA DE GRÁFICOS
+===================================================== */
+
+
+
+.graficos-relatorio {
+
+
+    display:
+
+    grid;
+
+
+
+    grid-template-columns:
+
+    repeat(
+
+    auto-fit,
+
+    minmax(
+
+    280px,
+
+    1fr
+
+    )
+
+    );
+
+
+
+    gap:
+
+    25px;
+
+
+
+    margin-top:
+
+    30px;
+
+
+
+}
+
+
+
+
+
+
+
+.grafico-box {
+
+
+    min-height:
+
+    280px;
+
+
+
+    padding:
+
+    20px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+}
+/* =====================================================
+   BOTÕES DE EXPORTAÇÃO
+===================================================== */
+
+
+
+.btn-relatorio {
+
+
+    padding:
+
+    12px 22px;
+
+
+
+    border-radius:
+
+    15px;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+
+
+.btn-relatorio:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+}
+
+
+
+
+
+
+
+.btn-exportar {
+
+
+    background:
+
+    rgba(212,175,55,.15);
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.40);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   INDICADORES DE DESEMPENHO
+===================================================== */
+
+
+
+.indicador-relatorio {
+
+
+    display:
+
+    flex;
+
+
+
+    justify-content:
+
+    space-between;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    15px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    margin-bottom:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+.indicador-relatorio strong {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÃO
+===================================================== */
+
+
+
+.relatorio-item {
+
+
+    animation:
+
+    aparecer .4s ease;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+
+@media(max-width:768px){
+
+
+
+    .filtro-relatorio {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        stretch;
+
+
+
+    }
+
+
+
+
+
+
+
+    .relatorio-card strong {
+
+
+        font-size:
+
+        24px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .graficos-relatorio {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+
+.relatorio-premium {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.relatorio-premium:hover {
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(212,175,55,.20);
+
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+}
