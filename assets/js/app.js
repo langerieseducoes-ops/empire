@@ -1,103 +1,70 @@
 /* =====================================================
-   EMPIRE ERP PREMIUM REMASTER v2.0
+   EMPIRE ERP PREMIUM REMASTER
 
    APP.JS
-   Sistema Global
+
+   Controle geral do sistema
 
 ===================================================== */
 
 
 
-// =====================================================
-// CONFIGURAÇÃO PRINCIPAL
-// =====================================================
+/* =====================================================
+   VERIFICAR LOGIN
+===================================================== */
 
 
-const SISTEMA = {
+function verificarLogin(){
 
 
-    nome:
+    const usuario =
 
-    "Empire ERP Premium",
+    JSON.parse(
 
+        localStorage.getItem(
 
+            "usuarioLogado"
 
-    empresa:
-
-    "Império da Moda Online",
-
-
-
-    versao:
-
-    "2.0"
-
-
-
-};
-
-
-
-
-
-
-// =====================================================
-// CONTROLE DO USUÁRIO
-// =====================================================
-
-
-
-let usuarioAtual =
-
-JSON.parse(
-
-localStorage.getItem("usuarioAtual")
-
-)
-
-||
-
-{
-
-    nome:
-
-    "Administrador",
-
-
-    nivel:
-
-    "Administrador",
-
-
-    status:
-
-    "online"
-
-
-
-};
-
-
-
-
-
-
-// =====================================================
-// SALVAR SESSÃO
-// =====================================================
-
-
-
-function salvarSessao(){
-
-
-    localStorage.setItem(
-
-        "usuarioAtual",
-
-        JSON.stringify(usuarioAtual)
+        )
 
     );
+
+
+
+
+
+    const paginaLogin =
+
+    window.location.pathname.includes(
+
+        "index.html"
+
+    );
+
+
+
+
+
+    if(!usuario && !paginaLogin){
+
+
+
+        window.location.href =
+
+        "../index.html";
+
+
+
+        return false;
+
+
+    }
+
+
+
+
+
+    return true;
 
 
 }
@@ -107,17 +74,32 @@ function salvarSessao(){
 
 
 
-// =====================================================
-// CARREGAR INFORMAÇÕES DO USUÁRIO
-// =====================================================
-
+/* =====================================================
+   MOSTRAR USUARIO LOGADO
+===================================================== */
 
 
 function carregarUsuario(){
 
 
 
-    const elemento =
+    const usuario =
+
+    JSON.parse(
+
+        localStorage.getItem(
+
+            "usuarioLogado"
+
+        )
+
+    );
+
+
+
+
+
+    const campo =
 
     document.getElementById(
 
@@ -127,7 +109,58 @@ function carregarUsuario(){
 
 
 
-    if(!elemento){
+
+
+    if(usuario && campo){
+
+
+
+        campo.innerHTML = `
+
+        <div class="usuario-logado">
+
+        👤 ${usuario.nome}
+
+        <br>
+
+        <small>
+
+        ${usuario.nivel}
+
+        </small>
+
+        </div>
+
+        `;
+
+
+
+    }
+
+
+
+}
+/* =====================================================
+   SAIR DO SISTEMA
+===================================================== */
+
+
+function sairSistema(){
+
+
+    const confirmar =
+
+    confirm(
+
+        "Deseja realmente sair do sistema?"
+
+    );
+
+
+
+
+
+    if(!confirmar){
 
         return;
 
@@ -137,169 +170,9 @@ function carregarUsuario(){
 
 
 
-    elemento.innerHTML = `
+    localStorage.removeItem(
 
-
-
-    <div class="avatar">
-
-        ${
-
-        usuarioAtual.nome
-
-        .charAt(0)
-
-        .toUpperCase()
-
-        }
-
-    </div>
-
-
-
-    <div>
-
-
-    <strong>
-
-    ${usuarioAtual.nome}
-
-    </strong>
-
-
-
-    <br>
-
-
-
-    <span class="status online">
-
-    Online
-
-    </span>
-
-
-
-    </div>
-
-
-    `;
-
-
-
-}
-
-
-
-
-
-
-// =====================================================
-// REGISTRO DE ACESSO
-// =====================================================
-
-
-
-function registrarAcesso(){
-
-
-
-    let acessos =
-
-
-    JSON.parse(
-
-    localStorage.getItem(
-
-        "historicoAcessos"
-
-    )
-
-    )
-
-    ||
-
-    [];
-
-
-
-
-
-    acessos.push({
-
-
-        usuario:
-
-        usuarioAtual.nome,
-
-
-
-        data:
-
-        new Date()
-
-        .toLocaleString("pt-BR"),
-
-
-
-        status:
-
-        "online"
-
-
-
-    });
-
-
-
-
-
-    localStorage.setItem(
-
-        "historicoAcessos",
-
-        JSON.stringify(acessos)
-
-    );
-
-
-
-}
-
-
-
-
-
-
-// =====================================================
-// SAIR DO SISTEMA
-// =====================================================
-
-
-
-function sairSistema(){
-
-
-
-    usuarioAtual.status =
-
-    "offline";
-
-
-
-    salvarSessao();
-
-
-
-    registrarAcesso();
-
-
-
-
-
-    alert(
-
-    "Sessão encerrada com sucesso."
+        "usuarioLogado"
 
     );
 
@@ -309,7 +182,90 @@ function sairSistema(){
 
     window.location.href =
 
-    "login.html";
+    "../index.html";
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   MENU ATIVO
+===================================================== */
+
+
+function ativarMenu(){
+
+
+
+    const links =
+
+    document.querySelectorAll(
+
+        ".menu a"
+
+    );
+
+
+
+
+
+    links.forEach(
+
+        function(link){
+
+
+
+            link.addEventListener(
+
+                "click",
+
+                function(){
+
+
+
+                    links.forEach(
+
+                        function(item){
+
+
+
+                            item.classList.remove(
+
+                                "active"
+
+                            );
+
+
+
+                        }
+
+                    );
+
+
+
+
+
+                    this.classList.add(
+
+                        "active"
+
+                    );
+
+
+
+                }
+
+            );
+
+
+
+        }
+
+    );
 
 
 
@@ -320,10 +276,218 @@ function sairSistema(){
 
 
 
-// =====================================================
-// INICIALIZAÇÃO
-// =====================================================
+/* =====================================================
+   CONFIGURACAO GLOBAL
+===================================================== */
 
+
+function carregarConfiguracaoGlobal(){
+
+
+
+    const config =
+
+    JSON.parse(
+
+        localStorage.getItem(
+
+            "configuracoes"
+
+        )
+
+    );
+
+
+
+
+
+    if(!config){
+
+        return;
+
+    }
+
+
+
+
+
+
+
+    if(config.tema === "claro"){
+
+
+
+        document.body.classList.add(
+
+            "tema-claro"
+
+        );
+
+
+
+    }
+
+
+
+}
+/* =====================================================
+   DATA E HORA DO SISTEMA
+===================================================== */
+
+
+function atualizarDataHora(){
+
+
+    const campo =
+
+    document.getElementById(
+
+        "dataHoraSistema"
+
+    );
+
+
+
+
+
+    if(!campo){
+
+        return;
+
+    }
+
+
+
+
+
+    setInterval(
+
+        function(){
+
+
+
+            campo.innerText =
+
+            new Date()
+
+            .toLocaleString();
+
+
+
+        },
+
+        1000
+
+    );
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   CONTROLE DE PERFIL
+===================================================== */
+
+
+function verificarPermissao(){
+
+
+
+    const usuario =
+
+    JSON.parse(
+
+        localStorage.getItem(
+
+            "usuarioLogado"
+
+        )
+
+    );
+
+
+
+
+
+    if(!usuario){
+
+        return;
+
+    }
+
+
+
+
+
+    const bloqueados =
+
+    document.querySelectorAll(
+
+        "[data-permissao]"
+
+    );
+
+
+
+
+
+    bloqueados.forEach(
+
+        function(item){
+
+
+
+            const nivel =
+
+            item.dataset.permissao;
+
+
+
+
+
+            if(
+
+            usuario.nivel !== nivel
+
+            &&
+
+            usuario.nivel !== "Administrador"
+
+            ){
+
+
+
+                item.style.display =
+
+                "none";
+
+
+
+            }
+
+
+
+        }
+
+    );
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   INICIALIZAR SISTEMA
+===================================================== */
 
 
 document.addEventListener(
@@ -336,7 +500,7 @@ function(){
 
 
 
-    salvarSessao();
+    verificarLogin();
 
 
 
@@ -344,860 +508,20 @@ function(){
 
 
 
-    registrarAcesso();
+    ativarMenu();
 
 
 
-}
+    carregarConfiguracaoGlobal();
 
-);
-// =====================================================
-// MONITORAMENTO GLOBAL DO SISTEMA
-// =====================================================
 
 
+    atualizarDataHora();
 
-let monitoramento =
 
-JSON.parse(
 
-localStorage.getItem(
+    verificarPermissao();
 
-"monitoramento"
 
-)
 
-)
-
-||
-
-[];
-
-
-
-
-
-
-
-// =====================================================
-// REGISTRAR ATIVIDADE
-// =====================================================
-
-
-
-function registrarAtividade(
-
-acao,
-
-modulo
-
-){
-
-
-
-    let registro = {
-
-
-        usuario:
-
-        usuarioAtual.nome,
-
-
-
-        acao:
-
-        acao,
-
-
-
-        modulo:
-
-        modulo,
-
-
-
-        data:
-
-        new Date()
-
-        .toLocaleString(
-
-        "pt-BR"
-
-        ),
-
-
-
-        status:
-
-        "online"
-
-
-
-    };
-
-
-
-
-
-
-    monitoramento.push(
-
-        registro
-
-    );
-
-
-
-
-
-    localStorage.setItem(
-
-        "monitoramento",
-
-        JSON.stringify(
-
-        monitoramento
-
-        )
-
-    );
-
-
-
-}
-
-
-
-
-
-
-
-// =====================================================
-// ATUALIZAR STATUS ONLINE
-// =====================================================
-
-
-
-function atualizarStatusOnline(){
-
-
-
-    usuarioAtual.status =
-
-    "online";
-
-
-
-    usuarioAtual.ultimoAcesso =
-
-
-    new Date()
-
-    .toLocaleString(
-
-    "pt-BR"
-
-    );
-
-
-
-
-
-    salvarSessao();
-
-
-
-}
-
-
-
-
-
-
-
-// =====================================================
-// VERIFICAR USUÁRIO ATIVO
-// =====================================================
-
-
-
-function verificarAtividade(){
-
-
-
-    let ultimaAtividade =
-
-
-    localStorage.getItem(
-
-    "ultimaAtividade"
-
-    );
-
-
-
-
-
-    if(!ultimaAtividade){
-
-
-        localStorage.setItem(
-
-        "ultimaAtividade",
-
-        Date.now()
-
-        );
-
-
-        return;
-
-
-    }
-
-
-
-
-
-    let tempo =
-
-
-    Date.now()
-
-    -
-
-    Number(
-
-    ultimaAtividade
-
-    );
-
-
-
-
-
-
-    // 5 minutos sem atividade
-
-    if(
-
-    tempo >
-
-    300000
-
-    ){
-
-
-
-        usuarioAtual.status =
-
-        "offline";
-
-
-
-        salvarSessao();
-
-
-
-    }
-
-
-
-}
-
-
-
-
-
-
-// =====================================================
-// CAPTURAR MOVIMENTAÇÃO DO USUÁRIO
-// =====================================================
-
-
-
-function registrarMovimento(){
-
-
-
-    localStorage.setItem(
-
-    "ultimaAtividade",
-
-    Date.now()
-
-    );
-
-
-
-
-
-    atualizarStatusOnline();
-
-
-
-}
-
-
-
-
-
-
-
-// Eventos do usuário
-
-
-document.addEventListener(
-
-"click",
-
-registrarMovimento
-
-);
-
-
-
-document.addEventListener(
-
-"keydown",
-
-registrarMovimento
-
-);
-
-
-
-
-
-document.addEventListener(
-
-"mousemove",
-
-registrarMovimento
-
-);
-
-
-
-
-
-
-// =====================================================
-// VERIFICAÇÃO AUTOMÁTICA
-// =====================================================
-
-
-
-setInterval(
-
-function(){
-
-
-    verificarAtividade();
-
-
-
-},
-
-60000
-
-);
-
-
-
-
-
-
-// =====================================================
-// REGISTRAR ACESSO AUTOMÁTICO
-// =====================================================
-
-
-
-registrarAtividade(
-
-"Entrou no sistema",
-
-"Sistema"
-
-);
-/* =====================================================
-   FUNÇÕES GLOBAIS DO SISTEMA
-===================================================== */
-
-
-
-// =====================================================
-// NOTIFICAÇÕES PREMIUM
-// =====================================================
-
-
-
-function notificacao(
-
-mensagem,
-
-tipo = "success"
-
-){
-
-
-
-    let div =
-
-    document.createElement(
-
-    "div"
-
-    );
-
-
-
-
-
-    div.className =
-
-    "notificacao " +
-
-    tipo;
-
-
-
-
-
-    div.innerHTML = `
-
-    
-    <span>
-
-    ${mensagem}
-
-    </span>
-
-
-    `;
-
-
-
-
-
-    document.body.appendChild(
-
-    div
-
-    );
-
-
-
-
-
-
-    setTimeout(
-
-
-    function(){
-
-
-        div.remove();
-
-
-
-    },
-
-
-    4000
-
-
-    );
-
-
-
-}
-
-
-
-
-
-
-
-// =====================================================
-// DATA ATUAL
-// =====================================================
-
-
-
-function dataAtual(){
-
-
-
-    return new Date()
-
-    .toLocaleString(
-
-    "pt-BR"
-
-    );
-
-
-
-}
-
-
-
-
-
-
-
-// =====================================================
-// BACKUP AUTOMÁTICO
-// =====================================================
-
-
-
-function criarBackup(){
-
-
-
-    let backup = {
-
-
-
-        produtos:
-
-        JSON.parse(
-
-        localStorage.getItem(
-
-        "produtos"
-
-        )
-
-        )
-
-        ||
-
-        [],
-
-
-
-
-        clientes:
-
-        JSON.parse(
-
-        localStorage.getItem(
-
-        "clientes"
-
-        )
-
-        )
-
-        ||
-
-        [],
-
-
-
-
-        vendas:
-
-        JSON.parse(
-
-        localStorage.getItem(
-
-        "vendas"
-
-        )
-
-        )
-
-        ||
-
-        [],
-
-
-
-
-
-        monitoramento:
-
-        JSON.parse(
-
-        localStorage.getItem(
-
-        "monitoramento"
-
-        )
-
-        )
-
-        ||
-
-        [],
-
-
-
-
-        data:
-
-        dataAtual()
-
-
-
-    };
-
-
-
-
-
-
-
-    localStorage.setItem(
-
-    "ultimoBackup",
-
-    JSON.stringify(
-
-    backup
-
-    )
-
-    );
-
-
-
-
-
-}
-
-
-
-
-
-
-
-// Backup automático a cada 30 minutos
-
-
-setInterval(
-
-function(){
-
-
-    criarBackup();
-
-
-
-},
-
-1800000
-
-);
-
-
-
-
-
-
-
-// =====================================================
-// EXPORTAR BACKUP
-// =====================================================
-
-
-
-function exportarBackup(){
-
-
-
-    let dados =
-
-
-    localStorage.getItem(
-
-    "ultimoBackup"
-
-    );
-
-
-
-
-
-    if(!dados){
-
-
-
-        notificacao(
-
-        "Nenhum backup encontrado",
-
-        "warning"
-
-        );
-
-
-
-        return;
-
-
-
-    }
-
-
-
-
-
-
-    let arquivo =
-
-    new Blob(
-
-    [
-
-    dados
-
-    ],
-
-
-
-    {
-
-
-        type:
-
-        "application/json"
-
-
-
-    }
-
-
-
-    );
-
-
-
-
-
-    let link =
-
-    document.createElement(
-
-    "a"
-
-    );
-
-
-
-
-
-    link.href =
-
-    URL.createObjectURL(
-
-    arquivo
-
-    );
-
-
-
-
-
-    link.download =
-
-    "backup-empire.json";
-
-
-
-
-
-    link.click();
-
-
-
-    notificacao(
-
-    "Backup exportado com sucesso!"
-
-    );
-
-
-
-}
-
-
-
-
-
-
-// =====================================================
-// INFORMAÇÕES DO SISTEMA
-// =====================================================
-
-
-
-function infoSistema(){
-
-
-
-    return {
-
-
-        nome:
-
-        SISTEMA.nome,
-
-
-
-        empresa:
-
-        SISTEMA.empresa,
-
-
-
-        versao:
-
-        SISTEMA.versao,
-
-
-
-        usuario:
-
-        usuarioAtual.nome,
-
-
-
-        data:
-
-        dataAtual()
-
-
-
-    };
-
-
-
-}
-
-
-
-
-
-// =====================================================
-// INICIAR SISTEMA
-// =====================================================
-
-
-
-criarBackup();
-
-
-registrarAtividade(
-
-"Sistema carregado",
-
-"Sistema"
-
-);
+});
