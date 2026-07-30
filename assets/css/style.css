@@ -1,0 +1,4871 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER v2.0
+   STYLE.CSS
+   Base do Sistema
+===================================================== */
+
+
+/* =====================================================
+   RESET GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: 'Poppins', Arial, sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #050505,
+        #111111
+    );
+
+    color: #ffffff;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =====================================================
+   VARIÁVEIS DO SISTEMA
+===================================================== */
+
+:root {
+
+    /* CORES PRINCIPAIS */
+
+    --preto:
+    #050505;
+
+    --preto-card:
+    #111111;
+
+    --grafite:
+    #1b1b1b;
+
+    --dourado:
+    #d4af37;
+
+    --dourado-claro:
+    #f5d76e;
+
+    --branco:
+    #ffffff;
+
+    --cinza:
+    #a5a5a5;
+
+
+
+    /* STATUS */
+
+    --online:
+    #00ff88;
+
+    --offline:
+    #ff4444;
+
+    --alerta:
+    #ffaa00;
+
+
+
+    /* EFEITOS */
+
+    --sombra:
+
+    0 15px 40px
+    rgba(0,0,0,.6);
+
+
+    --borda:
+
+    1px solid
+    rgba(212,175,55,.25);
+
+
+    --transicao:
+
+    .3s ease;
+
+
+}
+
+
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+
+a {
+
+    text-decoration:none;
+
+    color:inherit;
+
+    transition:
+    var(--transicao);
+
+}
+
+
+
+a:hover {
+
+    color:
+    var(--dourado);
+
+}
+
+
+
+/* =====================================================
+   TITULOS
+===================================================== */
+
+
+h1,
+h2,
+h3 {
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+h1 {
+
+    font-size:32px;
+
+}
+
+
+
+h2 {
+
+    font-size:22px;
+
+}
+
+
+
+h3 {
+
+    font-size:18px;
+
+}
+
+
+
+/* =====================================================
+   SCROLLBAR PREMIUM
+===================================================== */
+
+
+::-webkit-scrollbar {
+
+    width:10px;
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+    background:
+    #080808;
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+    linear-gradient(
+        180deg,
+        var(--dourado),
+        #8c6a00
+    );
+
+    border-radius:20px;
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+    var(--dourado-claro);
+
+}
+
+
+
+/* =====================================================
+   CONTAINER PRINCIPAL
+===================================================== */
+
+
+.container {
+
+    width:100%;
+
+    max-width:1600px;
+
+    margin:auto;
+
+    padding:30px;
+
+}
+
+
+
+/* =====================================================
+   PAINÉIS PREMIUM
+===================================================== */
+
+
+.painel {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.02)
+
+    );
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+
+    border:
+
+    var(--borda);
+
+
+
+    border-radius:20px;
+
+
+
+    padding:25px;
+
+
+
+    box-shadow:
+
+    var(--sombra);
+
+
+
+    transition:
+
+    var(--transicao);
+
+
+
+}
+
+
+
+.painel:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+    border-color:
+
+    var(--dourado);
+
+
+}
+
+
+
+/* =====================================================
+   OVERLAY DO SISTEMA
+===================================================== */
+
+
+.overlay {
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(212,175,55,.08),
+
+        transparent 60%
+
+    );
+
+
+    pointer-events:none;
+
+
+    z-index:-1;
+
+
+}
+/* =====================================================
+   LAYOUT PRINCIPAL PREMIUM
+===================================================== */
+
+
+/* ÁREA DO SISTEMA */
+
+.dashboard {
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+
+
+/* =====================================================
+   MENU LATERAL PREMIUM
+===================================================== */
+
+
+.menu {
+
+
+    width:280px;
+
+
+    min-height:100vh;
+
+
+    position:fixed;
+
+
+    left:0;
+
+
+    top:0;
+
+
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        #0b0b0b,
+
+        #050505
+
+    );
+
+
+
+    border-right:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    padding:25px 20px;
+
+
+
+    z-index:100;
+
+
+
+    box-shadow:
+
+    10px 0 40px
+
+    rgba(0,0,0,.5);
+
+
+
+}
+
+
+
+
+
+/* MARCA / LOGO */
+
+
+.marca {
+
+
+    text-align:center;
+
+
+    padding-bottom:30px;
+
+
+    border-bottom:
+
+    1px solid
+
+    rgba(255,255,255,.08);
+
+
+
+}
+
+
+
+.marca img {
+
+
+    width:90px;
+
+
+    height:90px;
+
+
+    object-fit:contain;
+
+
+    margin-bottom:15px;
+
+
+    filter:
+
+    drop-shadow(
+
+        0 0 15px
+
+        rgba(212,175,55,.5)
+
+    );
+
+
+
+}
+
+
+
+
+
+.marca h2 {
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+    font-size:28px;
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    letter-spacing:
+
+    3px;
+
+
+}
+
+
+
+.marca p {
+
+
+    color:
+
+    var(--cinza);
+
+
+    font-size:12px;
+
+
+    margin-top:5px;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   MENU LINKS
+===================================================== */
+
+
+.menu nav {
+
+
+    margin-top:30px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:8px;
+
+
+
+}
+
+
+
+.menu nav a {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:12px;
+
+
+
+    padding:
+
+    13px 15px;
+
+
+
+    border-radius:
+
+    12px;
+
+
+
+    color:
+
+    #ddd;
+
+
+
+    font-size:14px;
+
+
+
+    transition:
+
+    var(--transicao);
+
+
+
+}
+
+
+
+
+.menu nav a:hover {
+
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        rgba(212,175,55,.25),
+
+        transparent
+
+    );
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    transform:
+
+    translateX(5px);
+
+
+
+}
+
+
+
+
+
+.menu nav a.active {
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        var(--dourado),
+
+        #8c6a00
+
+    );
+
+
+
+    color:
+
+    #000;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   ÁREA DE CONTEÚDO
+===================================================== */
+
+
+
+.conteudo {
+
+
+    margin-left:
+
+    280px;
+
+
+
+    width:
+
+    calc(100% - 280px);
+
+
+
+    padding:
+
+    30px;
+
+
+
+    min-height:
+
+    100vh;
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   CABEÇALHO PREMIUM
+===================================================== */
+
+
+header {
+
+
+    display:flex;
+
+
+    justify-content:
+
+    space-between;
+
+
+
+    align-items:center;
+
+
+
+    margin-bottom:
+
+    30px;
+
+
+
+    padding:
+
+    20px 25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+
+    border:
+
+    var(--borda);
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+
+}
+
+
+
+
+
+header h1 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+}
+
+
+
+
+
+#usuarioInfo {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+
+    color:
+
+    var(--cinza);
+
+
+
+    font-size:14px;
+
+
+
+}
+
+
+
+/* =====================================================
+   GRID DO SISTEMA
+===================================================== */
+
+
+.grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(
+
+        auto-fit,
+
+        minmax(
+
+            250px,
+
+            1fr
+
+        )
+
+    );
+
+
+
+    gap:
+
+    25px;
+
+
+
+}
+/* =====================================================
+   CARDS PREMIUM
+===================================================== */
+
+
+.card {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.09),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    var(--borda);
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    padding:
+
+    25px;
+
+
+
+    position:
+
+    relative;
+
+
+
+    overflow:hidden;
+
+
+
+    box-shadow:
+
+    var(--sombra);
+
+
+
+    transition:
+
+    var(--transicao);
+
+
+
+}
+
+
+
+.card::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:150px;
+
+
+    height:150px;
+
+
+    right:-50px;
+
+
+    top:-50px;
+
+
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(212,175,55,.35),
+
+        transparent 70%
+
+    );
+
+
+
+}
+
+
+
+.card:hover {
+
+
+    transform:
+
+    translateY(-8px);
+
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 20px 50px
+
+    rgba(212,175,55,.15);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   CARDS DE ESTATÍSTICAS
+===================================================== */
+
+
+.card-info {
+
+
+    display:flex;
+
+
+    justify-content:
+
+    space-between;
+
+
+
+    align-items:center;
+
+
+
+}
+
+
+
+.card-info .icone {
+
+
+    width:
+
+    60px;
+
+
+
+    height:
+
+    60px;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    background:
+
+    rgba(212,175,55,.15);
+
+
+
+    font-size:
+
+    28px;
+
+
+
+}
+
+
+
+.card-info h3 {
+
+
+    font-size:
+
+    14px;
+
+
+
+    color:
+
+    var(--cinza);
+
+
+
+    margin-bottom:
+
+    8px;
+
+
+
+}
+
+
+
+.card-info strong {
+
+
+    font-size:
+
+    32px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   STATUS ONLINE / OFFLINE
+===================================================== */
+
+
+.status {
+
+
+    display:inline-flex;
+
+
+
+    align-items:center;
+
+
+
+    gap:8px;
+
+
+
+    padding:
+
+    8px 15px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+
+
+
+.status::before {
+
+
+    content:"";
+
+
+    width:
+
+    10px;
+
+
+
+    height:
+
+    10px;
+
+
+
+    border-radius:
+
+    50%;
+
+
+
+}
+
+
+
+.status.online {
+
+
+    color:
+
+    var(--online);
+
+
+
+    background:
+
+    rgba(0,255,136,.12);
+
+
+
+}
+
+
+
+.status.online::before {
+
+
+    background:
+
+    var(--online);
+
+
+
+    box-shadow:
+
+    0 0 12px
+
+    var(--online);
+
+
+
+}
+
+
+
+.status.offline {
+
+
+    color:
+
+    var(--offline);
+
+
+
+    background:
+
+    rgba(255,68,68,.12);
+
+
+
+}
+
+
+
+.status.offline::before {
+
+
+    background:
+
+    var(--offline);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   BOTÕES PREMIUM
+===================================================== */
+
+
+button,
+.btn {
+
+
+    border:none;
+
+
+
+    outline:none;
+
+
+
+    cursor:pointer;
+
+
+
+    padding:
+
+    13px 25px;
+
+
+
+    border-radius:
+
+    14px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        var(--dourado),
+
+        #8c6a00
+
+    );
+
+
+
+    color:
+
+    #000;
+
+
+
+    font-weight:
+
+    700;
+
+
+
+    letter-spacing:
+
+    .5px;
+
+
+
+    transition:
+
+    var(--transicao);
+
+
+
+}
+
+
+
+
+
+button:hover,
+.btn:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+    box-shadow:
+
+    0 10px 25px
+
+    rgba(212,175,55,.35);
+
+
+
+}
+
+
+
+
+
+.btn-secundario {
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+
+    color:
+
+    #fff;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.15);
+
+
+
+}
+
+
+
+
+.btn-danger {
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #ff4444,
+
+        #990000
+
+    );
+
+
+
+    color:
+
+    white;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+
+.badge {
+
+
+    display:
+
+    inline-block;
+
+
+
+    padding:
+
+    5px 12px;
+
+
+
+    border-radius:
+
+    20px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+
+
+
+.badge.gold {
+
+
+    background:
+
+    rgba(212,175,55,.2);
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+.badge.green {
+
+
+    background:
+
+    rgba(0,255,136,.15);
+
+
+
+    color:
+
+    var(--online);
+
+
+
+}
+
+
+
+.badge.red {
+
+
+    background:
+
+    rgba(255,68,68,.15);
+
+
+
+    color:
+
+    var(--offline);
+
+
+
+}
+/* =====================================================
+   FORMULÁRIOS PREMIUM
+===================================================== */
+
+
+.formulario {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(
+
+        auto-fit,
+
+        minmax(
+
+            220px,
+
+            1fr
+
+        )
+
+    );
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+.form-group {
+
+
+    display:flex;
+
+
+
+    flex-direction:column;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.form-group label {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+
+
+
+
+
+input,
+select,
+textarea {
+
+
+    width:
+
+    100%;
+
+
+
+    padding:
+
+    14px 16px;
+
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.15);
+
+
+
+    border-radius:
+
+    14px;
+
+
+
+    color:
+
+    white;
+
+
+
+    outline:
+
+    none;
+
+
+
+    transition:
+
+    var(--transicao);
+
+
+
+    font-family:
+
+    'Poppins',
+
+    sans-serif;
+
+
+
+}
+
+
+
+
+
+input::placeholder,
+textarea::placeholder {
+
+
+    color:
+
+    rgba(255,255,255,.45);
+
+
+
+}
+
+
+
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 0 15px
+
+    rgba(212,175,55,.25);
+
+
+
+}
+
+
+
+
+
+select {
+
+
+    cursor:pointer;
+
+
+
+}
+
+
+
+
+
+select option {
+
+
+    background:
+
+    #111;
+
+
+
+    color:
+
+    white;
+
+
+
+}
+
+
+
+
+
+textarea {
+
+
+    min-height:
+
+    120px;
+
+
+
+    resize:
+
+    vertical;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   ÁREA DE PESQUISA
+===================================================== */
+
+
+.busca {
+
+
+    display:flex;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.busca input {
+
+
+    flex:1;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   PAINEL DE CADASTRO
+===================================================== */
+
+
+.form-card {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.02)
+
+    );
+
+
+
+    border:
+
+    var(--borda);
+
+
+
+    padding:
+
+    30px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    box-shadow:
+
+    var(--sombra);
+
+
+
+}
+
+
+
+
+
+.form-card h2 {
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   ALERTAS DO SISTEMA
+===================================================== */
+
+
+.alert {
+
+
+    padding:
+
+    15px 20px;
+
+
+
+    border-radius:
+
+    15px;
+
+
+
+    margin:
+
+    15px 0;
+
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    gap:
+
+    10px;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.alert-success {
+
+
+    background:
+
+    rgba(0,255,136,.12);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(0,255,136,.3);
+
+
+
+    color:
+
+    var(--online);
+
+
+
+}
+
+
+
+
+
+.alert-error {
+
+
+    background:
+
+    rgba(255,68,68,.12);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,68,68,.3);
+
+
+
+    color:
+
+    var(--offline);
+
+
+
+}
+
+
+
+
+
+.alert-warning {
+
+
+    background:
+
+    rgba(255,170,0,.12);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,170,0,.3);
+
+
+
+    color:
+
+    var(--alerta);
+
+
+
+}
+/* =====================================================
+   TABELAS PREMIUM
+===================================================== */
+
+
+.tabela-container {
+
+
+    width:
+
+    100%;
+
+
+
+    overflow-x:
+
+    auto;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border:
+
+    var(--borda);
+
+
+
+    border-radius:
+
+    20px;
+
+
+
+    padding:
+
+    10px;
+
+
+
+}
+
+
+
+
+
+
+table {
+
+
+    width:
+
+    100%;
+
+
+
+    border-collapse:
+
+    collapse;
+
+
+
+    min-width:
+
+    800px;
+
+
+
+}
+
+
+
+
+
+thead {
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        rgba(212,175,55,.25),
+
+        rgba(212,175,55,.05)
+
+    );
+
+
+
+}
+
+
+
+
+
+thead th {
+
+
+    padding:
+
+    18px;
+
+
+
+    text-align:
+
+    left;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    text-transform:
+
+    uppercase;
+
+
+
+    letter-spacing:
+
+    1px;
+
+
+
+}
+
+
+
+
+
+tbody tr {
+
+
+    border-bottom:
+
+    1px solid
+
+    rgba(255,255,255,.08);
+
+
+
+    transition:
+
+    var(--transicao);
+
+
+
+}
+
+
+
+
+
+tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+    transform:
+
+    scale(1.01);
+
+
+
+}
+
+
+
+
+
+tbody td {
+
+
+    padding:
+
+    16px;
+
+
+
+    color:
+
+    #ddd;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+tbody td:first-child {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   BOTÕES DE AÇÃO NAS TABELAS
+===================================================== */
+
+
+.acoes {
+
+
+    display:
+
+    flex;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.btn-icon {
+
+
+    width:
+
+    38px;
+
+
+
+    height:
+
+    38px;
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    border-radius:
+
+    10px;
+
+
+
+    padding:
+
+    0;
+
+
+
+    font-size:
+
+    16px;
+
+
+
+}
+
+
+
+
+
+.btn-editar {
+
+
+    background:
+
+    rgba(212,175,55,.18);
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+.btn-excluir {
+
+
+    background:
+
+    rgba(255,68,68,.18);
+
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+
+
+
+
+
+.btn-editar:hover {
+
+
+    background:
+
+    var(--dourado);
+
+
+
+    color:
+
+    #000;
+
+
+
+}
+
+
+
+
+
+.btn-excluir:hover {
+
+
+    background:
+
+    #ff4444;
+
+
+
+    color:
+
+    white;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   PAGINAÇÃO
+===================================================== */
+
+
+.paginacao {
+
+
+    display:
+
+    flex;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    10px;
+
+
+
+    margin-top:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.pagina {
+
+
+    width:
+
+    40px;
+
+
+
+    height:
+
+    40px;
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    border-radius:
+
+    10px;
+
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+
+    color:
+
+    white;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+    transition:
+
+    var(--transicao);
+
+
+
+}
+
+
+
+
+
+.pagina:hover,
+.pagina.active {
+
+
+    background:
+
+    var(--dourado);
+
+
+
+    color:
+
+    #000;
+
+
+
+}
+/* =====================================================
+   MODAIS PREMIUM
+===================================================== */
+
+
+.modal {
+
+
+    position:
+
+    fixed;
+
+
+
+    inset:
+
+    0;
+
+
+
+    background:
+
+    rgba(0,0,0,.75);
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    z-index:
+
+    999;
+
+
+
+    opacity:
+
+    0;
+
+
+
+    visibility:
+
+    hidden;
+
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.modal.active {
+
+
+    opacity:
+
+    1;
+
+
+
+    visibility:
+
+    visible;
+
+
+
+}
+
+
+
+
+
+.modal-content {
+
+
+    width:
+
+    95%;
+
+
+
+    max-width:
+
+    600px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        #151515,
+
+        #080808
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.35);
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    padding:
+
+    35px;
+
+
+
+    box-shadow:
+
+    0 30px 80px
+
+    rgba(0,0,0,.8);
+
+
+
+    animation:
+
+    modalEntrada .3s ease;
+
+
+
+}
+
+
+
+
+
+.modal-content h2 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    margin-bottom:
+
+    20px;
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+}
+
+
+
+
+
+.modal-close {
+
+
+    float:
+
+    right;
+
+
+
+    background:
+
+    transparent;
+
+
+
+    color:
+
+    white;
+
+
+
+    font-size:
+
+    25px;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   NOTIFICAÇÕES FLUTUANTES
+===================================================== */
+
+
+.notificacao {
+
+
+    position:
+
+    fixed;
+
+
+
+    top:
+
+    25px;
+
+
+
+    right:
+
+    25px;
+
+
+
+    min-width:
+
+    300px;
+
+
+
+    padding:
+
+    18px 22px;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    background:
+
+    #111;
+
+
+
+    border:
+
+    var(--borda);
+
+
+
+    box-shadow:
+
+    var(--sombra);
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    z-index:
+
+    9999;
+
+
+
+    animation:
+
+    entrarDireita .4s ease;
+
+
+
+}
+
+
+
+
+
+.notificacao.success {
+
+
+    border-left:
+
+    5px solid
+
+    var(--online);
+
+
+
+}
+
+
+
+
+
+.notificacao.error {
+
+
+    border-left:
+
+    5px solid
+
+    var(--offline);
+
+
+
+}
+
+
+
+
+
+.notificacao.warning {
+
+
+    border-left:
+
+    5px solid
+
+    var(--alerta);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+
+@keyframes entrarDireita {
+
+
+    from {
+
+
+        transform:
+
+        translateX(120%);
+
+
+
+        opacity:
+
+        0;
+
+
+
+    }
+
+
+
+    to {
+
+
+        transform:
+
+        translateX(0);
+
+
+
+        opacity:
+
+        1;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+@keyframes modalEntrada {
+
+
+    from {
+
+
+        transform:
+
+        scale(.8);
+
+
+
+        opacity:
+
+        0;
+
+
+
+    }
+
+
+
+    to {
+
+
+        transform:
+
+        scale(1);
+
+
+
+        opacity:
+
+        1;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+@keyframes aparecer {
+
+
+    from {
+
+
+        opacity:
+
+        0;
+
+
+
+        transform:
+
+        translateY(20px);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+        1;
+
+
+
+        transform:
+
+        translateY(0);
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+.fade-in {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   LOADING PREMIUM
+===================================================== */
+
+
+.loading {
+
+
+    width:
+
+    45px;
+
+
+
+    height:
+
+    45px;
+
+
+
+    border-radius:
+
+    50%;
+
+
+
+    border:
+
+    4px solid
+
+    rgba(212,175,55,.2);
+
+
+
+    border-top-color:
+
+    var(--dourado);
+
+
+
+    animation:
+
+    girar 1s linear infinite;
+
+
+
+}
+
+
+
+
+
+@keyframes girar {
+
+
+    to {
+
+
+        transform:
+
+        rotate(360deg);
+
+
+
+    }
+
+
+
+}
+/* =====================================================
+   RESPONSIVIDADE PREMIUM
+===================================================== */
+
+
+/* TABLETS */
+
+@media (max-width: 1100px) {
+
+
+
+    .menu {
+
+        width:
+
+        240px;
+
+    }
+
+
+
+    .conteudo {
+
+
+        margin-left:
+
+        240px;
+
+
+
+        width:
+
+        calc(100% - 240px);
+
+
+
+        padding:
+
+        20px;
+
+
+
+    }
+
+
+
+
+    header h1 {
+
+
+        font-size:
+
+        26px;
+
+
+
+    }
+
+
+
+
+    .grid {
+
+
+        grid-template-columns:
+
+        repeat(
+
+            2,
+
+            1fr
+
+        );
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+/* CELULARES */
+
+@media (max-width: 768px) {
+
+
+
+    .dashboard {
+
+
+        display:
+
+        block;
+
+
+
+    }
+
+
+
+
+    /* MENU MOBILE */
+
+
+    .menu {
+
+
+        width:
+
+        100%;
+
+
+
+        height:
+
+        auto;
+
+
+
+        min-height:
+
+        auto;
+
+
+
+        position:
+
+        relative;
+
+
+
+        padding:
+
+        15px;
+
+
+
+    }
+
+
+
+
+    .marca {
+
+
+        padding-bottom:
+
+        15px;
+
+
+
+    }
+
+
+
+
+
+    .marca img {
+
+
+        width:
+
+        70px;
+
+
+
+        height:
+
+        70px;
+
+
+
+    }
+
+
+
+
+
+    .marca h2 {
+
+
+        font-size:
+
+        22px;
+
+
+
+    }
+
+
+
+
+
+    .menu nav {
+
+
+        display:
+
+        grid;
+
+
+
+        grid-template-columns:
+
+        repeat(
+
+            2,
+
+            1fr
+
+        );
+
+
+
+        gap:
+
+        8px;
+
+
+
+    }
+
+
+
+
+
+    .menu nav a {
+
+
+        font-size:
+
+        12px;
+
+
+
+        padding:
+
+        10px;
+
+
+
+    }
+
+
+
+
+
+
+    .conteudo {
+
+
+        margin-left:
+
+        0;
+
+
+
+        width:
+
+        100%;
+
+
+
+        padding:
+
+        15px;
+
+
+
+    }
+
+
+
+
+
+    header {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        flex-start;
+
+
+
+        gap:
+
+        15px;
+
+
+
+    }
+
+
+
+
+
+    header h1 {
+
+
+        font-size:
+
+        22px;
+
+
+
+    }
+
+
+
+
+
+
+    .grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+    .formulario {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+    .painel,
+    .card {
+
+
+        padding:
+
+        18px;
+
+
+
+    }
+
+
+
+
+    button,
+    .btn {
+
+
+        width:
+
+        100%;
+
+
+
+    }
+
+
+
+
+
+    .busca {
+
+
+        flex-direction:
+
+        column;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+/* CELULARES PEQUENOS */
+
+@media (max-width:480px){
+
+
+
+    .menu nav {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+    .card-info strong {
+
+
+        font-size:
+
+        25px;
+
+
+
+    }
+
+
+
+
+
+    table {
+
+
+        min-width:
+
+        650px;
+
+
+
+    }
+
+
+
+
+
+}
+/* =====================================================
+   UTILITÁRIOS GLOBAIS
+   EMPIRE ERP PREMIUM REMASTER
+===================================================== */
+
+
+/* =====================================================
+   ALINHAMENTOS
+===================================================== */
+
+
+.flex {
+
+
+    display:
+
+    flex;
+
+
+
+}
+
+
+
+.flex-center {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+}
+
+
+
+.flex-between {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    space-between;
+
+
+
+}
+
+
+
+.flex-column {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   ESPAÇAMENTOS
+===================================================== */
+
+
+.mt-10 {
+
+
+    margin-top:
+
+    10px;
+
+
+
+}
+
+
+
+.mt-20 {
+
+
+    margin-top:
+
+    20px;
+
+
+
+}
+
+
+
+.mt-30 {
+
+
+    margin-top:
+
+    30px;
+
+
+
+}
+
+
+
+.mb-10 {
+
+
+    margin-bottom:
+
+    10px;
+
+
+
+}
+
+
+
+.mb-20 {
+
+
+    margin-bottom:
+
+    20px;
+
+
+
+}
+
+
+
+.mb-30 {
+
+
+    margin-bottom:
+
+    30px;
+
+
+
+}
+
+
+
+.p-10 {
+
+
+    padding:
+
+    10px;
+
+
+
+}
+
+
+
+.p-20 {
+
+
+    padding:
+
+    20px;
+
+
+
+}
+
+
+
+.p-30 {
+
+
+    padding:
+
+    30px;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   CORES DE TEXTO
+===================================================== */
+
+
+.text-gold {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+.text-white {
+
+
+    color:
+
+    var(--branco);
+
+
+
+}
+
+
+
+.text-gray {
+
+
+    color:
+
+    var(--cinza);
+
+
+
+}
+
+
+
+.text-success {
+
+
+    color:
+
+    var(--online);
+
+
+
+}
+
+
+
+.text-danger {
+
+
+    color:
+
+    var(--offline);
+
+
+
+}
+
+
+
+.text-warning {
+
+
+    color:
+
+    var(--alerta);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   TAMANHOS DE TEXTO
+===================================================== */
+
+
+.text-small {
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+.text-normal {
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+.text-large {
+
+
+    font-size:
+
+    20px;
+
+
+
+}
+
+
+
+.text-xl {
+
+
+    font-size:
+
+    32px;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   SOMBRAS
+===================================================== */
+
+
+.shadow {
+
+
+    box-shadow:
+
+    var(--sombra);
+
+
+
+}
+
+
+
+.shadow-gold {
+
+
+    box-shadow:
+
+    0 10px 35px
+
+    rgba(212,175,55,.25);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   BORDAS
+===================================================== */
+
+
+.rounded {
+
+
+    border-radius:
+
+    20px;
+
+
+
+}
+
+
+
+.border-gold {
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.4);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   VISIBILIDADE
+===================================================== */
+
+
+.hidden {
+
+
+    display:
+
+    none !important;
+
+
+
+}
+
+
+
+.visible {
+
+
+    display:
+
+    block;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   AVATARES
+===================================================== */
+
+
+.avatar {
+
+
+    width:
+
+    45px;
+
+
+
+    height:
+
+    45px;
+
+
+
+    border-radius:
+
+    50%;
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        var(--dourado),
+
+        #8c6a00
+
+    );
+
+
+
+    color:
+
+    #000;
+
+
+
+    font-weight:
+
+    700;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   DIVISOR PREMIUM
+===================================================== */
+
+
+.divisor {
+
+
+    height:
+
+    1px;
+
+
+
+    width:
+
+    100%;
+
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        var(--dourado),
+
+        transparent
+
+    );
+
+
+
+    margin:
+
+    25px 0;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   CURSOR
+===================================================== */
+
+
+.pointer {
+
+
+    cursor:
+
+    pointer;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   IMAGENS
+===================================================== */
+
+
+.img-cover {
+
+
+    width:
+
+    100%;
+
+
+
+    height:
+
+    100%;
+
+
+
+    object-fit:
+
+    cover;
+
+
+
+}
+
+
+
+.img-contain {
+
+
+    width:
+
+    100%;
+
+
+
+    height:
+
+    100%;
+
+
+
+    object-fit:
+
+    contain;
+
+
+
+}
+/* =====================================================
+   LOGIN PREMIUM
+   EMPIRE ERP REMASTER
+===================================================== */
+
+
+.login-body {
+
+
+    min-height:
+
+    100vh;
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    background:
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(212,175,55,.18),
+
+        transparent 40%
+
+    ),
+
+    linear-gradient(
+
+        135deg,
+
+        #050505,
+
+        #151515
+
+    );
+
+
+
+}
+
+
+
+
+
+.login-container {
+
+
+    width:
+
+    95%;
+
+
+
+    max-width:
+
+    430px;
+
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.35);
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    padding:
+
+    40px;
+
+
+
+    box-shadow:
+
+    0 30px 80px
+
+    rgba(0,0,0,.8);
+
+
+
+    animation:
+
+    aparecer .7s ease;
+
+
+
+}
+
+
+
+
+
+.login-logo {
+
+
+    text-align:
+
+    center;
+
+
+
+    margin-bottom:
+
+    30px;
+
+
+
+}
+
+
+
+
+
+.login-logo img {
+
+
+    width:
+
+    120px;
+
+
+
+    filter:
+
+    drop-shadow(
+
+        0 0 20px
+
+        rgba(212,175,55,.6)
+
+    );
+
+
+
+}
+
+
+
+
+
+.login-logo h1 {
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    letter-spacing:
+
+    5px;
+
+
+
+    margin-top:
+
+    15px;
+
+
+
+}
+
+
+
+
+
+.login-logo p {
+
+
+    color:
+
+    var(--cinza);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+}
+
+
+
+
+
+.login-form {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   EFEITOS DE BRILHO PREMIUM
+===================================================== */
+
+
+.glow {
+
+
+    animation:
+
+    brilho 2s infinite alternate;
+
+
+
+}
+
+
+
+@keyframes brilho {
+
+
+    from {
+
+
+        box-shadow:
+
+        0 0 10px
+
+        rgba(212,175,55,.3);
+
+
+
+    }
+
+
+
+    to {
+
+
+        box-shadow:
+
+        0 0 35px
+
+        rgba(212,175,55,.7);
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   FUNDO DECORATIVO
+===================================================== */
+
+
+.background-luxo {
+
+
+    position:
+
+    fixed;
+
+
+
+    inset:
+
+    0;
+
+
+
+    overflow:
+
+    hidden;
+
+
+
+    pointer-events:
+
+    none;
+
+
+
+}
+
+
+
+
+
+.background-luxo::before {
+
+
+    content:"";
+
+
+
+    position:
+
+    absolute;
+
+
+
+    width:
+
+    500px;
+
+
+
+    height:
+
+    500px;
+
+
+
+    border-radius:
+
+    50%;
+
+
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(212,175,55,.15),
+
+        transparent
+
+    );
+
+
+
+    top:
+
+    -150px;
+
+
+
+    right:
+
+    -150px;
+
+
+
+}
+
+
+
+
+
+.background-luxo::after {
+
+
+    content:"";
+
+
+
+    position:
+
+    absolute;
+
+
+
+    width:
+
+    400px;
+
+
+
+    height:
+
+    400px;
+
+
+
+    border-radius:
+
+    50%;
+
+
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(212,175,55,.1),
+
+        transparent
+
+    );
+
+
+
+    bottom:
+
+    -150px;
+
+
+
+    left:
+
+    -150px;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   TRANSIÇÕES GERAIS
+===================================================== */
+
+
+* {
+
+
+    transition-property:
+
+    background,
+
+    border,
+
+    color,
+
+    transform,
+
+    box-shadow;
+
+
+
+    transition-duration:
+
+    .25s;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   IMPRESSÃO
+===================================================== */
+
+
+@media print {
+
+
+    .menu,
+
+    header,
+
+    button {
+
+
+        display:
+
+        none !important;
+
+
+
+    }
+
+
+
+    .conteudo {
+
+
+        margin:
+
+        0;
+
+
+
+        width:
+
+        100%;
+
+
+
+    }
+
+
+
+}
