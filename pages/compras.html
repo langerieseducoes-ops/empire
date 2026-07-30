@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Empire ERP - Compras</title>
+
+
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+
+<link rel="stylesheet" href="../assets/css/compras.css">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+
+<body class="dashboard">
+
+
+
+
+<div class="background-luxo"></div>
+
+
+
+
+
+<!-- MENU -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+
+<a class="active" href="compras.html">
+🛒 Compras
+</a>
+
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a href="categorias.html">
+🏷 Categorias
+</a>
+
+
+<a href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a href="monitoramento.html">
+📋 Monitoramento
+</a>
+
+
+<a href="configuracoes.html">
+⚙ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="alterar-senha.html">
+🔐 Alterar Senha
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+
+<h1>
+🛒 Compras Premium
+</h1>
+
+
+<p class="text-gray">
+
+Entrada e controle de mercadorias
+
+</p>
+
+
+</div>
+
+
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+<!-- =====================================================
+     CARDS DE COMPRAS
+===================================================== -->
+
+
+<section class="grid">
+
+
+
+<div class="compra-card">
+
+
+<h3>
+
+Total de Compras
+
+</h3>
+
+
+<strong id="totalCompras">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="compra-card">
+
+
+<h3>
+
+Itens Recebidos
+
+</h3>
+
+
+<strong id="itensRecebidos">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="compra-card">
+
+
+<h3>
+
+Valor Investido
+
+</h3>
+
+
+<strong id="valorCompras">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="compra-card">
+
+
+<h3>
+
+Última Entrada
+
+</h3>
+
+
+<strong id="ultimaCompra">
+
+--
+
+</strong>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     FORMULÁRIO DE COMPRA
+===================================================== -->
+
+
+<section class="compra-form mt-30">
+
+
+<h2>
+
+➕ Nova Entrada de Mercadoria
+
+</h2>
+
+
+
+
+
+
+<div class="compra-grid">
+
+
+
+
+
+<div class="compra-campo">
+
+
+<label>
+
+Fornecedor
+
+</label>
+
+
+<select id="fornecedorCompra">
+
+
+<option value="">
+
+Selecione o fornecedor
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="compra-campo">
+
+
+<label>
+
+Produto
+
+</label>
+
+
+<select id="produtoCompra">
+
+
+<option value="">
+
+Selecione o produto
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="compra-campo">
+
+
+<label>
+
+Quantidade Recebida
+
+</label>
+
+
+<input
+
+type="number"
+
+id="quantidadeCompra"
+
+placeholder="Quantidade"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="compra-campo">
+
+
+<label>
+
+Valor Unitário
+
+</label>
+
+
+<input
+
+type="number"
+
+id="valorCompra"
+
+placeholder="Valor"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="compra-campo">
+
+
+<label>
+
+Data
+
+</label>
+
+
+<input
+
+type="date"
+
+id="dataCompra"
+
+
+>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+
+<button onclick="registrarCompra()">
+
+💾 Registrar Entrada
+
+</button>
+
+
+
+
+</section>
+<!-- =====================================================
+     BUSCA DE COMPRAS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<div class="compra-busca">
+
+
+<input
+
+type="text"
+
+id="pesquisaCompra"
+
+placeholder="🔎 Pesquisar compra..."
+
+onkeyup="pesquisarCompra()"
+
+
+>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     HISTÓRICO DE COMPRAS
+===================================================== -->
+
+
+<section class="compras-tabela mt-30">
+
+
+<h2>
+
+📋 Histórico de Entradas
+
+</h2>
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Fornecedor
+
+</th>
+
+
+<th>
+
+Produto
+
+</th>
+
+
+<th>
+
+Quantidade
+
+</th>
+
+
+<th>
+
+Valor
+
+</th>
+
+
+<th>
+
+Data
+
+</th>
+
+
+<th>
+
+Status
+
+</th>
+
+
+<th>
+
+Ações
+
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="listaCompras">
+
+
+
+<tr>
+
+
+<td colspan="7">
+
+
+Nenhuma compra registrada
+
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+
+</section>
+<!-- =====================================================
+     ALERTAS DE COMPRAS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+⚠ Informações do Sistema
+
+</h2>
+
+
+
+
+<div id="alertasCompras">
+
+
+<div class="alerta-compra">
+
+
+🛒 Nenhuma pendência de compra
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+
+<footer class="painel mt-30">
+
+
+<p class="text-gray">
+
+
+Empire ERP Premium Remaster
+
+
+<br>
+
+
+Módulo Compras
+
+
+<br>
+
+
+Controle de entrada de mercadorias
+
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+<script src="../assets/js/app.js"></script>
+
+
+<script src="../assets/js/compras.js"></script>
+
+
+
+</body>
+
+
+</html>
