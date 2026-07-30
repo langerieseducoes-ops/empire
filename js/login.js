@@ -1,90 +1,63 @@
-// ======================================
-// EMPIRE ERP
-// Sistema de Login
-// ======================================
+/* =====================================================
+   EMPIRE ERP
+   LOGIN.JS
+===================================================== */
 
+
+/* USUARIO PADRAO */
 
 const USUARIO_PADRAO = {
+
+    nome: "Administrador",
 
     usuario: "admin",
 
     senha: "123456",
 
-    nome: "Administrador",
+    nivel: "Administrador",
 
-    perfil: "Administrador"
+    status: "ativo"
 
 };
 
 
-// Criar usuário inicial
-
-if (!localStorage.getItem("usuarios")) {
-
-    localStorage.setItem(
-        "usuarios",
-        JSON.stringify([USUARIO_PADRAO])
-    );
-
-}
 
 
 
-// Login
+/* CRIAR USUARIO INICIAL */
 
-function entrar(){
-
-
-    let usuario =
-    document.getElementById("usuario").value;
+function criarUsuarioInicial(){
 
 
-    let senha =
-    document.getElementById("senha").value;
+    let usuarios =
 
-
-
-    let usuarios = JSON.parse(
+    JSON.parse(
 
         localStorage.getItem("usuarios")
 
-    );
+    ) || [];
 
 
 
-    let encontrado = usuarios.find(
-
-        u =>
-
-        u.usuario === usuario &&
-
-        u.senha === senha
-
-    );
 
 
+    if(usuarios.length === 0){
 
-    if(encontrado){
 
+        usuarios.push(
 
-        localStorage.setItem(
-
-            "usuarioLogado",
-
-            JSON.stringify(encontrado)
+            USUARIO_PADRAO
 
         );
 
 
-        window.location.href =
-        "dashboard.html";
 
+        localStorage.setItem(
 
-    }else{
+            "usuarios",
 
+            JSON.stringify(usuarios)
 
-        alert(
-            "Usuário ou senha incorretos."
         );
 
 
@@ -92,3 +65,226 @@ function entrar(){
 
 
 }
+
+
+
+
+
+
+/* MOSTRAR SENHA */
+
+function mostrarSenha(){
+
+
+    const campo =
+
+    document.getElementById("senha");
+
+
+
+    if(campo.type === "password"){
+
+
+        campo.type = "text";
+
+
+    }else{
+
+
+        campo.type = "password";
+
+
+    }
+
+
+}
+
+
+
+
+
+
+/* FAZER LOGIN */
+
+function entrar(){
+
+
+
+    const usuarioDigitado =
+
+    document.getElementById("usuario").value;
+
+
+
+    const senhaDigitada =
+
+    document.getElementById("senha").value;
+
+
+
+
+
+    const usuarios =
+
+    JSON.parse(
+
+        localStorage.getItem("usuarios")
+
+    ) || [];
+
+
+
+
+
+    const usuarioEncontrado =
+
+    usuarios.find(
+
+        function(usuario){
+
+
+            return (
+
+                usuario.usuario === usuarioDigitado
+
+                &&
+
+                usuario.senha === senhaDigitada
+
+            );
+
+
+        }
+
+    );
+
+
+
+
+
+    if(!usuarioEncontrado){
+
+
+        alert(
+
+            "Usuario ou senha incorretos"
+
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    if(usuarioEncontrado.status === "bloqueado"){
+
+
+        alert(
+
+            "Usuario bloqueado"
+
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    localStorage.setItem(
+
+        "usuarioLogado",
+
+        JSON.stringify(usuarioEncontrado)
+
+    );
+
+
+
+
+
+    window.location.href =
+
+    "pages/dashboard.html";
+
+
+
+}
+
+
+
+
+
+
+
+/* INICIAR LOGIN */
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+
+
+function(){
+
+
+
+    criarUsuarioInicial();
+
+
+
+
+
+    const formulario =
+
+    document.getElementById(
+
+        "formLogin"
+
+    );
+
+
+
+
+
+    if(formulario){
+
+
+
+        formulario.addEventListener(
+
+            "submit",
+
+            function(event){
+
+
+
+                event.preventDefault();
+
+
+
+                entrar();
+
+
+
+            }
+
+        );
+
+
+    }
+
+
+
+});
