@@ -1,0 +1,837 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   FINANCEIRO.CSS
+
+   Módulo Financeiro
+
+===================================================== */
+
+
+
+/* =====================================================
+   CONTAINER FINANCEIRO
+===================================================== */
+
+
+
+.financeiro-container {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   FORMULÁRIO FINANCEIRO
+===================================================== */
+
+
+
+.financeiro-form {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    padding:
+
+    30px;
+
+
+
+    box-shadow:
+
+    0 20px 50px
+
+    rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+
+
+
+
+.financeiro-form h2 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CAMPOS FINANCEIROS
+===================================================== */
+
+
+
+.financeiro-grid {
+
+
+    display:
+
+    grid;
+
+
+
+    grid-template-columns:
+
+    repeat(
+
+    auto-fit,
+
+    minmax(
+
+    220px,
+
+    1fr
+
+    )
+
+    );
+
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+.financeiro-campo {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.financeiro-campo label {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+/* =====================================================
+   CARDS FINANCEIROS
+===================================================== */
+
+
+
+.financeiro-card {
+
+
+    padding:
+
+    25px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+
+
+.financeiro-card h3 {
+
+
+    color:
+
+    #aaa;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.financeiro-card strong {
+
+
+    display:
+
+    block;
+
+
+
+    margin-top:
+
+    12px;
+
+
+
+    font-size:
+
+    30px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CORES DOS VALORES
+===================================================== */
+
+
+
+.valor-entrada {
+
+
+    color:
+
+    #00ff88;
+
+
+
+}
+
+
+
+
+
+.valor-saida {
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+
+
+
+
+
+.valor-lucro {
+
+
+    color:
+
+    #ffd700;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABELA FINANCEIRA
+===================================================== */
+
+
+
+.financeiro-tabela {
+
+
+    margin-top:
+
+    30px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.18);
+
+
+
+}
+
+
+
+
+
+
+
+.financeiro-tabela table {
+
+
+    width:
+
+    100%;
+
+
+
+}
+
+
+
+
+
+
+
+
+.financeiro-tabela tbody tr {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.financeiro-tabela tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+/* =====================================================
+   BUSCA FINANCEIRA
+===================================================== */
+
+
+
+.financeiro-busca {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.financeiro-busca input {
+
+
+    flex:
+
+    1;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   HISTÓRICO FINANCEIRO
+===================================================== */
+
+
+
+.historico-financeiro {
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+
+    border-radius:
+
+    20px;
+
+
+
+    padding:
+
+    20px;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+}
+
+
+
+
+
+
+
+.movimento-financeiro {
+
+
+    display:
+
+    flex;
+
+
+
+    justify-content:
+
+    space-between;
+
+
+
+    padding:
+
+    12px;
+
+
+
+    margin-bottom:
+
+    10px;
+
+
+
+    border-radius:
+
+    12px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   STATUS MOVIMENTAÇÃO
+===================================================== */
+
+
+
+.entrada {
+
+
+    color:
+
+    #00ff88;
+
+
+
+}
+
+
+
+
+
+.saida {
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÃO
+===================================================== */
+
+
+
+.financeiro-item {
+
+
+    animation:
+
+    aparecer .4s ease;
+
+
+
+}
+
+
+
+
+
+.financeiro-item:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+
+@media(max-width:768px){
+
+
+
+    .financeiro-grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+
+
+    .financeiro-busca {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        stretch;
+
+
+
+    }
+
+
+
+
+
+
+
+    .financeiro-card strong {
+
+
+        font-size:
+
+        24px;
+
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+
+.financeiro-premium {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.financeiro-premium:hover {
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(212,175,55,.18);
+
+
+
+}
