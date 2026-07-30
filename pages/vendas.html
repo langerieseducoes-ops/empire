@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Empire ERP - Vendas</title>
+
+
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+
+<link rel="stylesheet" href="../assets/css/vendas.css">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+
+
+<body class="dashboard">
+
+
+
+
+<div class="background-luxo"></div>
+
+
+
+
+
+
+<!-- MENU -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="compras.html">
+🛒 Compras
+</a>
+
+
+
+<a class="active" href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a href="categorias.html">
+🏷 Categorias
+</a>
+
+
+<a href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a href="monitoramento.html">
+📋 Monitoramento
+</a>
+
+
+<a href="configuracoes.html">
+⚙ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="alterar-senha.html">
+🔐 Alterar Senha
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+
+<h1>
+💰 Vendas Premium
+</h1>
+
+
+<p class="text-gray">
+
+Controle completo de vendas e faturamento
+
+</p>
+
+
+</div>
+
+
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+<!-- =====================================================
+     CARDS DE VENDAS
+===================================================== -->
+
+
+<section class="grid">
+
+
+
+<div class="venda-card">
+
+
+<h3>
+
+Total de Vendas
+
+</h3>
+
+
+<strong id="totalVendas">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="venda-card">
+
+
+<h3>
+
+Itens Vendidos
+
+</h3>
+
+
+<strong id="itensVendidos">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="venda-card">
+
+
+<h3>
+
+Faturamento
+
+</h3>
+
+
+<strong id="faturamento">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="venda-card">
+
+
+<h3>
+
+Última Venda
+
+</h3>
+
+
+<strong id="ultimaVenda">
+
+--
+
+</strong>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     FORMULÁRIO DE VENDA
+===================================================== -->
+
+
+<section class="venda-form mt-30">
+
+
+<h2>
+
+➕ Nova Venda
+
+</h2>
+
+
+
+
+
+
+
+<div class="venda-grid">
+
+
+
+
+
+<div class="venda-campo">
+
+
+<label>
+
+Cliente
+
+</label>
+
+
+<select id="clienteVenda">
+
+
+<option value="">
+
+Selecione o cliente
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="venda-campo">
+
+
+<label>
+
+Produto
+
+</label>
+
+
+<select id="produtoVenda">
+
+
+<option value="">
+
+Selecione o produto
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="venda-campo">
+
+
+<label>
+
+Quantidade
+
+</label>
+
+
+<input
+
+type="number"
+
+id="quantidadeVenda"
+
+placeholder="Quantidade"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="venda-campo">
+
+
+<label>
+
+Forma de Pagamento
+
+</label>
+
+
+<select id="pagamentoVenda">
+
+
+<option>
+
+Dinheiro
+
+</option>
+
+
+<option>
+
+Pix
+
+</option>
+
+
+<option>
+
+Cartão
+
+</option>
+
+
+<option>
+
+Boleto
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+<div class="venda-campo">
+
+
+<label>
+
+Data
+
+</label>
+
+
+<input
+
+type="date"
+
+id="dataVenda"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<br>
+
+
+
+<button onclick="registrarVenda()">
+
+💰 Finalizar Venda
+
+</button>
+
+
+
+
+</section>
+<!-- =====================================================
+     CARRINHO DE VENDA
+===================================================== -->
+
+
+<section class="carrinho-venda mt-30">
+
+
+<h2>
+
+🛒 Resumo da Venda
+
+</h2>
+
+
+
+
+<div id="listaCarrinho">
+
+
+<div class="item-carrinho">
+
+
+Nenhum item adicionado
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="total-venda">
+
+
+Total:
+
+<span id="totalCarrinho">
+
+R$ 0,00
+
+</span>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     BUSCA DE VENDAS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<div class="venda-busca">
+
+
+<input
+
+
+type="text"
+
+
+id="pesquisaVenda"
+
+
+placeholder="🔎 Pesquisar venda..."
+
+
+onkeyup="pesquisarVenda()"
+
+
+
+>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     HISTÓRICO DE VENDAS
+===================================================== -->
+
+
+<section class="vendas-tabela mt-30">
+
+
+<h2>
+
+📋 Histórico de Vendas
+
+</h2>
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Cliente
+
+</th>
+
+
+<th>
+
+Produto
+
+</th>
+
+
+<th>
+
+Quantidade
+
+</th>
+
+
+<th>
+
+Total
+
+</th>
+
+
+<th>
+
+Pagamento
+
+</th>
+
+
+<th>
+
+Data
+
+</th>
+
+
+<th>
+
+Status
+
+</th>
+
+
+<th>
+
+Ações
+
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="listaVendas">
+
+
+
+<tr>
+
+
+<td colspan="8">
+
+
+Nenhuma venda registrada
+
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+
+</section>
+<!-- =====================================================
+     ALERTAS DE VENDAS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+⚠ Informações de Vendas
+
+</h2>
+
+
+
+
+<div id="alertasVendas">
+
+
+<div class="alerta-compra">
+
+
+💰 Sistema pronto para novas vendas
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+
+<footer class="painel mt-30">
+
+
+<p class="text-gray">
+
+
+Empire ERP Premium Remaster
+
+
+<br>
+
+
+Módulo Vendas
+
+
+<br>
+
+
+Controle inteligente de faturamento
+
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+<script src="../assets/js/app.js"></script>
+
+
+<script src="../assets/js/vendas.js"></script>
+
+
+
+</body>
+
+
+</html>
