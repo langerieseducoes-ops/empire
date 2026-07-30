@@ -1,0 +1,574 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+   LOGIN.CSS
+===================================================== */
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* BODY */
+
+body.login-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    font-family:'Poppins',sans-serif;
+
+    background:#090909;
+
+}
+
+/* FUNDO */
+
+.background-login{
+
+    position:fixed;
+
+    inset:0;
+
+    background:url("../img/fundo-login.jpg") center center/cover no-repeat;
+
+    transform:scale(1.05);
+
+    z-index:-2;
+
+}
+
+/* SOBREPOSIÇÃO */
+
+.overlay-login{
+
+    position:fixed;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.72),
+        rgba(0,0,0,.88)
+    );
+
+    backdrop-filter:blur(6px);
+
+    z-index:-1;
+
+}
+
+/* CARD */
+
+.login-container{
+
+    width:100%;
+
+    max-width:480px;
+
+    padding:25px;
+
+}
+
+.login-card{
+
+    background:rgba(20,20,20,.78);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55);
+
+    animation:aparecer .6s ease;
+
+}
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-login{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.logo-login img{
+
+    width:100px;
+
+    height:100px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
+
+}
+
+.logo-login h1{
+
+    font-family:'Cinzel',serif;
+
+    color:#d4af37;
+
+    font-size:38px;
+
+    letter-spacing:2px;
+
+}
+
+.logo-login p{
+
+    color:#d0d0d0;
+
+    font-size:14px;
+
+    margin-top:5px;
+
+}
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
+
+.login-card h2{
+
+    color:#fff;
+
+    text-align:center;
+
+    margin-bottom:8px;
+
+    font-size:28px;
+
+}
+
+.subtitulo-login{
+
+    text-align:center;
+
+    color:#bfbfbf;
+
+    margin-bottom:30px;
+
+}
+
+/* =====================================================
+   FORMULÁRIO
+===================================================== */
+
+.login-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.campo-login{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.campo-login label{
+
+    color:#d4af37;
+
+    font-weight:600;
+
+    font-size:14px;
+
+}
+
+.campo-login input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.05);
+
+    color:#fff;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.campo-login input:focus{
+
+    outline:none;
+
+    border-color:#d4af37;
+
+    box-shadow:0 0 15px rgba(212,175,55,.30);
+
+}
+/* =====================================================
+   SENHA
+===================================================== */
+
+.senha-box{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.senha-box input{
+
+    padding-right:50px;
+
+}
+
+.btn-mostrar-senha{
+
+    position:absolute;
+
+    right:12px;
+
+    background:none;
+
+    border:none;
+
+    color:#d4af37;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+
+
+/* =====================================================
+   OPÇÕES LOGIN
+===================================================== */
+
+.opcoes-login{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:13px;
+
+}
+
+
+.lembrar{
+
+    color:#ccc;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.opcoes-login a{
+
+    color:#d4af37;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+.opcoes-login a:hover{
+
+    color:#fff;
+
+}
+
+
+
+/* =====================================================
+   BOTÃO LOGIN
+===================================================== */
+
+
+.btn-login{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #d4af37,
+        #f7e27c
+    );
+
+    color:#111;
+
+    font-weight:700;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:10px;
+
+}
+
+
+.btn-login:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 10px 30px
+
+    rgba(212,175,55,.35);
+
+}
+
+
+
+/* =====================================================
+   INFORMAÇÕES DO SISTEMA
+===================================================== */
+
+
+.login-info{
+
+    margin-top:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+.info-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.04);
+
+    color:#ccc;
+
+    font-size:12px;
+
+}
+
+
+.info-item strong{
+
+    color:#d4af37;
+
+    text-align:right;
+
+}
+
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+
+.login-status{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#aaa;
+
+    font-size:13px;
+
+}
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+.login-footer{
+
+    margin-top:30px;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:12px;
+
+}
+
+
+.login-footer small{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:#d4af37;
+
+}
+
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+@media(max-width:600px){
+
+
+    .login-container{
+
+        padding:15px;
+
+    }
+
+
+    .login-card{
+
+        padding:30px 20px;
+
+        border-radius:20px;
+
+    }
+
+
+    .logo-login h1{
+
+        font-size:30px;
+
+    }
+
+
+    .login-card h2{
+
+        font-size:24px;
+
+    }
+
+
+    .opcoes-login{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:flex-start;
+
+    }
+
+
+    .info-item{
+
+        flex-direction:column;
+
+        gap:5px;
+
+    }
+
+
+}
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+.login-card:hover{
+
+    border-color:
+
+    rgba(212,175,55,.55);
+
+    box-shadow:
+
+    0 25px 80px
+
+    rgba(212,175,55,.12);
+
+}
