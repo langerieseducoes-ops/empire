@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Empire ERP - Categorias</title>
+
+
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+
+<link rel="stylesheet" href="../assets/css/categorias.css">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+
+
+<body class="dashboard">
+
+
+
+
+<div class="background-luxo"></div>
+
+
+
+
+
+
+<!-- MENU -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="compras.html">
+🛒 Compras
+</a>
+
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a class="active" href="categorias.html">
+🏷 Categorias
+</a>
+
+
+<a href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a href="monitoramento.html">
+📋 Monitoramento
+</a>
+
+
+<a href="configuracoes.html">
+⚙ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="alterar-senha.html">
+🔐 Alterar Senha
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+
+<h1>
+🏷 Categorias Premium
+</h1>
+
+
+<p class="text-gray">
+
+Organização inteligente dos produtos
+
+</p>
+
+
+</div>
+
+
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+<!-- =====================================================
+     CARDS DE CATEGORIAS
+===================================================== -->
+
+
+<section class="grid">
+
+
+
+<div class="categoria-card">
+
+
+<h3>
+
+Total de Categorias
+
+</h3>
+
+
+<strong id="totalCategorias">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="categoria-card">
+
+
+<h3>
+
+Categorias Ativas
+
+</h3>
+
+
+<strong id="categoriasAtivas">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="categoria-card">
+
+
+<h3>
+
+Produtos Cadastrados
+
+</h3>
+
+
+<strong id="produtosCategoria">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="categoria-card">
+
+
+<h3>
+
+Última Categoria
+
+</h3>
+
+
+<strong id="ultimaCategoria">
+
+--
+
+</strong>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     FORMULÁRIO DE CATEGORIA
+===================================================== -->
+
+
+<section class="categoria-form mt-30">
+
+
+<h2>
+
+➕ Nova Categoria
+
+</h2>
+
+
+
+
+
+
+
+<div class="categoria-grid">
+
+
+
+
+
+<div class="categoria-campo">
+
+
+<label>
+
+Nome da Categoria
+
+</label>
+
+
+<input
+
+type="text"
+
+id="nomeCategoria"
+
+placeholder="Ex: Lingerie, Moda Praia"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="categoria-campo">
+
+
+<label>
+
+Descrição
+
+</label>
+
+
+<input
+
+type="text"
+
+id="descricaoCategoria"
+
+placeholder="Descrição da categoria"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="categoria-campo">
+
+
+<label>
+
+Código
+
+</label>
+
+
+<input
+
+type="text"
+
+id="codigoCategoria"
+
+placeholder="Código interno"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="categoria-campo">
+
+
+<label>
+
+Status
+
+</label>
+
+
+<select id="statusCategoria">
+
+
+<option>
+
+Ativa
+
+</option>
+
+
+<option>
+
+Inativa
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+
+<button onclick="salvarCategoria()">
+
+💾 Salvar Categoria
+
+</button>
+
+
+
+
+</section>
+<!-- =====================================================
+     BUSCA DE CATEGORIAS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<div class="categoria-busca">
+
+
+<input
+
+
+type="text"
+
+
+id="pesquisaCategoria"
+
+
+placeholder="🔎 Pesquisar categoria..."
+
+
+onkeyup="pesquisarCategoria()"
+
+
+
+>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     TABELA DE CATEGORIAS
+===================================================== -->
+
+
+<section class="categorias-tabela mt-30">
+
+
+<h2>
+
+🏷 Lista de Categorias
+
+</h2>
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Nome
+
+</th>
+
+
+<th>
+
+Código
+
+</th>
+
+
+<th>
+
+Descrição
+
+</th>
+
+
+<th>
+
+Produtos
+
+</th>
+
+
+<th>
+
+Status
+
+</th>
+
+
+<th>
+
+Ações
+
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="listaCategorias">
+
+
+
+<tr>
+
+
+<td colspan="6">
+
+
+Nenhuma categoria cadastrada
+
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     PRODUTOS DA CATEGORIA
+===================================================== -->
+
+
+<section class="produtos-categoria mt-30">
+
+
+<h2>
+
+📦 Produtos da Categoria
+
+</h2>
+
+
+
+
+
+<div id="produtosCategoriaLista">
+
+
+<div class="item-produto-categoria">
+
+
+Selecione uma categoria para visualizar produtos
+
+
+</div>
+
+
+</div>
+
+
+
+
+</section>
+<!-- =====================================================
+     ALERTAS DE CATEGORIAS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+⚠ Informações de Categorias
+
+</h2>
+
+
+
+
+<div id="alertasCategorias">
+
+
+<div class="alerta-compra">
+
+
+🏷 Sistema pronto para novas categorias
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+
+<footer class="painel mt-30">
+
+
+<p class="text-gray">
+
+
+Empire ERP Premium Remaster
+
+
+<br>
+
+
+Módulo Categorias
+
+
+<br>
+
+
+Organização inteligente de produtos
+
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+<script src="../assets/js/app.js"></script>
+
+
+<script src="../assets/js/categorias.js"></script>
+
+
+
+</body>
+
+
+</html>
