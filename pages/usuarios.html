@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Empire ERP - Usuários</title>
+
+
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+
+<link rel="stylesheet" href="../assets/css/usuarios.css">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+
+
+<body class="dashboard">
+
+
+
+
+<div class="background-luxo"></div>
+
+
+
+
+
+
+<!-- MENU -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="compras.html">
+🛒 Compras
+</a>
+
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a href="categorias.html">
+🏷 Categorias
+</a>
+
+
+<a href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a class="active" href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a href="monitoramento.html">
+📋 Monitoramento
+</a>
+
+
+<a href="configuracoes.html">
+⚙ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="alterar-senha.html">
+🔐 Alterar Senha
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+
+<h1>
+👤 Usuários Premium
+</h1>
+
+
+<p class="text-gray">
+
+Controle de acesso do Empire ERP
+
+</p>
+
+
+</div>
+
+
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+<!-- =====================================================
+     CARDS DE USUÁRIOS
+===================================================== -->
+
+<section class="grid">
+
+    <div class="usuario-card">
+        <h3>Total de Usuários</h3>
+        <strong id="totalUsuarios">0</strong>
+    </div>
+
+    <div class="usuario-card">
+        <h3>Usuários Ativos</h3>
+        <strong id="usuariosAtivos">0</strong>
+    </div>
+
+    <div class="usuario-card">
+        <h3>Administradores</h3>
+        <strong id="usuariosAdmin">0</strong>
+    </div>
+
+    <div class="usuario-card">
+        <h3>Usuários Bloqueados</h3>
+        <strong id="usuariosBloqueados">0</strong>
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FORMULÁRIO DE CADASTRO
+===================================================== -->
+
+<section class="usuario-form mt-30">
+
+    <h2>➕ Novo Usuário</h2>
+
+    <div class="usuario-grid">
+
+        <div class="usuario-campo">
+            <label>Nome</label>
+            <input
+                type="text"
+                id="nomeUsuario"
+                placeholder="Nome completo">
+        </div>
+
+        <div class="usuario-campo">
+            <label>Usuário</label>
+            <input
+                type="text"
+                id="loginUsuario"
+                placeholder="Login">
+        </div>
+
+        <div class="usuario-campo">
+            <label>Senha</label>
+            <input
+                type="password"
+                id="senhaUsuario"
+                placeholder="Senha">
+        </div>
+
+        <div class="usuario-campo">
+            <label>Nível de Acesso</label>
+            <select id="nivelUsuario">
+                <option value="Administrador">Administrador</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Estoque">Estoque</option>
+            </select>
+        </div>
+
+        <div class="usuario-campo">
+            <label>Status</label>
+            <select id="statusUsuario">
+                <option value="Ativo">Ativo</option>
+                <option value="Bloqueado">Bloqueado</option>
+            </select>
+        </div>
+
+    </div>
+
+    <br>
+
+    <button onclick="salvarUsuario()">
+        💾 Salvar Usuário
+    </button>
+
+</section>
+<!-- =====================================================
+     PESQUISA
+===================================================== -->
+
+<section class="painel mt-30">
+
+    <div class="usuario-busca">
+
+        <input
+            type="text"
+            id="pesquisaUsuario"
+            placeholder="🔎 Pesquisar usuário..."
+            onkeyup="pesquisarUsuario()">
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     TABELA DE USUÁRIOS
+===================================================== -->
+
+<section class="usuarios-tabela mt-30">
+
+    <h2>👤 Usuários Cadastrados</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Nome</th>
+
+                <th>Login</th>
+
+                <th>Nível</th>
+
+                <th>Status</th>
+
+                <th>Ações</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="listaUsuarios">
+
+            <tr>
+
+                <td colspan="5">
+
+                    Nenhum usuário cadastrado
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- =====================================================
+     SEGURANÇA
+===================================================== -->
+
+<section class="mt-30">
+
+    <div class="seguro-usuario">
+
+        🔒 Apenas usuários autorizados podem acessar os módulos administrativos do sistema.
+
+    </div>
+
+</section>
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+<footer class="painel mt-30">
+
+    <p class="text-gray">
+
+        Empire ERP Premium Remaster
+        <br>
+        Módulo de Usuários
+        <br>
+        Controle de acesso e segurança
+
+    </p>
+
+</footer>
+
+</main>
+
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/usuarios.js"></script>
+
+</body>
+</html>
