@@ -1,0 +1,910 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   COMPRAS.CSS
+
+   Módulo de Entrada de Mercadorias
+
+===================================================== */
+
+
+
+/* =====================================================
+   CONTAINER COMPRAS
+===================================================== */
+
+
+
+.compras-container {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   FORMULÁRIO DE COMPRA
+===================================================== */
+
+
+
+.compra-form {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    padding:
+
+    30px;
+
+
+
+    box-shadow:
+
+    0 20px 50px
+
+    rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+
+
+
+
+.compra-form h2 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CAMPOS
+===================================================== */
+
+
+
+.compra-grid {
+
+
+    display:
+
+    grid;
+
+
+
+    grid-template-columns:
+
+    repeat(
+
+    auto-fit,
+
+    minmax(
+
+    220px,
+
+    1fr
+
+    )
+
+    );
+
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+.compra-campo {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.compra-campo label {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+/* =====================================================
+   CARDS DE COMPRAS
+===================================================== */
+
+
+
+.compra-card {
+
+
+    padding:
+
+    25px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+
+
+.compra-card h3 {
+
+
+    color:
+
+    #aaa;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.compra-card strong {
+
+
+    display:
+
+    block;
+
+
+
+    margin-top:
+
+    12px;
+
+
+
+    font-size:
+
+    32px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABELA DE COMPRAS
+===================================================== */
+
+
+
+.compras-tabela {
+
+
+    margin-top:
+
+    30px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.18);
+
+
+
+}
+
+
+
+
+
+
+
+.compras-tabela table {
+
+
+    width:
+
+    100%;
+
+
+
+}
+
+
+
+
+
+
+
+
+.compras-tabela tbody tr {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.compras-tabela tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   STATUS DA COMPRA
+===================================================== */
+
+
+
+.compra-finalizada {
+
+
+    color:
+
+    #00ff88;
+
+
+
+    background:
+
+    rgba(0,255,136,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+.compra-pendente {
+
+
+    color:
+
+    #ffcc00;
+
+
+
+    background:
+
+    rgba(255,204,0,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   BOTÕES DE COMPRA
+===================================================== */
+
+
+
+.btn-compra {
+
+
+    width:
+
+    38px;
+
+
+
+    height:
+
+    38px;
+
+
+
+    border-radius:
+
+    10px;
+
+
+
+    display:
+
+    inline-flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+}
+
+
+
+
+
+.btn-excluir-compra {
+
+
+    background:
+
+    rgba(255,68,68,.18);
+
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+/* =====================================================
+   BUSCA DE COMPRAS
+===================================================== */
+
+
+
+.compra-busca {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.compra-busca input {
+
+
+    flex:
+
+    1;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   MOVIMENTO DE ENTRADA
+===================================================== */
+
+
+
+.compra-item {
+
+
+    animation:
+
+    aparecer .4s ease;
+
+
+
+}
+
+
+
+
+
+.compra-item:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   TOTAL DA COMPRA
+===================================================== */
+
+
+
+.valor-compra {
+
+
+    font-size:
+
+    18px;
+
+
+
+    font-weight:
+
+    700;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   ALERTA DE COMPRA
+===================================================== */
+
+
+
+.alerta-compra {
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    15px;
+
+
+
+    color:
+
+    #ffcc00;
+
+
+
+    background:
+
+    rgba(255,204,0,.12);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,204,0,.30);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+
+@media(max-width:768px){
+
+
+
+    .compra-grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+
+
+    .compra-busca {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        stretch;
+
+
+
+    }
+
+
+
+
+
+
+
+    .compra-card strong {
+
+
+        font-size:
+
+        26px;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+
+.compra-premium {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.compra-premium:hover {
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(212,175,55,.18);
+
+
+
+}
