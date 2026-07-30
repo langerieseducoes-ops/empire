@@ -1,0 +1,913 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   CATEGORIAS.CSS
+
+   Módulo de Categorias
+
+===================================================== */
+
+
+
+/* =====================================================
+   CONTAINER CATEGORIAS
+===================================================== */
+
+
+.categorias-container {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   FORMULÁRIO DE CATEGORIA
+===================================================== */
+
+
+
+.categoria-form {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    padding:
+
+    30px;
+
+
+
+    box-shadow:
+
+    0 20px 50px
+
+    rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+
+
+
+
+.categoria-form h2 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CAMPOS DA CATEGORIA
+===================================================== */
+
+
+
+.categoria-grid {
+
+
+    display:
+
+    grid;
+
+
+
+    grid-template-columns:
+
+    repeat(
+
+    auto-fit,
+
+    minmax(
+
+    220px,
+
+    1fr
+
+    )
+
+    );
+
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+.categoria-campo {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.categoria-campo label {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+/* =====================================================
+   CARDS DE CATEGORIAS
+===================================================== */
+
+
+
+.categoria-card {
+
+
+    padding:
+
+    25px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+
+
+.categoria-card h3 {
+
+
+    color:
+
+    #aaa;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.categoria-card strong {
+
+
+    display:
+
+    block;
+
+
+
+    margin-top:
+
+    12px;
+
+
+
+    font-size:
+
+    32px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABELA DE CATEGORIAS
+===================================================== */
+
+
+
+.categorias-tabela {
+
+
+    margin-top:
+
+    30px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.18);
+
+
+
+}
+
+
+
+
+
+
+
+.categorias-tabela table {
+
+
+    width:
+
+    100%;
+
+
+
+}
+
+
+
+
+
+
+
+
+.categorias-tabela tbody tr {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.categorias-tabela tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   STATUS DA CATEGORIA
+===================================================== */
+
+
+
+.categoria-ativa {
+
+
+    color:
+
+    #00ff88;
+
+
+
+    background:
+
+    rgba(0,255,136,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+.categoria-inativa {
+
+
+    color:
+
+    #ff5555;
+
+
+
+    background:
+
+    rgba(255,68,68,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   BOTÕES CATEGORIA
+===================================================== */
+
+
+
+.btn-categoria {
+
+
+    width:
+
+    38px;
+
+
+
+    height:
+
+    38px;
+
+
+
+    border-radius:
+
+    10px;
+
+
+
+    display:
+
+    inline-flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+}
+
+
+
+
+
+.btn-excluir-categoria {
+
+
+    background:
+
+    rgba(255,68,68,.18);
+
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+/* =====================================================
+   BUSCA DE CATEGORIAS
+===================================================== */
+
+
+
+.categoria-busca {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.categoria-busca input {
+
+
+    flex:
+
+    1;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   PRODUTOS DA CATEGORIA
+===================================================== */
+
+
+
+.produtos-categoria {
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+
+    border-radius:
+
+    20px;
+
+
+
+    padding:
+
+    20px;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+}
+
+
+
+
+
+
+
+.item-produto-categoria {
+
+
+    display:
+
+    flex;
+
+
+
+    justify-content:
+
+    space-between;
+
+
+
+    padding:
+
+    12px;
+
+
+
+    margin-bottom:
+
+    10px;
+
+
+
+    border-radius:
+
+    12px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÃO
+===================================================== */
+
+
+
+.categoria-item {
+
+
+    animation:
+
+    aparecer .4s ease;
+
+
+
+}
+
+
+
+
+
+.categoria-item:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+
+@media(max-width:768px){
+
+
+
+    .categoria-grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+
+
+    .categoria-busca {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        stretch;
+
+
+
+    }
+
+
+
+
+
+
+
+    .categoria-card strong {
+
+
+        font-size:
+
+        26px;
+
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+
+.categoria-premium {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.categoria-premium:hover {
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(212,175,55,.18);
+
+
+
+}
