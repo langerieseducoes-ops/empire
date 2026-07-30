@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Empire ERP - Produtos</title>
+
+
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+
+<link rel="stylesheet" href="../assets/css/produtos.css">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+<body class="dashboard">
+
+
+
+<div class="background-luxo"></div>
+
+
+
+
+<!-- MENU -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a class="active" href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="compras.html">
+🛒 Compras
+</a>
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a href="categorias.html">
+🏷 Categorias
+</a>
+
+
+<a href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a href="monitoramento.html">
+📋 Monitoramento
+</a>
+
+
+<a href="configuracoes.html">
+⚙ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="alterar-senha.html">
+🔐 Alterar Senha
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+
+<h1>
+📦 Produtos Premium
+</h1>
+
+
+<p class="text-gray">
+Controle completo do estoque Empire
+</p>
+
+
+</div>
+
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+<!-- =====================================================
+     CARDS DE ESTOQUE
+===================================================== -->
+
+
+<section class="grid">
+
+
+<div class="estoque-card">
+
+
+<h3>
+Total de Produtos
+</h3>
+
+
+<strong id="totalProdutos">
+0
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="estoque-card">
+
+
+<h3>
+Itens em Estoque
+</h3>
+
+
+<strong id="totalEstoque">
+0
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="estoque-card">
+
+
+<h3>
+Valor do Estoque
+</h3>
+
+
+<strong id="valorEstoque">
+R$ 0,00
+</strong>
+
+
+</div>
+
+
+
+
+<div class="estoque-card">
+
+
+<h3>
+Produtos com Estoque Baixo
+</h3>
+
+
+<strong id="produtosBaixos">
+0
+</strong>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =====================================================
+     CADASTRO DE PRODUTO
+===================================================== -->
+
+
+<section class="produto-form mt-30">
+
+
+<h2>
+➕ Cadastro de Produto
+</h2>
+
+
+
+
+<div class="produto-grid">
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Código
+</label>
+
+
+<input 
+type="text"
+id="codigo"
+placeholder="Código automático">
+
+
+</div>
+
+
+
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Produto
+</label>
+
+
+<input 
+type="text"
+id="produto"
+placeholder="Nome do produto">
+
+
+</div>
+
+
+
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Categoria
+</label>
+
+
+<select id="categoria">
+
+
+<option value="">
+Selecione
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Tamanho
+</label>
+
+
+<input
+type="text"
+id="tamanho"
+placeholder="P / M / G">
+
+
+</div>
+
+
+
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Cor
+</label>
+
+
+<input
+type="text"
+id="cor"
+placeholder="Cor">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Valor Custo
+</label>
+
+
+<input
+type="number"
+id="custo"
+placeholder="R$">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Valor Venda
+</label>
+
+
+<input
+type="number"
+id="venda"
+placeholder="R$">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="produto-campo">
+
+
+<label>
+Quantidade
+</label>
+
+
+<input
+type="number"
+id="quantidade"
+placeholder="Quantidade">
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<br>
+
+
+<button onclick="adicionarProduto()">
+
+💾 Salvar Produto
+
+</button>
+
+
+
+</section>
+<!-- =====================================================
+     BUSCA DE PRODUTOS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<div class="produto-busca">
+
+
+<input
+
+type="text"
+
+id="pesquisaProduto"
+
+placeholder="🔎 Pesquisar produto..."
+
+onkeyup="pesquisarProduto()"
+
+
+
+>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     TABELA DE PRODUTOS
+===================================================== -->
+
+
+<section class="produtos-tabela mt-30">
+
+
+<h2>
+
+📦 Lista de Produtos
+
+</h2>
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+Imagem
+</th>
+
+
+<th>
+Código
+</th>
+
+
+<th>
+Produto
+</th>
+
+
+<th>
+Categoria
+</th>
+
+
+<th>
+Tamanho
+</th>
+
+
+<th>
+Cor
+</th>
+
+
+<th>
+Quantidade
+</th>
+
+
+<th>
+Venda
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Ações
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="listaProdutos">
+
+
+
+<tr>
+
+
+<td colspan="10">
+
+
+Nenhum produto cadastrado
+
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</section>
+<!-- =====================================================
+     ALERTAS DE ESTOQUE
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+⚠ Alertas de Estoque
+
+</h2>
+
+
+
+<div id="alertasEstoque">
+
+
+<div class="alerta-estoque">
+
+
+⚠ Nenhum alerta no momento
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+
+<footer class="painel mt-30">
+
+
+<p class="text-gray">
+
+
+Empire ERP Premium Remaster
+
+
+<br>
+
+
+Módulo Produtos
+
+
+<br>
+
+
+Controle inteligente de estoque
+
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+<script src="../assets/js/app.js"></script>
+
+
+<script src="../assets/js/produtos.js"></script>
+
+
+
+</body>
+
+
+</html>
