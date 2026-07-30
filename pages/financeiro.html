@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Empire ERP - Financeiro</title>
+
+
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+
+<link rel="stylesheet" href="../assets/css/financeiro.css">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+
+
+<body class="dashboard">
+
+
+
+
+<div class="background-luxo"></div>
+
+
+
+
+
+
+<!-- MENU -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="compras.html">
+🛒 Compras
+</a>
+
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a href="categorias.html">
+🏷 Categorias
+</a>
+
+
+<a class="active" href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a href="monitoramento.html">
+📋 Monitoramento
+</a>
+
+
+<a href="configuracoes.html">
+⚙ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="alterar-senha.html">
+🔐 Alterar Senha
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+
+<h1>
+💵 Financeiro Premium
+</h1>
+
+
+<p class="text-gray">
+
+Controle completo do dinheiro da empresa
+
+</p>
+
+
+</div>
+
+
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+<!-- =====================================================
+     CARDS FINANCEIROS
+===================================================== -->
+
+
+<section class="grid">
+
+
+
+<div class="financeiro-card">
+
+
+<h3>
+
+Saldo Atual
+
+</h3>
+
+
+<strong id="saldoAtual">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="financeiro-card">
+
+
+<h3>
+
+Entradas
+
+</h3>
+
+
+<strong class="valor-entrada" id="totalEntradas">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="financeiro-card">
+
+
+<h3>
+
+Saídas
+
+</h3>
+
+
+<strong class="valor-saida" id="totalSaidas">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="financeiro-card">
+
+
+<h3>
+
+Lucro
+
+</h3>
+
+
+<strong class="valor-lucro" id="lucroTotal">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     FORMULÁRIO FINANCEIRO
+===================================================== -->
+
+
+<section class="financeiro-form mt-30">
+
+
+<h2>
+
+➕ Nova Movimentação
+
+</h2>
+
+
+
+
+
+
+
+<div class="financeiro-grid">
+
+
+
+
+
+<div class="financeiro-campo">
+
+
+<label>
+
+Descrição
+
+</label>
+
+
+<input
+
+type="text"
+
+id="descricaoFinanceira"
+
+placeholder="Ex: Venda lingerie"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="financeiro-campo">
+
+
+<label>
+
+Tipo
+
+</label>
+
+
+<select id="tipoFinanceiro">
+
+
+<option value="entrada">
+
+Entrada
+
+</option>
+
+
+<option value="saida">
+
+Saída
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="financeiro-campo">
+
+
+<label>
+
+Valor
+
+</label>
+
+
+<input
+
+type="number"
+
+id="valorFinanceiro"
+
+placeholder="0,00"
+
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="financeiro-campo">
+
+
+<label>
+
+Data
+
+</label>
+
+
+<input
+
+type="date"
+
+id="dataFinanceira"
+
+
+>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+
+<button onclick="salvarMovimentacao()">
+
+💾 Salvar Movimentação
+
+</button>
+
+
+
+
+</section>
+<!-- =====================================================
+     BUSCA FINANCEIRA
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<div class="financeiro-busca">
+
+
+<input
+
+
+type="text"
+
+
+id="pesquisaFinanceira"
+
+
+placeholder="🔎 Pesquisar movimentação..."
+
+
+onkeyup="pesquisarMovimentacao()"
+
+
+
+>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     TABELA FINANCEIRA
+===================================================== -->
+
+
+<section class="financeiro-tabela mt-30">
+
+
+<h2>
+
+💵 Movimentações Financeiras
+
+</h2>
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Descrição
+
+</th>
+
+
+<th>
+
+Tipo
+
+</th>
+
+
+<th>
+
+Valor
+
+</th>
+
+
+<th>
+
+Data
+
+</th>
+
+
+<th>
+
+Ações
+
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="listaFinanceiro">
+
+
+
+<tr>
+
+
+<td colspan="5">
+
+
+Nenhuma movimentação cadastrada
+
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     HISTÓRICO FINANCEIRO
+===================================================== -->
+
+
+<section class="historico-financeiro mt-30">
+
+
+<h2>
+
+📋 Histórico de Caixa
+
+</h2>
+
+
+
+
+
+<div id="historicoFinanceiro">
+
+
+<div class="movimento-financeiro">
+
+
+Nenhuma movimentação registrada
+
+
+</div>
+
+
+</div>
+
+
+
+
+</section>
+<!-- =====================================================
+     ALERTAS FINANCEIROS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+⚠ Alertas Financeiros
+
+</h2>
+
+
+
+
+<div id="alertasFinanceiro">
+
+
+<div class="alerta-compra">
+
+
+💵 Controle financeiro pronto para movimentações
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+
+<footer class="painel mt-30">
+
+
+<p class="text-gray">
+
+
+Empire ERP Premium Remaster
+
+
+<br>
+
+
+Módulo Financeiro
+
+
+<br>
+
+
+Controle inteligente de entradas e saídas
+
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+<script src="../assets/js/app.js"></script>
+
+
+<script src="../assets/js/financeiro.js"></script>
+
+
+
+</body>
+
+
+</html>
