@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Empire ERP - Configurações</title>
+
+
+<link rel="stylesheet"
+href="../assets/css/style.css">
+
+
+<link rel="stylesheet"
+href="../assets/css/configuracoes.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+
+</head>
+
+
+<body class="dashboard">
+
+
+<div class="background-luxo"></div>
+
+
+
+<!-- =====================================================
+     MENU LATERAL
+===================================================== -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="compras.html">
+🛒 Compras
+</a>
+
+
+<a href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a class="active" href="configuracoes.html">
+⚙️ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+<!-- =====================================================
+     CONTEÚDO
+===================================================== -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+<h1>
+⚙️ Configurações do Sistema
+</h1>
+
+
+<p class="text-gray">
+
+Personalize o Empire ERP
+
+</p>
+
+
+</div>
+
+
+
+<div id="usuarioInfo"></div>
+
+
+
+</header>
+<!-- =====================================================
+     DADOS DA EMPRESA
+===================================================== -->
+
+
+<section class="painel-config">
+
+
+<h2>
+🏢 Dados da Empresa
+</h2>
+
+
+
+<div class="config-grid">
+
+
+
+<div class="campo-config">
+
+<label>
+Nome da Empresa
+</label>
+
+<input
+type="text"
+id="nomeEmpresaConfig"
+placeholder="Nome da empresa">
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+Nome Fantasia
+</label>
+
+<input
+type="text"
+id="fantasiaConfig"
+placeholder="Nome fantasia">
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+CNPJ
+</label>
+
+<input
+type="text"
+id="cnpjConfig"
+placeholder="CNPJ">
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+Telefone
+</label>
+
+<input
+type="text"
+id="telefoneConfig"
+placeholder="Telefone">
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+WhatsApp
+</label>
+
+<input
+type="text"
+id="whatsappConfig"
+placeholder="WhatsApp">
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+E-mail
+</label>
+
+<input
+type="email"
+id="emailConfig"
+placeholder="E-mail">
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     ENDEREÇO
+===================================================== -->
+
+
+<section class="painel-config">
+
+
+<h2>
+📍 Endereço
+</h2>
+
+
+
+<div class="config-grid">
+
+
+
+<div class="campo-config">
+
+<label>
+Endereço
+</label>
+
+<input
+type="text"
+id="enderecoConfig"
+placeholder="Rua, número">
+
+</div>
+
+
+
+<div class="campo-config">
+
+<label>
+Cidade
+</label>
+
+<input
+type="text"
+id="cidadeConfig"
+placeholder="Cidade">
+
+</div>
+
+
+
+<div class="campo-config">
+
+<label>
+Estado
+</label>
+
+<input
+type="text"
+id="estadoConfig"
+placeholder="Estado">
+
+</div>
+
+
+
+<div class="campo-config">
+
+<label>
+CEP
+</label>
+
+<input
+type="text"
+id="cepConfig"
+placeholder="CEP">
+
+</div>
+
+
+
+</div>
+
+
+</section>
+<!-- =====================================================
+     PERSONALIZAÇÃO DO SISTEMA
+===================================================== -->
+
+
+<section class="painel-config">
+
+
+<h2>
+🎨 Personalização
+</h2>
+
+
+
+<div class="config-grid">
+
+
+
+<div class="campo-config">
+
+<label>
+Logo da Empresa
+</label>
+
+<input
+type="text"
+id="logoConfig"
+placeholder="assets/img/logo.png">
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+Tema do Sistema
+</label>
+
+
+<select id="temaConfig">
+
+<option value="escuro">
+🌑 Escuro Premium
+</option>
+
+
+<option value="claro">
+☀️ Claro
+</option>
+
+
+</select>
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+Moeda
+</label>
+
+
+<select id="moedaConfig">
+
+
+<option value="BRL">
+R$ - Real Brasileiro
+</option>
+
+
+<option value="USD">
+$ - Dólar
+</option>
+
+
+<option value="EUR">
+€ - Euro
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+<div class="campo-config">
+
+<label>
+Idioma
+</label>
+
+
+<select id="idiomaConfig">
+
+
+<option value="pt-BR">
+Português Brasil
+</option>
+
+
+<option value="en">
+English
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     NOTIFICAÇÕES
+===================================================== -->
+
+
+<section class="painel-config">
+
+
+<h2>
+🔔 Notificações
+</h2>
+
+
+
+<div class="opcoes-config">
+
+
+
+<label>
+
+<input
+type="checkbox"
+id="notificacaoVenda">
+
+Avisar novas vendas
+
+</label>
+
+
+
+
+<label>
+
+<input
+type="checkbox"
+id="notificacaoEstoque">
+
+Avisar estoque baixo
+
+</label>
+
+
+
+
+<label>
+
+<input
+type="checkbox"
+id="notificacaoBackup">
+
+Avisar backups
+
+</label>
+
+
+
+</div>
+
+
+</section>
+<!-- =====================================================
+     AÇÕES
+===================================================== -->
+
+
+<section class="painel-config botoes-config">
+
+
+<button
+class="btn-principal"
+onclick="salvarConfiguracoes()">
+
+💾 Salvar Configurações
+
+</button>
+
+
+
+<button
+class="btn-secundario"
+onclick="restaurarConfiguracoes()">
+
+🔄 Restaurar Padrão
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+
+<footer class="rodape">
+
+
+<p>
+
+© <span id="anoAtual"></span>
+
+Empire ERP Premium Remaster
+
+</p>
+
+
+<small>
+
+Gestão Inteligente para Moda
+
+</small>
+
+
+</footer>
+
+
+
+</main>
+
+
+
+
+
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+
+<script src="../assets/js/empresa.js"></script>
+
+<script src="../assets/js/app.js"></script>
+
+<script src="../assets/js/configuracoes.js"></script>
+
+
+
+<script>
+
+document.getElementById("anoAtual").innerText =
+new Date().getFullYear();
+
+</script>
+
+
+
+</body>
+
+</html>
