@@ -1,0 +1,914 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   CLIENTES.CSS
+
+   Módulo de Clientes
+
+===================================================== */
+
+
+
+/* =====================================================
+   CONTAINER CLIENTES
+===================================================== */
+
+
+
+.clientes-container {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   FORMULÁRIO DE CLIENTE
+===================================================== */
+
+
+
+.cliente-form {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    padding:
+
+    30px;
+
+
+
+    box-shadow:
+
+    0 20px 50px
+
+    rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+
+
+
+
+.cliente-form h2 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CAMPOS DE CLIENTE
+===================================================== */
+
+
+
+.cliente-grid {
+
+
+    display:
+
+    grid;
+
+
+
+    grid-template-columns:
+
+    repeat(
+
+    auto-fit,
+
+    minmax(
+
+    220px,
+
+    1fr
+
+    )
+
+    );
+
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+.cliente-campo {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.cliente-campo label {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+/* =====================================================
+   CARDS DE CLIENTES
+===================================================== */
+
+
+
+.cliente-card {
+
+
+    padding:
+
+    25px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+
+
+.cliente-card h3 {
+
+
+    color:
+
+    #aaa;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.cliente-card strong {
+
+
+    display:
+
+    block;
+
+
+
+    margin-top:
+
+    12px;
+
+
+
+    font-size:
+
+    32px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABELA DE CLIENTES
+===================================================== */
+
+
+
+.clientes-tabela {
+
+
+    margin-top:
+
+    30px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.18);
+
+
+
+}
+
+
+
+
+
+
+
+.clientes-tabela table {
+
+
+    width:
+
+    100%;
+
+
+
+}
+
+
+
+
+
+
+
+
+.clientes-tabela tbody tr {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.clientes-tabela tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   STATUS CLIENTE
+===================================================== */
+
+
+
+.cliente-ativo {
+
+
+    color:
+
+    #00ff88;
+
+
+
+    background:
+
+    rgba(0,255,136,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+.cliente-inativo {
+
+
+    color:
+
+    #ff5555;
+
+
+
+    background:
+
+    rgba(255,68,68,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   BOTÕES DE CLIENTE
+===================================================== */
+
+
+
+.btn-cliente {
+
+
+    width:
+
+    38px;
+
+
+
+    height:
+
+    38px;
+
+
+
+    border-radius:
+
+    10px;
+
+
+
+    display:
+
+    inline-flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+}
+
+
+
+
+
+.btn-excluir-cliente {
+
+
+    background:
+
+    rgba(255,68,68,.18);
+
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+/* =====================================================
+   BUSCA DE CLIENTES
+===================================================== */
+
+
+
+.cliente-busca {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.cliente-busca input {
+
+
+    flex:
+
+    1;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   HISTÓRICO DO CLIENTE
+===================================================== */
+
+
+
+.historico-cliente {
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+
+    border-radius:
+
+    20px;
+
+
+
+    padding:
+
+    20px;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+}
+
+
+
+
+
+
+
+.compra-cliente {
+
+
+    display:
+
+    flex;
+
+
+
+    justify-content:
+
+    space-between;
+
+
+
+    padding:
+
+    12px;
+
+
+
+    margin-bottom:
+
+    10px;
+
+
+
+    border-radius:
+
+    12px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÃO
+===================================================== */
+
+
+
+.cliente-item {
+
+
+    animation:
+
+    aparecer .4s ease;
+
+
+
+}
+
+
+
+
+
+.cliente-item:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+
+@media(max-width:768px){
+
+
+
+    .cliente-grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+
+
+    .cliente-busca {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        stretch;
+
+
+
+    }
+
+
+
+
+
+
+
+    .cliente-card strong {
+
+
+        font-size:
+
+        26px;
+
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+
+.cliente-premium {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.cliente-premium:hover {
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(212,175,55,.18);
+
+
+
+}
