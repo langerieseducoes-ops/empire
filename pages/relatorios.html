@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+<head>
+
+
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Empire ERP - Relatórios</title>
+
+
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+
+<link rel="stylesheet" href="../assets/css/relatorios.css">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+
+
+<body class="dashboard">
+
+
+
+
+<div class="background-luxo"></div>
+
+
+
+
+
+
+<!-- MENU -->
+
+
+<aside class="menu">
+
+
+<div class="marca">
+
+
+<img src="../assets/img/logo.png">
+
+
+<h2>EMPIRE</h2>
+
+
+<p>Império da Moda Online</p>
+
+
+</div>
+
+
+
+
+
+
+
+<nav>
+
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+
+<a href="produtos.html">
+📦 Produtos
+</a>
+
+
+<a href="compras.html">
+🛒 Compras
+</a>
+
+
+
+<a href="vendas.html">
+💰 Vendas
+</a>
+
+
+<a href="clientes.html">
+👥 Clientes
+</a>
+
+
+<a href="fornecedores.html">
+🚚 Fornecedores
+</a>
+
+
+<a href="categorias.html">
+🏷 Categorias
+</a>
+
+
+<a href="financeiro.html">
+💵 Financeiro
+</a>
+
+
+<a class="active" href="relatorios.html">
+📊 Relatórios
+</a>
+
+
+<a href="usuarios.html">
+👤 Usuários
+</a>
+
+
+<a href="monitoramento.html">
+📋 Monitoramento
+</a>
+
+
+<a href="configuracoes.html">
+⚙ Configurações
+</a>
+
+
+<a href="backup.html">
+💾 Backup
+</a>
+
+
+<a href="alterar-senha.html">
+🔐 Alterar Senha
+</a>
+
+
+<a href="#" onclick="sairSistema()">
+🚪 Sair
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header>
+
+
+<div>
+
+
+<h1>
+📊 Relatórios Premium
+</h1>
+
+
+<p class="text-gray">
+
+Análise completa do Empire ERP
+
+</p>
+
+
+</div>
+
+
+
+
+<div id="usuarioInfo"></div>
+
+
+</header>
+<!-- =====================================================
+     CARDS DE INDICADORES
+===================================================== -->
+
+
+<section class="grid">
+
+
+
+<div class="relatorio-card">
+
+
+<h3>
+
+Produtos
+
+</h3>
+
+
+<strong id="relatorioProdutos">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="relatorio-card">
+
+
+<h3>
+
+Estoque Total
+
+</h3>
+
+
+<strong id="relatorioEstoque">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="relatorio-card">
+
+
+<h3>
+
+Vendas
+
+</h3>
+
+
+<strong id="relatorioVendas">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="relatorio-card">
+
+
+<h3>
+
+Lucro
+
+</h3>
+
+
+<strong id="relatorioLucro">
+
+R$ 0,00
+
+</strong>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     FILTROS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+🔎 Filtros de Relatório
+
+</h2>
+
+
+
+
+
+<div class="filtro-relatorio">
+
+
+
+
+
+<select id="tipoRelatorio">
+
+
+<option value="todos">
+
+Todos os relatórios
+
+</option>
+
+
+<option value="produtos">
+
+Produtos
+
+</option>
+
+
+<option value="estoque">
+
+Estoque
+
+</option>
+
+
+<option value="vendas">
+
+Vendas
+
+</option>
+
+
+<option value="financeiro">
+
+Financeiro
+
+</option>
+
+
+<option value="clientes">
+
+Clientes
+
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<input
+
+
+type="date"
+
+
+id="dataInicio"
+
+
+
+>
+
+
+
+
+
+
+
+<input
+
+
+type="date"
+
+
+id="dataFim"
+
+
+
+>
+
+
+
+
+
+
+
+<button class="btn-relatorio btn-exportar" onclick="gerarRelatorio()">
+
+
+📊 Gerar Relatório
+
+
+</button>
+
+
+
+
+
+</div>
+
+
+</section>
+<!-- =====================================================
+     TABELA DE RESULTADOS
+===================================================== -->
+
+
+<section class="relatorio-tabela mt-30">
+
+
+<h2>
+
+📋 Resultado do Relatório
+
+</h2>
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Item
+
+</th>
+
+
+<th>
+
+Categoria
+
+</th>
+
+
+<th>
+
+Quantidade
+
+</th>
+
+
+<th>
+
+Valor
+
+</th>
+
+
+<th>
+
+Data
+
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="resultadoRelatorio">
+
+
+
+<tr>
+
+
+<td colspan="5">
+
+
+Nenhum relatório gerado
+
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     GRÁFICOS
+===================================================== -->
+
+
+<section class="graficos-relatorio">
+
+
+
+
+
+<div class="grafico-box">
+
+
+<h2>
+
+📦 Estoque
+
+</h2>
+
+
+
+<canvas id="graficoEstoque"></canvas>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="grafico-box">
+
+
+<h2>
+
+💰 Financeiro
+
+</h2>
+
+
+
+<canvas id="graficoFinanceiro"></canvas>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="grafico-box">
+
+
+<h2>
+
+🛒 Vendas
+
+</h2>
+
+
+
+<canvas id="graficoVendas"></canvas>
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     INDICADORES
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+📈 Desempenho
+
+</h2>
+
+
+
+
+
+<div id="indicadoresRelatorio">
+
+
+
+<div class="indicador-relatorio">
+
+
+<span>
+
+Crescimento mensal
+
+</span>
+
+
+
+<strong>
+
+0%
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="indicador-relatorio">
+
+
+<span>
+
+Produto mais vendido
+
+</span>
+
+
+
+<strong>
+
+--
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="indicador-relatorio">
+
+
+<span>
+
+Melhor categoria
+
+</span>
+
+
+
+<strong>
+
+--
+
+</strong>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+<!-- =====================================================
+     ALERTAS DE RELATÓRIOS
+===================================================== -->
+
+
+<section class="painel mt-30">
+
+
+<h2>
+
+⚠ Informações
+
+</h2>
+
+
+
+
+<div id="alertasRelatorio">
+
+
+<div class="alerta-compra">
+
+
+📊 Sistema pronto para geração de relatórios
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+
+<footer class="painel mt-30">
+
+
+<p class="text-gray">
+
+
+Empire ERP Premium Remaster
+
+
+<br>
+
+
+Módulo Relatórios
+
+
+<br>
+
+
+Análise inteligente de dados
+
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+<!-- BIBLIOTECA GRÁFICOS -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+
+<script src="../assets/js/app.js"></script>
+
+
+<script src="../assets/js/relatorios.js"></script>
+
+
+
+</body>
+
+
+</html>
