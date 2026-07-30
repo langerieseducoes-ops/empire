@@ -1,0 +1,958 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   VENDAS.CSS
+
+   Módulo de Vendas
+
+===================================================== */
+
+
+
+/* =====================================================
+   CONTAINER VENDAS
+===================================================== */
+
+
+
+.vendas-container {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   FORMULÁRIO DE VENDA
+===================================================== */
+
+
+
+.venda-form {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    padding:
+
+    30px;
+
+
+
+    box-shadow:
+
+    0 20px 50px
+
+    rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+
+
+
+
+.venda-form h2 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CAMPOS DE VENDA
+===================================================== */
+
+
+
+.venda-grid {
+
+
+    display:
+
+    grid;
+
+
+
+    grid-template-columns:
+
+    repeat(
+
+    auto-fit,
+
+    minmax(
+
+    220px,
+
+    1fr
+
+    )
+
+    );
+
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+.venda-campo {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.venda-campo label {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+/* =====================================================
+   CARDS DE VENDAS
+===================================================== */
+
+
+
+.venda-card {
+
+
+    padding:
+
+    25px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+
+
+.venda-card h3 {
+
+
+    color:
+
+    #aaa;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.venda-card strong {
+
+
+    display:
+
+    block;
+
+
+
+    margin-top:
+
+    12px;
+
+
+
+    font-size:
+
+    32px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABELA DE VENDAS
+===================================================== */
+
+
+
+.vendas-tabela {
+
+
+    margin-top:
+
+    30px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.18);
+
+
+
+}
+
+
+
+
+
+
+
+.vendas-tabela table {
+
+
+    width:
+
+    100%;
+
+
+
+}
+
+
+
+
+
+
+
+
+.vendas-tabela tbody tr {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.vendas-tabela tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   STATUS DE PAGAMENTO
+===================================================== */
+
+
+
+.pagamento-ok {
+
+
+    color:
+
+    #00ff88;
+
+
+
+    background:
+
+    rgba(0,255,136,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+.pagamento-pendente {
+
+
+    color:
+
+    #ffcc00;
+
+
+
+    background:
+
+    rgba(255,204,0,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   BOTÕES DE VENDA
+===================================================== */
+
+
+
+.btn-venda {
+
+
+    width:
+
+    38px;
+
+
+
+    height:
+
+    38px;
+
+
+
+    border-radius:
+
+    10px;
+
+
+
+    display:
+
+    inline-flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+}
+
+
+
+
+
+.btn-excluir-venda {
+
+
+    background:
+
+    rgba(255,68,68,.18);
+
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+/* =====================================================
+   BUSCA DE VENDAS
+===================================================== */
+
+
+
+.venda-busca {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.venda-busca input {
+
+
+    flex:
+
+    1;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CARRINHO DE VENDA
+===================================================== */
+
+
+
+.carrinho-venda {
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+
+    border-radius:
+
+    20px;
+
+
+
+    padding:
+
+    20px;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+}
+
+
+
+
+
+
+
+.item-carrinho {
+
+
+    display:
+
+    flex;
+
+
+
+    justify-content:
+
+    space-between;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    padding:
+
+    12px;
+
+
+
+    margin-bottom:
+
+    8px;
+
+
+
+    border-radius:
+
+    12px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+}
+
+
+
+
+
+
+
+
+.total-venda {
+
+
+    margin-top:
+
+    20px;
+
+
+
+    font-size:
+
+    28px;
+
+
+
+    font-weight:
+
+    700;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+
+
+.venda-item {
+
+
+    animation:
+
+    aparecer .4s ease;
+
+
+
+}
+
+
+
+
+
+.venda-item:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+
+@media(max-width:768px){
+
+
+
+    .venda-grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+
+
+    .venda-busca {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        stretch;
+
+
+
+    }
+
+
+
+
+
+
+
+    .venda-card strong {
+
+
+        font-size:
+
+        26px;
+
+
+
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+
+.venda-premium {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.venda-premium:hover {
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(212,175,55,.18);
+
+
+
+}
