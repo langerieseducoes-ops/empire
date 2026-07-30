@@ -1,0 +1,1063 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   PRODUTOS.CSS
+
+   Módulo de Produtos
+
+===================================================== */
+
+
+
+/* =====================================================
+   ÁREA DE PRODUTOS
+===================================================== */
+
+
+
+.produtos-container {
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+
+}
+
+
+
+
+
+.produto-form {
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    padding:
+
+    30px;
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    box-shadow:
+
+    0 20px 50px
+
+    rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+
+
+
+
+.produto-form h2 {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-family:
+
+    'Cinzel',
+
+    serif;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CAMPOS DO PRODUTO
+===================================================== */
+
+
+
+.produto-grid {
+
+
+    display:
+
+    grid;
+
+
+
+    grid-template-columns:
+
+    repeat(
+
+        auto-fit,
+
+        minmax(
+
+            220px,
+
+            1fr
+
+        )
+
+    );
+
+
+
+    gap:
+
+    18px;
+
+
+
+}
+
+
+
+
+
+
+
+.produto-campo {
+
+
+    display:
+
+    flex;
+
+
+
+    flex-direction:
+
+    column;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.produto-campo label {
+
+
+    color:
+
+    var(--dourado);
+
+
+
+    font-size:
+
+    13px;
+
+
+
+    font-weight:
+
+    600;
+
+
+
+}
+/* =====================================================
+   CARDS DE ESTOQUE
+===================================================== */
+
+
+
+.estoque-card {
+
+
+    position:
+
+    relative;
+
+
+
+    overflow:
+
+    hidden;
+
+
+
+    padding:
+
+    25px;
+
+
+
+    border-radius:
+
+    22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.08),
+
+        rgba(255,255,255,.02)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+.estoque-card h3 {
+
+
+    color:
+
+    #aaa;
+
+
+
+    font-size:
+
+    14px;
+
+
+
+}
+
+
+
+
+
+.estoque-card strong {
+
+
+    display:
+
+    block;
+
+
+
+    margin-top:
+
+    12px;
+
+
+
+    font-size:
+
+    32px;
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABELA DE PRODUTOS
+===================================================== */
+
+
+
+.produtos-tabela {
+
+
+    margin-top:
+
+    30px;
+
+
+
+    background:
+
+    rgba(255,255,255,.03);
+
+
+
+    border-radius:
+
+    25px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.18);
+
+
+
+}
+
+
+
+
+
+
+
+.produtos-tabela table {
+
+
+    width:
+
+    100%;
+
+
+
+}
+
+
+
+
+
+
+
+
+.produtos-tabela tbody tr {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.produtos-tabela tbody tr:hover {
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   STATUS DO ESTOQUE
+===================================================== */
+
+
+
+.estoque-normal {
+
+
+    color:
+
+    #00ff88;
+
+
+
+    background:
+
+    rgba(0,255,136,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+.estoque-baixo {
+
+
+    color:
+
+    #ff4444;
+
+
+
+    background:
+
+    rgba(255,68,68,.12);
+
+
+
+    padding:
+
+    6px 14px;
+
+
+
+    border-radius:
+
+    30px;
+
+
+
+    font-size:
+
+    12px;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   BOTÕES DE PRODUTO
+===================================================== */
+
+
+
+.produto-acoes {
+
+
+    display:
+
+    flex;
+
+
+
+    gap:
+
+    8px;
+
+
+
+}
+
+
+
+
+
+.btn-produto {
+
+
+    width:
+
+    38px;
+
+
+
+    height:
+
+    38px;
+
+
+
+    border-radius:
+
+    10px;
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    cursor:
+
+    pointer;
+
+
+
+}
+
+
+
+
+
+
+
+.btn-editar-produto {
+
+
+    background:
+
+    rgba(212,175,55,.18);
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+.btn-excluir-produto {
+
+
+    background:
+
+    rgba(255,68,68,.18);
+
+
+
+    color:
+
+    #ff5555;
+
+
+
+}
+/* =====================================================
+   BUSCA DE PRODUTOS
+===================================================== */
+
+
+
+.produto-busca {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    15px;
+
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.2);
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    18px;
+
+
+
+    margin-bottom:
+
+    25px;
+
+
+
+}
+
+
+
+
+
+.produto-busca input {
+
+
+    flex:
+
+    1;
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   FOTO DO PRODUTO
+===================================================== */
+
+
+
+.produto-imagem {
+
+
+    width:
+
+    55px;
+
+
+
+    height:
+
+    55px;
+
+
+
+    border-radius:
+
+    15px;
+
+
+
+    object-fit:
+
+    cover;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.35);
+
+
+
+}
+
+
+
+
+
+
+
+.sem-imagem {
+
+
+    width:
+
+    55px;
+
+
+
+    height:
+
+    55px;
+
+
+
+    border-radius:
+
+    15px;
+
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    justify-content:
+
+    center;
+
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+
+    color:
+
+    var(--dourado);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÕES DE PRODUTO
+===================================================== */
+
+
+
+.produto-item {
+
+
+    animation:
+
+    aparecer .4s ease;
+
+
+
+}
+
+
+
+
+
+.produto-item:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   ALERTA DE ESTOQUE
+===================================================== */
+
+
+
+.alerta-estoque {
+
+
+    display:
+
+    flex;
+
+
+
+    align-items:
+
+    center;
+
+
+
+    gap:
+
+    10px;
+
+
+
+    padding:
+
+    15px;
+
+
+
+    border-radius:
+
+    15px;
+
+
+
+    color:
+
+    #ffcc00;
+
+
+
+    background:
+
+    rgba(255,204,0,.12);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,204,0,.3);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+
+@media(max-width:768px){
+
+
+
+    .produto-grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+
+    }
+
+
+
+
+
+
+
+    .produto-busca {
+
+
+        flex-direction:
+
+        column;
+
+
+
+        align-items:
+
+        stretch;
+
+
+
+    }
+
+
+
+
+
+
+
+    .produto-acoes {
+
+
+        flex-wrap:
+
+        wrap;
+
+
+
+    }
+
+
+
+
+
+
+
+    .estoque-card strong {
+
+
+        font-size:
+
+        26px;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   EFEITO PREMIUM
+===================================================== */
+
+
+
+.produto-premium {
+
+
+    transition:
+
+    .3s ease;
+
+
+
+}
+
+
+
+
+
+.produto-premium:hover {
+
+
+    border-color:
+
+    var(--dourado);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(212,175,55,.18);
+
+
+
+}
