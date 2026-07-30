@@ -1,0 +1,660 @@
+/* =====================================================
+   EMPIRE ERP PREMIUM REMASTER
+
+   BACKUP.CSS
+
+===================================================== */
+
+
+
+/* =====================================================
+   CARDS BACKUP
+===================================================== */
+
+
+.backup-cards{
+
+    margin-bottom:30px;
+
+}
+
+
+
+.backup-card{
+
+
+    background:
+
+    rgba(20,20,20,.75);
+
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+    border-radius:20px;
+
+
+
+    padding:25px;
+
+
+
+    text-align:center;
+
+
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,.35);
+
+
+
+    transition:.3s;
+
+
+
+}
+
+
+
+
+
+.backup-card:hover{
+
+
+    transform:
+
+    translateY(-5px);
+
+
+
+    border-color:
+
+    #d4af37;
+
+
+
+}
+
+
+
+
+
+
+
+.backup-card h3{
+
+
+    color:
+
+    #d4af37;
+
+
+
+    font-family:
+
+    'Cinzel',serif;
+
+
+
+    margin-bottom:15px;
+
+
+
+}
+
+
+
+
+
+.backup-card strong{
+
+
+    display:block;
+
+
+
+    color:#fff;
+
+
+
+    font-size:28px;
+
+
+
+    margin-bottom:10px;
+
+
+
+}
+
+
+
+
+
+.backup-card p{
+
+
+    color:#aaa;
+
+
+
+    font-size:13px;
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   PAINEL BACKUP
+===================================================== */
+
+
+.painel-backup{
+
+
+    background:
+
+    rgba(20,20,20,.75);
+
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(212,175,55,.20);
+
+
+
+    border-radius:20px;
+
+
+
+    padding:30px;
+
+
+
+    margin-bottom:25px;
+
+
+
+}
+
+
+
+.painel-backup h2{
+
+
+    color:#d4af37;
+
+
+
+    font-family:'Cinzel',serif;
+
+
+
+    margin-bottom:25px;
+
+
+
+}
+/* =====================================================
+   BOTÕES BACKUP
+===================================================== */
+
+
+.botoes-backup{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+.btn-principal,
+
+.btn-secundario{
+
+
+    padding:14px 25px;
+
+
+
+    border-radius:30px;
+
+
+
+    border:none;
+
+
+
+    cursor:pointer;
+
+
+
+    font-weight:700;
+
+
+
+    transition:.3s;
+
+
+
+}
+
+
+
+
+.btn-principal{
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #d4af37,
+
+        #f7e27c
+
+    );
+
+
+
+    color:#111;
+
+
+
+}
+
+
+
+
+
+.btn-principal:hover{
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+    box-shadow:
+
+    0 10px 30px
+
+    rgba(212,175,55,.35);
+
+
+
+}
+
+
+
+
+
+.btn-secundario{
+
+
+    background:
+
+    rgba(255,255,255,.10);
+
+
+
+    color:#fff;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.15);
+
+
+
+}
+
+
+
+
+
+.btn-secundario:hover{
+
+
+    border-color:#d4af37;
+
+
+
+    color:#d4af37;
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   TABELA DE BACKUP
+===================================================== */
+
+
+.tabela-backup{
+
+
+    width:100%;
+
+
+
+    border-collapse:collapse;
+
+
+
+}
+
+
+
+
+
+.tabela-backup th{
+
+
+    padding:15px;
+
+
+
+    text-align:left;
+
+
+
+    color:#d4af37;
+
+
+
+    border-bottom:
+
+    1px solid
+
+    rgba(212,175,55,.25);
+
+
+
+}
+
+
+
+
+
+.tabela-backup td{
+
+
+    padding:15px;
+
+
+
+    color:#ddd;
+
+
+
+    border-bottom:
+
+    1px solid
+
+    rgba(255,255,255,.08);
+
+
+
+}
+
+
+
+
+
+.tabela-backup tr:hover{
+
+
+    background:
+
+    rgba(212,175,55,.08);
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   OPÇÕES BACKUP
+===================================================== */
+
+
+.opcoes-backup{
+
+
+    display:flex;
+
+
+
+    flex-direction:column;
+
+
+
+    gap:15px;
+
+
+
+    color:#ddd;
+
+
+
+}
+
+
+
+
+
+.opcoes-backup label{
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    gap:10px;
+
+
+
+}
+
+
+
+.opcoes-backup input{
+
+
+    accent-color:#d4af37;
+
+
+
+}
+/* =====================================================
+   SEGURANÇA
+===================================================== */
+
+
+.segurança-backup{
+
+    border-color:
+
+    rgba(212,175,55,.35);
+
+}
+
+
+
+.segurança-backup p{
+
+
+    color:#ccc;
+
+
+
+    line-height:1.6;
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   ANIMAÇÃO
+===================================================== */
+
+
+.backup-card,
+
+.painel-backup{
+
+
+    animation:
+
+    aparecer .5s ease;
+
+
+
+}
+
+
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+@media(max-width:900px){
+
+
+    .backup-cards{
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+
+    .botoes-backup{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+
+
+    .btn-principal,
+
+    .btn-secundario{
+
+
+        width:100%;
+
+
+        text-align:center;
+
+
+    }
+
+
+
+
+
+    .painel-backup{
+
+
+        padding:20px;
+
+
+        overflow-x:auto;
+
+
+    }
+
+
+
+
+
+    .tabela-backup{
+
+
+        min-width:600px;
+
+
+    }
+
+
+
+}
