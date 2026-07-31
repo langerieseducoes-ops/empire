@@ -5,225 +5,240 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Empire ERP Premium</title>
 
-<link rel="icon"
-href="assets/img/favicon.png">
+<link rel="icon" href="assets/img/favicon.png">
 
-<link rel="stylesheet"
-href="assets/css/style.css">
 
-<link rel="stylesheet"
-href="assets/css/login.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+<link rel="stylesheet" href="assets/css/login.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 
 </head>
 
+
 <body class="login-page">
+
 
 <div class="background-login"></div>
 
 <div class="overlay-login"></div>
 
+
+
 <div class="login-container">
+
 
 <div class="login-card">
 
+
+
 <div class="logo-login">
 
-<img
-src="assets/img/logo.png"
-alt="Empire ERP">
+
+<img src="assets/img/logo.png" alt="Empire">
+
 
 <h1>EMPIRE</h1>
 
-<p>Império da Moda Online</p>
+
+<p>Imperio da Moda Online</p>
+
 
 </div>
 
+
+
+
 <h2>
 
-Bem-vindo
+Bem vindo
 
 </h2>
+
+
 
 <p class="subtitulo-login">
 
 Entre para acessar o sistema.
 
 </p>
-<!-- =====================================================
-     FORMULÁRIO DE LOGIN
-===================================================== -->
 
-<form id="formLogin" class="login-form">
 
-    <div class="campo-login">
 
-        <label>Usuário</label>
 
-        <input
-            type="text"
-            id="usuario"
-            placeholder="Digite seu usuário"
-            autocomplete="username"
-            required>
+<form id="formLogin">
 
-    </div>
 
-    <div class="campo-login">
 
-        <label>Senha</label>
+<div class="campo-login">
 
-        <div class="senha-box">
 
-            <input
-                type="password"
-                id="senha"
-                placeholder="Digite sua senha"
-                autocomplete="current-password"
-                required>
+<label>
 
-            <button
-                type="button"
-                class="btn-mostrar-senha"
-                onclick="mostrarSenha()">
+Usuario
 
-                👁
+</label>
 
-            </button>
 
-        </div>
+<input
 
-    </div>
+type="text"
 
-    <div class="opcoes-login">
+id="usuario"
 
-        <label class="lembrar">
+placeholder="Digite seu usuario"
 
-            <input
-                type="checkbox"
-                id="lembrar">
+required>
 
-            Lembrar-me
 
-        </label>
+</div>
 
-        <a
-            href="#"
-            onclick="recuperarSenha(); return false;">
 
-            Esqueci minha senha
 
-        </a>
 
-    </div>
 
-    <button
-        type="submit"
-        class="btn-login">
+<div class="campo-login">
 
-        Entrar
 
-    </button>
+<label>
+
+Senha
+
+</label>
+
+
+<input
+
+type="password"
+
+id="senha"
+
+placeholder="Digite sua senha"
+
+required>
+
+
+</div>
+
+
+
+
+
+<button
+
+type="submit"
+
+class="btn-login">
+
+
+Entrar
+
+
+</button>
+
+
+
 
 </form>
-<!-- =====================================================
-     INFORMAÇÕES DO SISTEMA
-===================================================== -->
+
+
+
+
+
 
 <div class="login-info">
 
-    <div class="info-item">
 
-        <span>🏢 Empresa</span>
+<p>
 
-        <strong id="nomeEmpresa">
+Empresa:
 
-            Empire - Império da Moda Online
+<strong>
 
-        </strong>
+Empire - Imperio da Moda Online
 
-    </div>
+</strong>
 
-    <div class="info-item">
+</p>
 
-        <span>💻 Sistema</span>
 
-        <strong>
 
-            Empire ERP Premium Remaster
+<p>
 
-        </strong>
+Sistema:
 
-    </div>
+<strong>
 
-    <div class="info-item">
+Empire ERP Premium
 
-        <span>📦 Versão</span>
+</strong>
 
-        <strong id="versaoSistema">
+</p>
 
-            v2.0.0
 
-        </strong>
 
-    </div>
+<p>
 
-</div>
+Versao:
 
-<div class="login-status">
+<strong>
 
-    <span id="statusLogin">
+1.0.0
 
-        Pronto para autenticação
+</strong>
 
-    </span>
+</p>
+
+
 
 </div>
-<!-- =====================================================
-     RODAPÉ
-===================================================== -->
+
+
+
+
+
 
 <footer class="login-footer">
 
-    <p>
 
-        © <span id="anoAtual"></span>
+<p>
 
-        Empire ERP Premium Remaster
+Gestao Inteligente para Moda
 
-    </p>
+</p>
 
-    <small>
-
-        Gestão Inteligente para Moda
-
-    </small>
 
 </footer>
 
-</div>
+
+
+
 
 </div>
 
-<!-- =====================================================
-     SCRIPTS
-===================================================== -->
+
+</div>
+
+
+
+
 
 <script src="assets/js/empresa.js"></script>
+
 <script src="assets/js/app.js"></script>
+
 <script src="assets/js/login.js"></script>
 
-<script>
-    document.getElementById("anoAtual").textContent =
-        new Date().getFullYear();
-</script>
+
 
 </body>
+
+
 </html>
